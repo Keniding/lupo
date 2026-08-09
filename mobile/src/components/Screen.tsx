@@ -23,24 +23,21 @@ export function Screen({
   children: React.ReactNode;
 }) {
   const contentStyle = [padded && styles.padded, align === 'center' && styles.center, style];
-  const body = (
-    <>
-      {onBack && (
-        <View style={styles.backRow}>
-          <BackButton onPress={onBack} />
-        </View>
-      )}
-      {children}
-    </>
-  );
 
   return (
     <LinearGradient colors={colors} start={{ x: 0.5, y: 0 }} end={{ x: 0.3, y: 1 }} style={styles.gradient}>
       <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
+        {/* Rendered outside the (possibly centered/scrolling) content so it
+            always stays pinned top-left, regardless of `align`/`scroll`. */}
+        {onBack && (
+          <View style={[styles.backRow, padded && styles.backRowPadded]}>
+            <BackButton onPress={onBack} />
+          </View>
+        )}
         {scroll ? (
-          <ScrollView contentContainerStyle={[styles.scrollContent, ...contentStyle]}>{body}</ScrollView>
+          <ScrollView contentContainerStyle={[styles.scrollContent, ...contentStyle]}>{children}</ScrollView>
         ) : (
-          <View style={[styles.flexContent, ...contentStyle]}>{body}</View>
+          <View style={[styles.flexContent, ...contentStyle]}>{children}</View>
         )}
       </SafeAreaView>
     </LinearGradient>
@@ -54,5 +51,6 @@ const styles = StyleSheet.create({
   scrollContent: { flexGrow: 1 },
   padded: { paddingHorizontal: 22, paddingTop: 12, paddingBottom: 18 },
   center: { alignItems: 'center' },
-  backRow: { alignSelf: 'stretch', marginBottom: 10 },
+  backRow: { paddingTop: 12 },
+  backRowPadded: { paddingHorizontal: 22 },
 });

@@ -33,7 +33,7 @@ export default function MissionsScreen({ navigation }: Props) {
           <Card padding={15} radius={18}>
             <View style={styles.row}>
               <IconBubble icon="fingerprint" bg={colors.skyBlue} shadowColor={colors.skyBlueShadow} />
-              <View style={{ gap: 3 }}>
+              <View style={styles.cardTextCol}>
                 <Text style={styles.name}>{v.miss.m1}</Text>
                 <Text style={styles.desc}>{v.miss.m1d}</Text>
               </View>
@@ -50,7 +50,7 @@ export default function MissionsScreen({ navigation }: Props) {
           <Card padding={15} radius={18}>
             <View style={styles.row}>
               <IconBubble icon="eye" bg={colors.orange} shadowColor={colors.orangeShadow} />
-              <View style={{ gap: 3 }}>
+              <View style={styles.cardTextCol}>
                 <Text style={styles.name}>{v.miss.m2}</Text>
                 <Text style={styles.desc}>{v.miss.m2d}</Text>
               </View>
@@ -67,7 +67,7 @@ export default function MissionsScreen({ navigation }: Props) {
           <Card padding={15} radius={18}>
             <View style={styles.row}>
               <IconBubble icon="lock" bg={colors.green} shadowColor={colors.greenShadow} />
-              <View style={{ gap: 3 }}>
+              <View style={styles.cardTextCol}>
                 <Text style={styles.name}>{v.miss.m3}</Text>
                 <Text style={styles.desc}>{v.miss.m3d}</Text>
               </View>
@@ -85,7 +85,7 @@ export default function MissionsScreen({ navigation }: Props) {
             <Card padding={15} radius={18}>
               <View style={styles.row}>
                 <IconBubble icon="alert" bg={colors.red} shadowColor={colors.redShadow} />
-                <View style={{ gap: 3 }}>
+                <View style={styles.cardTextCol}>
                   <Text style={styles.name}>{v.miss.m4}</Text>
                   <Text style={styles.desc}>{v.miss.m4d}</Text>
                 </View>
@@ -103,7 +103,7 @@ export default function MissionsScreen({ navigation }: Props) {
               <View style={styles.lockBubble}>
                 <Icon name="lock" size={22} color={colors.white} />
               </View>
-              <View style={{ gap: 3 }}>
+              <View style={styles.cardTextCol}>
                 <Text style={[styles.name, { color: colors.white }]}>{v.miss.m4}</Text>
                 <Text style={[styles.desc, { color: 'rgba(255,255,255,.75)' }]}>{v.miss.m4Locked}</Text>
               </View>
@@ -142,9 +142,10 @@ export default function MissionsScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   title: { fontFamily: fonts.display, fontSize: 27, color: colors.white, textShadowColor: 'rgba(10,26,74,.6)', textShadowOffset: { width: 0, height: 3 }, textShadowRadius: 0 },
   row: { flexDirection: 'row', gap: 13, alignItems: 'center' },
+  cardTextCol: { flex: 1, gap: 3 },
   name: { fontFamily: fonts.display, fontSize: 16, color: colors.ink },
   desc: { fontFamily: fonts.body, fontSize: 13, lineHeight: 19, color: colors.inkMuted },
-  starsRight: { marginLeft: 'auto', flexDirection: 'row', gap: 2 },
+  starsRight: { flexDirection: 'row', gap: 2 },
   lockBubble: { width: 46, height: 46, borderRadius: 14, backgroundColor: 'rgba(10,26,74,.4)', alignItems: 'center', justifyContent: 'center' },
   levelsTitle: { fontFamily: fonts.display, fontSize: 19, color: colors.white, marginTop: 18 },
   levelRow: { flexDirection: 'row', alignItems: 'center', gap: 11, backgroundColor: 'rgba(255,255,255,.12)', borderRadius: 14, paddingVertical: 13, paddingHorizontal: 15 },

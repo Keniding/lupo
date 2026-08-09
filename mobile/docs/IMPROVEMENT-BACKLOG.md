@@ -171,6 +171,84 @@ volvió a listar cada `navigation.navigate/replace` del árbol contra las
 rutas registradas en `RootNavigator.tsx` (ninguna apunta a una ruta
 inexistente).
 
+## ✅ Hecho — sesión 6 (test funcional punto a punto + responsive, con capturas)
+
+Se corrió el app completo en un navegador headless (Expo web +
+Playwright/Chromium) en viewport móvil (390×844 y 360×640), recorriendo
+**cada pantalla con interacciones reales** — no solo mirando el código —
+y comparando cada una contra un checklist de reglas de UI/UX (espaciado,
+tipografía, área táctil mínima 44×48, estados, navegación, formularios,
+contraste, accesibilidad). Cuatro bugs reales aparecieron, los cuatro
+corregidos:
+
+### 13. El pill "Investigar" del mapa no respondía al toque
+
+El texto flotante "Investigar" sobre el nodo activo es un `<View>`
+**hermano** del `Pressable` del círculo, no un hijo — visualmente parece
+parte del botón pero tocarlo no hacía nada. Confirmado con Playwright:
+tras tocar el pill, la app seguía en el mapa. Se unificó todo el nodo
+(círculo + pill) en un solo `Pressable` con `hitSlop`, en `02Map.tsx`.
+
+### 14. El botón de retroceso quedaba centrado en pantallas con `align="center"`
+
+En pantallas como `CaseIntro`, el botón se renderizaba como primer hijo
+dentro del contenedor con `justifyContent:'center'`, así que el layout
+centraba el **bloque completo** (botón + tarjeta) verticalmente en vez de
+anclar el botón arriba — dejaba un hueco enorme encima y el botón
+"flotando" a mitad de pantalla en vez de pegado al borde superior. Se
+sacó el botón de retroceso del contenido centrable/scrolleable en
+`Screen.tsx`: ahora es una fila fija dentro del `SafeAreaView`, antes del
+contenido, así que siempre queda arriba a la izquierda sin importar
+`align` ni `scroll`. De paso, en pantallas con scroll el botón ya no se
+desplaza con el contenido (mejora, no regresión).
+
+### 15. Texto desbordado en la tarjeta de Misión 3
+
+`16Missions.tsx`: la columna de texto (nombre + descripción) de cada
+tarjeta de misión no tenía `flex:1`, así que con una descripción más
+larga ("Detectar información sensible antes de publicar") el texto no
+envolvía — se salía del borde blanco de la tarjeta y quedaba ilegible
+sobre el fondo azul. Viola la regla "trunca con criterio: nunca cortes
+texto abruptamente sin indicador". Se agregó `cardTextCol: { flex: 1,
+gap: 3 }` a las 4 tarjetas (incluida la de Misión 4 bloqueada).
+
+### 16. Áreas táctiles de ~20px en "Encuentra las señales"
+
+Los cuatro fragmentos tocables del correo de phishing en
+`32FindSignals.tsx` (remitente, enlace, urgencia, firma) solo tenían
+`paddingVertical: 2`, dando un área táctil real de ~20px de alto — muy
+por debajo del mínimo de 44×48 que pide la regla de componentes
+táctiles. Se agregó `hitSlop={{ top: 14, bottom: 14, left: 6, right: 6
+}}`, que amplía la zona de toque sin cambiar el resaltado visual (los
+fragmentos siguen viéndose como texto en línea, no como botones grandes).
+
+### Verificación de esta sesión
+
+Recorrido completo con capturas en 390×844 (splash → diagnóstico → mapa →
+caso individual → encuentra-señales → partida completa v2 → las 3
+misiones de contenido → torneo con gate → registro → mapa autenticado →
+ligas → perfil) y una pasada adicional en 360×640 para detectar
+desbordes en pantallas angostas — ninguno encontrado tras las
+correcciones. Cero errores de consola/página durante todo el recorrido.
+`npx tsc --noEmit` limpio y `expo export --platform android` compiló sin
+errores tras los cuatro fixes.
+
+**Nota sobre el entorno de prueba:** durante el recorrido apareció un
+bloqueo de clics intermitente específico del renderer web de
+`@react-navigation/native-stack` (pantallas previas quedan montadas en el
+DOM y a veces interceptan el hit-test). Esto **no es reproducible en
+iOS/Android nativos** — ahí el sistema operativo solo entrega toques a la
+pantalla visible en primer plano, a diferencia del DOM. Se documenta para
+que no se confunda con un bug real de la app si se vuelve a correr este
+tipo de prueba.
+
+**Observación de diseño, no corregida (fuera del alcance de "roto"):**
+`27Swipe.tsx`, `25Diagnostic.tsx` y `28ResultCorrect.tsx` dejan mucho
+espacio vacío entre el encabezado y la tarjeta/contenido en pantallas
+altas — no incumple ninguna regla del checklist (los CTA siguen en el
+tercio inferior) pero es notorio. Ver captura; queda como sugerencia de
+pulido para una futura sesión, no como bug.
+
 ## 🔜 Siguiente
 
 1. **Ligas**: `30Leagues.tsx` es una tabla estática: no hay backend de
@@ -181,3 +259,6 @@ inexistente).
    docente), HU-19 (editor de contenidos), HU-20 (modo práctica que no
    gasta lupas ni afecta la racha — hoy "práctica" solo redirige a
    Misiones, que sí gasta progreso normal).
+3. **Pulido visual opcional**: reducir el espacio vacío en `27Swipe.tsx`
+   / `25Diagnostic.tsx` / `28ResultCorrect.tsx` en pantallas altas (ver
+   nota de diseño arriba).

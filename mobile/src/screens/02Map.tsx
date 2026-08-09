@@ -118,19 +118,21 @@ export default function MapScreen({ navigation }: Props) {
               <Stars filled={mission1Stars} />
             </View>
 
-            <View
+            <Pressable
               style={[
                 styles.node,
                 { left: nodeCenters[2].x - NODE_CURRENT / 2, top: nodeCenters[2].y - NODE_CURRENT / 2 },
               ]}
+              onPress={openLevel}
+              hitSlop={8}
             >
-              <Pressable style={[styles.nodeCircle, styles.nodeCurrent]} onPress={openLevel}>
+              <View style={[styles.nodeCircle, styles.nodeCurrent]}>
                 <Text style={styles.nodeNumber}>14</Text>
-              </Pressable>
+              </View>
               <View style={styles.tooltip}>
                 <Text style={styles.tooltipText}>{t.map.investigate}</Text>
               </View>
-            </View>
+            </Pressable>
           </View>
 
           <View style={styles.progressRow}>

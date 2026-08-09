@@ -17,7 +17,11 @@ const SPAN_KEYS: SpanKey[] = ['sender', 'link', 'urgency', 'signature'];
 
 function Span({ text, found, onPress, style }: { text: string; found: boolean; onPress: () => void; style?: object }) {
   return (
-    <Pressable onPress={onPress} style={[styles.span, found && styles.spanFound, style]}>
+    <Pressable
+      onPress={onPress}
+      hitSlop={{ top: 14, bottom: 14, left: 6, right: 6 }}
+      style={[styles.span, found && styles.spanFound, style]}
+    >
       <Text style={[styles.spanText, found && styles.spanTextFound]}>{text}</Text>
     </Pressable>
   );
