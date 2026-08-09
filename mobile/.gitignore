@@ -3,6 +3,14 @@
 # dependencies
 node_modules/
 
+# Alternate package-manager lockfiles — this project standardizes on npm
+# (package-lock.json). A second lockfile confuses EAS Build's package
+# manager detection ("expo doctor" flags it as a hard failure).
+bun.lock
+bun.lockb
+yarn.lock
+pnpm-lock.yaml
+
 # Expo
 .expo/
 dist/
