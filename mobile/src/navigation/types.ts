@@ -1,0 +1,26 @@
+export type RootStackParamList = {
+  Splash: undefined;
+  Map: undefined;
+  NoLives: undefined;
+  Lobby: undefined;
+  RoleDetective: undefined;
+  RoleHidden: undefined;
+  Chat: undefined;
+  Decision: undefined;
+  Consequence: undefined;
+  Board: undefined;
+  Assembly: undefined;
+  Vote: undefined;
+  Justification: undefined;
+  Reveal: undefined;
+  Report: undefined;
+  Missions: undefined;
+  Tournament: undefined;
+  Mission2Evidence: undefined;
+  Mission2Result: undefined;
+  Mission3Redact: undefined;
+  Mission3Verdict: undefined;
+  Mission4Evidence: undefined;
+  Mission4Verification: undefined;
+  Mission4Result: undefined;
+};
