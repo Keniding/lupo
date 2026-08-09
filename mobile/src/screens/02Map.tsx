@@ -4,10 +4,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
-import { Button } from '../components/Button';
 import { StatChip, IconBubble } from '../components/Misc';
 import { BottomNav } from '../components/BottomNav';
 import { Icon } from '../components/Icon';
+import { MapPath, type MapPathSegment } from '../components/MapPath';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -25,6 +25,16 @@ function Stars({ filled }: { filled: number }) {
   );
 }
 
+// Track geometry for the winding path — one entry per node, in visit order.
+// `x` is an offset from the track's horizontal center; `size` is the node's
+// diameter. Positions are computed once so the SVG trail underneath and the
+// node buttons on top always line up exactly, instead of the old mismatched
+// translateX guesses.
+const TRACK_W = 320;
+const ROW_GAP = 128;
+const NODE_DONE = 78;
+const NODE_CURRENT = 96;
+
 export default function MapScreen({ navigation }: Props) {
   const t = useT();
   const hearts = useGameStore((s) => s.hearts);
@@ -39,6 +49,18 @@ export default function MapScreen({ navigation }: Props) {
       navigation.navigate('Lobby');
     }
   };
+
+  const nodeCenters = [
+    { x: TRACK_W / 2 - 72, y: NODE_DONE / 2 + 6, size: NODE_DONE },
+    { x: TRACK_W / 2 + 66, y: NODE_DONE / 2 + 6 + ROW_GAP, size: NODE_DONE },
+    { x: TRACK_W / 2 - 46, y: NODE_DONE / 2 + 6 + ROW_GAP * 2 + (NODE_CURRENT - NODE_DONE) / 2, size: NODE_CURRENT },
+  ];
+  const trackHeight = nodeCenters[2].y + NODE_CURRENT / 2 + 8;
+
+  const segments: MapPathSegment[] = [
+    { from: nodeCenters[0], to: nodeCenters[1], color: 'rgba(120,255,150,.55)' },
+    { from: nodeCenters[1], to: nodeCenters[2], color: 'rgba(255,201,60,.65)' },
+  ];
 
   return (
     <LinearGradient colors={gradients.map} style={styles.flex}>
@@ -61,32 +83,47 @@ export default function MapScreen({ navigation }: Props) {
             <Text style={styles.tipText}>{t.map.tip}</Text>
           </View>
 
-          <Pressable style={[styles.node, { transform: [{ translateX: -72 }] }]}>
-            <View style={[styles.nodeCircle, styles.nodeDone]}>
-              <Icon name="check" size={34} color={colors.white} />
-            </View>
-            <Stars filled={3} />
-          </Pressable>
+          <View style={{ width: TRACK_W, height: trackHeight }}>
+            <MapPath width={TRACK_W} height={trackHeight} segments={segments} strokeWidth={12} />
 
-          <View style={[styles.connector, { transform: [{ translateX: -40 }] }]} />
-
-          <Pressable style={[styles.node, { transform: [{ translateX: 8 }] }]}>
-            <View style={[styles.nodeCircle, styles.nodeDone]}>
-              <Icon name="check" size={34} color={colors.white} />
+            <View
+              style={[
+                styles.node,
+                { left: nodeCenters[0].x - NODE_DONE / 2, top: nodeCenters[0].y - NODE_DONE / 2 },
+              ]}
+            >
+              <Pressable style={[styles.nodeCircle, styles.nodeDone]}>
+                <Icon name="check" size={34} color={colors.white} />
+              </Pressable>
+              <Stars filled={3} />
             </View>
-            <Stars filled={mission1Stars} />
-          </Pressable>
 
-          <View style={[styles.connector, { transform: [{ translateX: 46 }] }]} />
+            <View
+              style={[
+                styles.node,
+                { left: nodeCenters[1].x - NODE_DONE / 2, top: nodeCenters[1].y - NODE_DONE / 2 },
+              ]}
+            >
+              <Pressable style={[styles.nodeCircle, styles.nodeDone]}>
+                <Icon name="check" size={34} color={colors.white} />
+              </Pressable>
+              <Stars filled={mission1Stars} />
+            </View>
 
-          <Pressable style={[styles.node, styles.nodeCurrentWrap, { transform: [{ translateX: 66 }] }]} onPress={openLevel}>
-            <View style={[styles.nodeCircle, styles.nodeCurrent]}>
-              <Text style={styles.nodeNumber}>14</Text>
+            <View
+              style={[
+                styles.node,
+                { left: nodeCenters[2].x - NODE_CURRENT / 2, top: nodeCenters[2].y - NODE_CURRENT / 2 },
+              ]}
+            >
+              <Pressable style={[styles.nodeCircle, styles.nodeCurrent]} onPress={openLevel}>
+                <Text style={styles.nodeNumber}>14</Text>
+              </Pressable>
+              <View style={styles.tooltip}>
+                <Text style={styles.tooltipText}>{t.map.investigate}</Text>
+              </View>
             </View>
-            <View style={styles.tooltip}>
-              <Text style={styles.tooltipText}>{t.map.investigate}</Text>
-            </View>
-          </Pressable>
+          </View>
 
           <View style={styles.progressRow}>
             <View style={styles.progressLine} />
@@ -126,8 +163,7 @@ const styles = StyleSheet.create({
   path: { paddingVertical: 18, alignItems: 'center' },
   tip: { width: '100%', maxWidth: 358, backgroundColor: 'rgba(10,26,74,.4)', borderWidth: 3, borderColor: 'rgba(255,255,255,.25)', borderRadius: 18, padding: 14, flexDirection: 'row', gap: 12, alignItems: 'center', marginBottom: 14 },
   tipText: { flex: 1, fontFamily: fonts.bodySemibold, fontSize: 13, lineHeight: 19, color: colors.white },
-  node: { alignItems: 'center' },
-  nodeCurrentWrap: { marginBottom: 26 },
+  node: { position: 'absolute', alignItems: 'center' },
   nodeCircle: { width: 78, height: 78, borderRadius: 999, alignItems: 'center', justifyContent: 'center' },
   nodeDone: { backgroundColor: colors.green, borderBottomWidth: 6, borderBottomColor: colors.greenShadow },
   starsRow: { flexDirection: 'row', gap: 3, justifyContent: 'center', marginTop: 6 },
@@ -135,8 +171,7 @@ const styles = StyleSheet.create({
   nodeNumber: { fontFamily: fonts.display, fontSize: 34, color: colors.ink },
   tooltip: { position: 'absolute', top: -34, backgroundColor: colors.white, borderRadius: 999, paddingVertical: 8, paddingHorizontal: 13 },
   tooltipText: { fontFamily: fonts.display, fontSize: 12, color: colors.ink },
-  connector: { width: 5, height: 34, borderRadius: 999, backgroundColor: 'rgba(255,255,255,.28)', marginVertical: 2 },
-  progressRow: { width: '100%', maxWidth: 358, flexDirection: 'row', alignItems: 'center', gap: 10, marginVertical: 6 },
+  progressRow: { width: '100%', maxWidth: 358, flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10, marginBottom: 6 },
   progressLine: { flex: 1, height: 4, borderRadius: 999, backgroundColor: 'rgba(255,255,255,.25)' },
   progressPill: { backgroundColor: colors.purple, borderRadius: 999, paddingVertical: 9, paddingHorizontal: 15, borderBottomWidth: 3, borderBottomColor: 'rgba(10,26,74,.4)' },
   progressPillText: { fontFamily: fonts.display, fontSize: 12, color: colors.white },

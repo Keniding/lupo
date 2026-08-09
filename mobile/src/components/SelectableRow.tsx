@@ -63,7 +63,7 @@ export function CheckRow({
           <Text style={[styles.label, { flex: 1 }]}>{label}</Text>
           {checked ? (
             <View style={styles.checkBadge}>
-              <Text style={styles.checkMark}>✓</Text>
+              <Icon name="check" size={15} color={colors.white} strokeWidth={3.2} />
             </View>
           ) : null}
         </View>
@@ -79,7 +79,7 @@ export function SquareCheckRow({ label, checked, onPress }: { label: string; che
       <Card padding={15} radius={14}>
         <View style={styles.row}>
           <View style={[styles.square, checked && styles.squareChecked]}>
-            {checked ? <Text style={styles.squareMark}>✓</Text> : null}
+            {checked ? <Icon name="check" size={14} color={colors.white} strokeWidth={3.4} /> : null}
           </View>
           <Text style={[styles.label, { flex: 1, fontFamily: fonts.body, fontWeight: '600' as const }]}>{label}</Text>
         </View>
@@ -109,9 +109,7 @@ const styles = StyleSheet.create({
   dot: { width: 14, height: 14, borderRadius: 999 },
   label: { fontFamily: fonts.bodySemibold, fontSize: 15, color: colors.ink },
   checkBadge: { width: 26, height: 26, borderRadius: 999, backgroundColor: colors.green, alignItems: 'center', justifyContent: 'center' },
-  checkMark: { color: colors.white, fontFamily: fonts.display, fontSize: 14 },
   square: { width: 24, height: 24, borderRadius: 8, borderWidth: 3, borderColor: colors.border, alignItems: 'center', justifyContent: 'center' },
   squareChecked: { backgroundColor: colors.green, borderColor: colors.green },
-  squareMark: { color: colors.white, fontFamily: fonts.display, fontSize: 13 },
   pillLabel: { fontFamily: fonts.display, fontSize: 16, textAlign: 'center', color: colors.ink },
 });
