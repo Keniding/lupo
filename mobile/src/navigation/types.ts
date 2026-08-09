@@ -1,7 +1,14 @@
 export type RootStackParamList = {
   Splash: undefined;
+  Diagnostic: undefined;
   Map: undefined;
   NoLives: undefined;
+  CaseIntro: undefined;
+  Swipe: undefined;
+  ResultCorrect: undefined;
+  ResultWrong: undefined;
+  Leagues: undefined;
+  Profile: undefined;
   Lobby: undefined;
   RoleDetective: undefined;
   RoleHidden: undefined;

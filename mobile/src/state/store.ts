@@ -79,8 +79,24 @@ interface GameState {
 
   mission1Stars: number;
   mission2Stars: number;
+  mission3Stars: number;
+  mission4Stars: number;
   completeMission1: (stars: number) => void;
   completeMission2: (stars: number) => void;
+  completeMission3: (stars: number) => void;
+  completeMission4: (stars: number) => void;
+
+  // Individual daily-case progress (map path / Mission 1 solo flow).
+  casesSolved: number;
+  casesAttempted: number;
+  recordCaseAttempt: (correct: boolean) => void;
+
+  seniorMode: boolean;
+  highContrast: boolean;
+  reminders: boolean;
+  toggleSeniorMode: () => void;
+  toggleHighContrast: () => void;
+  toggleReminders: () => void;
 }
 
 export const useGameStore = create<GameState>()(
@@ -133,8 +149,27 @@ export const useGameStore = create<GameState>()(
 
       mission1Stars: 3,
       mission2Stars: 2,
+      mission3Stars: 0,
+      mission4Stars: 0,
       completeMission1: (stars) => set((s) => ({ mission1Stars: Math.max(s.mission1Stars, stars) })),
       completeMission2: (stars) => set((s) => ({ mission2Stars: Math.max(s.mission2Stars, stars) })),
+      completeMission3: (stars) => set((s) => ({ mission3Stars: Math.max(s.mission3Stars, stars) })),
+      completeMission4: (stars) => set((s) => ({ mission4Stars: Math.max(s.mission4Stars, stars) })),
+
+      casesSolved: 0,
+      casesAttempted: 0,
+      recordCaseAttempt: (correct) =>
+        set((s) => ({
+          casesAttempted: s.casesAttempted + 1,
+          casesSolved: correct ? s.casesSolved + 1 : s.casesSolved,
+        })),
+
+      seniorMode: false,
+      highContrast: false,
+      reminders: true,
+      toggleSeniorMode: () => set((s) => ({ seniorMode: !s.seniorMode })),
+      toggleHighContrast: () => set((s) => ({ highContrast: !s.highContrast })),
+      toggleReminders: () => set((s) => ({ reminders: !s.reminders })),
     }),
     {
       name: 'lupo-game-store',
@@ -146,6 +181,13 @@ export const useGameStore = create<GameState>()(
         streak: s.streak,
         mission1Stars: s.mission1Stars,
         mission2Stars: s.mission2Stars,
+        mission3Stars: s.mission3Stars,
+        mission4Stars: s.mission4Stars,
+        casesSolved: s.casesSolved,
+        casesAttempted: s.casesAttempted,
+        seniorMode: s.seniorMode,
+        highContrast: s.highContrast,
+        reminders: s.reminders,
       }),
     }
   )

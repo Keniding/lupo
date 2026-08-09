@@ -31,7 +31,7 @@ export default function LobbyScreen({ navigation }: Props) {
 
       <View style={styles.playersHeader}>
         <Text style={styles.playersTitle}>{v.lobby.players}</Text>
-        <Text style={styles.playersCount}>6 / 10</Text>
+        <Text style={styles.playersCount}>{LOBBY_ORDER.length} / 10</Text>
       </View>
 
       <ScrollView style={styles.list} contentContainerStyle={{ gap: 9 }} showsVerticalScrollIndicator={false}>
@@ -60,7 +60,7 @@ export default function LobbyScreen({ navigation }: Props) {
       <View style={{ marginTop: 14, gap: 10 }}>
         <Button label={v.lobby.start} variant="primary" onPress={() => navigation.navigate('RoleDetective')} />
         <Pressable onPress={() => navigation.navigate('RoleHidden')}>
-          <Text style={styles.previewLink}>{v.role.imp} →</Text>
+          <Text style={styles.previewLink}>{v.lobby.rolesInfo} →</Text>
         </Pressable>
       </View>
     </Screen>

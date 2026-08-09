@@ -18,6 +18,8 @@ export default function MissionsScreen({ navigation }: Props) {
   const v = t.v2;
   const mission1Stars = useGameStore((s) => s.mission1Stars);
   const mission2Stars = useGameStore((s) => s.mission2Stars);
+  const mission3Stars = useGameStore((s) => s.mission3Stars);
+  const mission4Stars = useGameStore((s) => s.mission4Stars);
 
   return (
     <Screen colors={gradients.missions} scroll>
@@ -66,21 +68,45 @@ export default function MissionsScreen({ navigation }: Props) {
                 <Text style={styles.name}>{v.miss.m3}</Text>
                 <Text style={styles.desc}>{v.miss.m3d}</Text>
               </View>
+              <View style={styles.starsRight}>
+                {[0, 1, 2].map((i) => (
+                  <Icon key={i} name="star" size={14} color={i < mission3Stars ? colors.gold : colors.border} />
+                ))}
+              </View>
             </View>
           </Card>
         </Pressable>
 
-        <Card padding={15} radius={18} bg={colors.slate} shadowColor="rgba(10,26,74,.35)">
-          <View style={styles.row}>
-            <View style={styles.lockBubble}>
-              <Icon name="lock" size={22} color={colors.white} />
+        {mission3Stars > 0 ? (
+          <Pressable onPress={() => navigation.navigate('Mission4Evidence')}>
+            <Card padding={15} radius={18}>
+              <View style={styles.row}>
+                <IconBubble icon="alert" bg={colors.red} shadowColor={colors.redShadow} />
+                <View style={{ gap: 3 }}>
+                  <Text style={styles.name}>{v.miss.m4}</Text>
+                  <Text style={styles.desc}>{v.miss.m4d}</Text>
+                </View>
+                <View style={styles.starsRight}>
+                  {[0, 1, 2].map((i) => (
+                    <Icon key={i} name="star" size={14} color={i < mission4Stars ? colors.gold : colors.border} />
+                  ))}
+                </View>
+              </View>
+            </Card>
+          </Pressable>
+        ) : (
+          <Card padding={15} radius={18} bg={colors.slate} shadowColor="rgba(10,26,74,.35)">
+            <View style={styles.row}>
+              <View style={styles.lockBubble}>
+                <Icon name="lock" size={22} color={colors.white} />
+              </View>
+              <View style={{ gap: 3 }}>
+                <Text style={[styles.name, { color: colors.white }]}>{v.miss.m4}</Text>
+                <Text style={[styles.desc, { color: 'rgba(255,255,255,.75)' }]}>{v.miss.m4Locked}</Text>
+              </View>
             </View>
-            <View style={{ gap: 3 }}>
-              <Text style={[styles.name, { color: colors.white }]}>{v.miss.m4}</Text>
-              <Text style={[styles.desc, { color: 'rgba(255,255,255,.75)' }]}>Se desbloquea en el nivel 16</Text>
-            </View>
-          </View>
-        </Card>
+          </Card>
+        )}
       </View>
 
       <Text style={styles.levelsTitle}>{v.miss.levels}</Text>

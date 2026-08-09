@@ -20,6 +20,7 @@ export default function Mission3VerdictScreen({ navigation }: Props) {
   const pickM3Verdict = useGameStore((s) => s.pickM3Verdict);
   const redact = useGameStore((s) => s.redact);
   const addPP = useGameStore((s) => s.addPP);
+  const completeMission3 = useGameStore((s) => s.completeMission3);
   const resetMission3 = useGameStore((s) => s.resetMission3);
   const applied = useRef(false);
 
@@ -28,8 +29,10 @@ export default function Mission3VerdictScreen({ navigation }: Props) {
       applied.current = true;
       const rCount = REDACT_KEYS.filter((k) => redact[k]).length;
       addPP(rCount * 10);
+      const stars = m3Verdict === 'edit' ? (rCount >= 4 ? 3 : rCount >= 2 ? 2 : 1) : rCount >= 4 ? 1 : 0;
+      completeMission3(stars);
     }
-  }, [m3Verdict, addPP, redact]);
+  }, [m3Verdict, addPP, redact, completeMission3]);
 
   const pick = (k: VerdictM3) => pickM3Verdict(k);
 

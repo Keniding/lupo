@@ -39,7 +39,7 @@ export default function NoLivesScreen({ navigation }: Props) {
             <Text style={styles.regenText}>{t.nolives.regen}</Text>
           </View>
           <Button label={t.nolives.cta1} variant="primary" onPress={reviewTips} />
-          <Button label={t.nolives.cta2} variant="secondary" onPress={() => navigation.navigate('Map')} />
+          <Button label={t.nolives.cta2} variant="secondary" onPress={() => navigation.navigate('Missions')} />
         </View>
       </SafeAreaView>
     </LinearGradient>

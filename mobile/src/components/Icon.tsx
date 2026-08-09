@@ -17,6 +17,7 @@ import {
   AlertTriangle,
   Eye,
   Target,
+  X,
   type LucideIcon,
 } from 'lucide-react-native';
 
@@ -38,6 +39,7 @@ const ICONS: Record<string, LucideIcon> = {
   alert: AlertTriangle,
   eye: Eye,
   target: Target,
+  x: X,
 };
 
 export type IconName = keyof typeof ICONS;

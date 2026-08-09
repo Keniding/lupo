@@ -4,8 +4,18 @@ import { Icon, type IconName } from './Icon';
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/typography';
 
-export function BottomNav({ active, labels }: { active: 'map' | 'leagues' | 'practice' | 'profile'; labels: { map: string; leagues: string; practice: string; profile: string } }) {
-  const tabs: { key: typeof active; icon: IconName; label: string }[] = [
+export type BottomNavTab = 'map' | 'leagues' | 'practice' | 'profile';
+
+export function BottomNav({
+  active,
+  labels,
+  onNavigate,
+}: {
+  active: BottomNavTab;
+  labels: { map: string; leagues: string; practice: string; profile: string };
+  onNavigate: (tab: BottomNavTab) => void;
+}) {
+  const tabs: { key: BottomNavTab; icon: IconName; label: string }[] = [
     { key: 'map', icon: 'map', label: labels.map },
     { key: 'leagues', icon: 'trophy', label: labels.leagues },
     { key: 'practice', icon: 'dumbbell', label: labels.practice },
@@ -16,7 +26,7 @@ export function BottomNav({ active, labels }: { active: 'map' | 'leagues' | 'pra
       {tabs.map((t) => {
         const isActive = t.key === active;
         return (
-          <Pressable key={t.key} style={[styles.tab, isActive && styles.tabActive]}>
+          <Pressable key={t.key} style={[styles.tab, isActive && styles.tabActive]} onPress={() => !isActive && onNavigate(t.key)}>
             <Icon name={t.icon} size={23} color={isActive ? colors.gold : 'rgba(255,255,255,.65)'} />
             <Text style={[styles.label, { color: isActive ? colors.gold : 'rgba(255,255,255,.65)', fontFamily: isActive ? fonts.displayBold : fonts.displaySemibold }]}>{t.label}</Text>
           </Pressable>

@@ -5,6 +5,13 @@ import type { RootStackParamList } from './types';
 import SplashScreen from '../screens/01Splash';
 import MapScreen from '../screens/02Map';
 import NoLivesScreen from '../screens/03NoLives';
+import DiagnosticScreen from '../screens/25Diagnostic';
+import CaseIntroScreen from '../screens/26CaseIntro';
+import SwipeScreen from '../screens/27Swipe';
+import ResultCorrectScreen from '../screens/28ResultCorrect';
+import ResultWrongScreen from '../screens/29ResultWrong';
+import LeaguesScreen from '../screens/30Leagues';
+import ProfileScreen from '../screens/31Profile';
 import LobbyScreen from '../screens/04Lobby';
 import RoleDetectiveScreen from '../screens/05RoleDetective';
 import RoleHiddenScreen from '../screens/06RoleHidden';
@@ -33,8 +40,15 @@ export function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Splash">
       <Stack.Screen name="Splash" component={SplashScreen} />
+      <Stack.Screen name="Diagnostic" component={DiagnosticScreen} />
       <Stack.Screen name="Map" component={MapScreen} />
       <Stack.Screen name="NoLives" component={NoLivesScreen} options={{ presentation: 'transparentModal', animation: 'fade' }} />
+      <Stack.Screen name="CaseIntro" component={CaseIntroScreen} options={{ presentation: 'transparentModal', animation: 'fade' }} />
+      <Stack.Screen name="Swipe" component={SwipeScreen} />
+      <Stack.Screen name="ResultCorrect" component={ResultCorrectScreen} />
+      <Stack.Screen name="ResultWrong" component={ResultWrongScreen} />
+      <Stack.Screen name="Leagues" component={LeaguesScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Lobby" component={LobbyScreen} />
       <Stack.Screen name="RoleDetective" component={RoleDetectiveScreen} />
       <Stack.Screen name="RoleHidden" component={RoleHiddenScreen} />

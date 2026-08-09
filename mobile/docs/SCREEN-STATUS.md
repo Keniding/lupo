@@ -15,18 +15,18 @@
 
 | # | Mockup | Pantalla del app | Estado | Nota |
 |---|---|---|---|---|
-| 01 | Bienvenida | `01Splash.tsx` | Implementado | Selector de idioma + CTA. Cubre HU-01. |
-| 02 | Diagnóstico de nivel | — | **Pendiente** | HU-02. No hay pantalla ni navegación hacia ella. |
-| 03 | Mapa de casos (sendero) | `02Map.tsx` | Implementado | Camino rediseñado en este pase (ver `IMPROVEMENT-BACKLOG.md`). |
-| 04 | Introducción al caso | — | **Pendiente** | Tarjeta previa a un caso individual. |
-| 05 | Reto swipe | — | **Pendiente** | HU-15 (mitad). El nodo "14" del mapa navega directo a `Lobby` (partida v2), no a un caso individual — ese flujo no tiene destino real todavía. |
-| 06 | Encuentra las señales (toca la evidencia) | — | **Pendiente** | HU-15 (mitad). |
-| 07 | Resultado: acierto | — | **Pendiente** | |
-| 08 | Resultado: error (sin castigo) | — | **Pendiente** | |
-| 09 | Sin lupas / modo práctica | `03NoLives.tsx` | Parcial | Existe la hoja de "sin lupas", pero el CTA "revisar consejos" (HU-23) solo rellena un corazón y vuelve al mapa — no hay pantalla real de consejos ni modo práctica. |
-| 10 | Ligas de detectives | — | **Pendiente** | HU-22. Sin esto no hay bucle de enganche semanal (dopamina) más allá de la racha. |
-| 11 | Perfil e insignias | — | **Pendiente** | HU-04. El botón de perfil en `02Map.tsx` (icono `user`) no navega a ningún lado. |
-| 12 | Modo texto grande (accesible) | — | **Pendiente** | HU-03. Sin esto el modo sénior mencionado en el diagnóstico original de producto no existe. |
+| 01 | Bienvenida | `01Splash.tsx` | Implementado | Selector de idioma + CTA, ahora entra por el diagnóstico (HU-01). |
+| 02 | Diagnóstico de nivel | `25Diagnostic.tsx` | Implementado | 3 preguntas con progreso, saltable, sin puntos ni vidas (HU-02). |
+| 03 | Mapa de casos (sendero) | `02Map.tsx` | Implementado | Camino rediseñado con `MapPath` (SVG); el nodo activo ahora abre el caso individual, no la partida v2. |
+| 04 | Introducción al caso | `26CaseIntro.tsx` | Implementado | |
+| 05 | Reto swipe | `27Swipe.tsx` | Implementado | Botones NO/SÍ + animación de despido de tarjeta (sin PanResponder, ver nota en el archivo). |
+| 06 | Encuentra las señales (toca la evidencia) | — | **Pendiente** | Mecánica alternativa (tap-en-email) sin caso propio todavía asignado; documentado para la siguiente iteración en vez de dejarla como pantalla sin entrada. |
+| 07 | Resultado: acierto | `28ResultCorrect.tsx` | Implementado | |
+| 08 | Resultado: error (sin castigo) | `29ResultWrong.tsx` | Implementado | Resta una lupa y explica el porqué; nunca corta el aprendizaje. |
+| 09 | Sin lupas / modo práctica | `03NoLives.tsx` | Parcial | El CTA "modo práctica libre" ahora navega a `Missions` (destino real, sin lupas de por medio). El CTA "revisar consejos" sigue siendo un atajo (rellena 1 lupa) — pendiente de contenido real. |
+| 10 | Ligas de detectives | `30Leagues.tsx` | Implementado | Tabla estática (zona de ascenso/descenso + fila propia); sin backend de ligas reales. |
+| 11 | Perfil e insignias | `31Profile.tsx` | Implementado | Estadísticas y 8 insignias derivadas de datos reales del store (rachas, misiones, precisión), ajustes de texto grande/alto contraste/recordatorios persistidos. |
+| 12 | Modo texto grande (accesible) | — | Implementado como **modo**, no pantalla aparte | HU-03 se resolvió como un ajuste (`seniorMode` en el store + `useFontScale()`) aplicado a las pantallas de lectura de evidencia, en vez de duplicar cada pantalla en una versión grande. |
 
 ## v2 · Partida «¿Quién está detrás?» (14 pantallas del mockup `2a`)
 
@@ -47,10 +47,10 @@
 | 13 | Misiones y Game Master IA | `16Missions.tsx` | Implementado (como selector de misiones; sin adaptación de dificultad real). |
 | 14 | Torneo escolar y medición | `17Tournament.tsx` | Parcial — UI existe, HU-26 (medición antes/después) necesita datos reales de dos sesiones. |
 
-Todas las 14 pantallas están construidas, pero el **flujo de entrada** solo
-se alcanza tocando el nodo del mapa (que en teoría debería abrir un caso
-individual de Misión 1, no la partida completa) — ver nota en v1·05 arriba.
-Es la integración de flujos que falta, no las pantallas sueltas.
+Las 14 pantallas están construidas y ahora el mapa ya **no** las abre por
+error: el nodo activo lleva al caso individual (`26CaseIntro.tsx`), y la
+partida v2 se alcanza desde el hub de Misiones (`16Missions.tsx`, tarjeta
+"¿Quién está detrás?"), que es su entrada real.
 
 ## v3 · Misiones de contenido (mockups `3a`/`3b`/`3c`)
 
@@ -69,8 +69,8 @@ Es la integración de flujos que falta, no las pantallas sueltas.
 Las tres misiones de contenido están completas de punta a punta y son el
 tramo mejor cubierto del app.
 
-## Resumen ejecutivo
+## Resumen ejecutivo (actualizado tras la integración incremental)
 
-- **Completo:** v2 (partida multijugador, 14/14) y las misiones 2/3/4 (9/9 lógicas, fusionando briefings).
-- **Roto por integración, no por pantallas:** el mapa (`02Map.tsx`) debería llevar a Misión 1 (casos individuales swipe/tap) y actualmente lleva a la partida v2 completa — son juegos distintos con distinta duración (un caso individual = 1–2 min; una partida v2 = una sesión larga con 3–10 jugadores). Esto es probablemente la causa raíz de por qué "faltan integrar flujos": **la pieza que falta no es una pantalla nueva, es decidir qué juego abre cada nodo del mapa** y construir las 8 pantallas de v1 que hacen falta para que Misión 1 exista de verdad.
-- **Ausente por completo:** diagnóstico inicial (HU-02), Misión 1 individual (HU-15, 4 pantallas), ligas (HU-22), perfil e insignias (HU-04), modo texto grande / sénior (HU-03). Estas cinco piezas son las que más impactan el enganche diario (dopamina) descrito en el brief original del producto, y ninguna tiene aún ni mockup construido más allá del que ya existía en v1.
+- **Completo:** v2 (partida multijugador, 14/14), las misiones 2/3/4 (9/9 lógicas), y ahora también el flujo individual v1 (diagnóstico, intro de caso, swipe, resultado acierto/error, ligas, perfil).
+- **Resuelto:** el mapa ya no abre la partida v2 por error — el nodo activo abre un caso individual real, y la partida multijugador tiene su propia entrada desde Misiones. La Misión 4 (antes con candado permanente sin ningún camino para desbloquearla) ahora se abre al completar la Misión 3, y sus estrellas (`mission3Stars`/`mission4Stars`) se persisten igual que las de 1 y 2.
+- **Pendiente para la próxima iteración:** la mecánica "encuentra las señales" (v1·06, tap sobre email) sigue sin un caso propio asignado — se documenta aquí en vez de dejarla enlazada sin contenido real. El CTA "revisar consejos" de `03NoLives.tsx` sigue siendo un atajo sin pantalla de consejos detrás. Las ligas son una tabla estática (sin backend de puntuación real entre jugadores).

@@ -44,7 +44,7 @@ export default function SplashScreen({ navigation }: Props) {
       </View>
 
       <View style={styles.actions}>
-        <Button label={t.ob.cta} variant="primary" onPress={() => navigation.navigate('Map')} />
+        <Button label={t.ob.cta} variant="primary" onPress={() => navigation.navigate('Diagnostic')} />
         <Button label={t.ob.login} variant="ghost" onPress={() => navigation.navigate('Map')} />
         <LangSwitcher lang={lang} onPick={setLang} size="lg" />
       </View>

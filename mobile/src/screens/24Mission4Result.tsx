@@ -8,7 +8,7 @@ import { Button } from '../components/Button';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
-import { useGameStore } from '../state/store';
+import { useGameStore, CHECK_KEYS } from '../state/store';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Mission4Result'>;
 
@@ -16,7 +16,9 @@ export default function Mission4ResultScreen({ navigation }: Props) {
   const t = useT();
   const m4 = t.m4;
   const m4Verdict = useGameStore((s) => s.m4Verdict);
+  const checks = useGameStore((s) => s.checks);
   const addPP = useGameStore((s) => s.addPP);
+  const completeMission4 = useGameStore((s) => s.completeMission4);
   const resetMission4 = useGameStore((s) => s.resetMission4);
   const applied = useRef(false);
 
@@ -25,9 +27,12 @@ export default function Mission4ResultScreen({ navigation }: Props) {
       applied.current = true;
       // The story's news case is deliberately unverifiable: recognising that
       // ("check" or "false") is the media-literate call, blind "trust" isn't.
-      if (m4Verdict === 'check' || m4Verdict === 'false') addPP(30);
+      const cCount = CHECK_KEYS.filter((k) => checks[k]).length;
+      const correct = m4Verdict === 'check' || m4Verdict === 'false';
+      if (correct) addPP(30);
+      completeMission4(correct ? (cCount >= 4 ? 3 : cCount >= 2 ? 2 : 1) : 0);
     }
-  }, [addPP, m4Verdict]);
+  }, [addPP, completeMission4, m4Verdict, checks]);
 
   const next = () => {
     resetMission4();

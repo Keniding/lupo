@@ -46,8 +46,14 @@ export default function MapScreen({ navigation }: Props) {
     if (hearts <= 0) {
       navigation.navigate('NoLives');
     } else {
-      navigation.navigate('Lobby');
+      navigation.navigate('CaseIntro');
     }
+  };
+
+  const goToTab = (tab: 'map' | 'leagues' | 'practice' | 'profile') => {
+    if (tab === 'leagues') navigation.navigate('Leagues');
+    else if (tab === 'practice') navigation.navigate('Missions');
+    else if (tab === 'profile') navigation.navigate('Profile');
   };
 
   const nodeCenters = [
@@ -72,7 +78,7 @@ export default function MapScreen({ navigation }: Props) {
             <Text style={styles.chipText}>{pp}</Text>
           </View>
           <StatChip icon="flame" value={String(streak)} tint={colors.orange} />
-          <Pressable style={styles.profileBtn}>
+          <Pressable style={styles.profileBtn} onPress={() => navigation.navigate('Profile')}>
             <Icon name="user" size={19} color={colors.white} />
           </Pressable>
         </View>
@@ -147,7 +153,7 @@ export default function MapScreen({ navigation }: Props) {
           </View>
         </ScrollView>
 
-        <BottomNav active="map" labels={t.nav} />
+        <BottomNav active="map" labels={t.nav} onNavigate={goToTab} />
       </SafeAreaView>
     </LinearGradient>
   );
