@@ -31,6 +31,11 @@ export const DICT = {
     nolives: {
       title: 'Te quedaste sin lupas', body: 'Puedes esperar, repasar consejos o seguir en modo práctica sin rachas.',
       cta1: 'Repasar consejos (+1 lupa)', cta2: 'Modo práctica libre', regen: 'Próxima lupa en 42 min',
+      tipsTitle: 'Antes de seguir, recuerda:',
+      tip1: 'Un remitente desconocido que pide guardar el secreto es casi siempre una señal de alarma.',
+      tip2: 'Los plazos de "últimas horas" están diseñados para que actúes sin pensar. Tómate tu tiempo.',
+      tip3: 'Ningún banco ni entidad real te pide tu clave completa por SMS, correo o WhatsApp.',
+      tipsCta: 'Listo, +1 lupa',
     },
     common: { pp: 'PP', lives: 'Lupas', streak: 'días', xp: 'Puntos de Pista', practice: 'Práctica' },
     quiz: {
@@ -169,6 +174,11 @@ export const DICT = {
     nolives: {
       title: 'You’re out of lenses', body: 'You can wait, review some tips, or keep going in practice mode without streaks.',
       cta1: 'Review tips (+1 lens)', cta2: 'Free practice mode', regen: 'Next lens in 42 min',
+      tipsTitle: 'Before you continue, remember:',
+      tip1: 'An unknown sender who asks you to keep a secret is almost always a red flag.',
+      tip2: '"Final hours" deadlines are designed to make you act without thinking. Take your time.',
+      tip3: 'No real bank or company asks for your full password by text, email or chat.',
+      tipsCta: 'Got it, +1 lens',
     },
     common: { pp: 'CP', lives: 'Lenses', streak: 'days', xp: 'Clue Points', practice: 'Practice' },
     quiz: {
@@ -307,6 +317,11 @@ export const DICT = {
     nolives: {
       title: 'Você ficou sem lupas', body: 'Você pode esperar, revisar dicas ou seguir no modo prática sem sequências.',
       cta1: 'Revisar dicas (+1 lupa)', cta2: 'Modo prática livre', regen: 'Próxima lupa em 42 min',
+      tipsTitle: 'Antes de continuar, lembre-se:',
+      tip1: 'Um remetente desconhecido que pede segredo é quase sempre um sinal de alerta.',
+      tip2: 'Prazos de "últimas horas" são feitos para você agir sem pensar. Vá com calma.',
+      tip3: 'Nenhum banco ou empresa real pede sua senha completa por SMS, e-mail ou chat.',
+      tipsCta: 'Entendi, +1 lupa',
     },
     common: { pp: 'PP', lives: 'Lupas', streak: 'dias', xp: 'Pontos de Pista', practice: 'Prática' },
     quiz: {
@@ -445,6 +460,11 @@ export const DICT = {
     nolives: {
       title: 'Tu n’as plus de loupes', body: 'Tu peux attendre, revoir des conseils, ou continuer en mode entraînement sans séries.',
       cta1: 'Revoir les conseils (+1 loupe)', cta2: 'Mode entraînement libre', regen: 'Prochaine loupe dans 42 min',
+      tipsTitle: 'Avant de continuer, rappelle-toi :',
+      tip1: 'Un expéditeur inconnu qui demande de garder un secret est presque toujours un signal d’alerte.',
+      tip2: 'Les délais « dernières heures » sont conçus pour te faire agir sans réfléchir. Prends ton temps.',
+      tip3: 'Aucune vraie banque ni entreprise ne demande ton mot de passe complet par SMS, e-mail ou chat.',
+      tipsCta: 'Compris, +1 loupe',
     },
     common: { pp: 'PI', lives: 'Loupes', streak: 'jours', xp: 'Points d’Indice', practice: 'Entraînement' },
     quiz: {

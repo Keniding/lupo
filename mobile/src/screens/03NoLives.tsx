@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,8 +15,9 @@ type Props = NativeStackScreenProps<RootStackParamList, 'NoLives'>;
 
 export default function NoLivesScreen({ navigation }: Props) {
   const t = useT();
+  const [showTips, setShowTips] = useState(false);
 
-  const reviewTips = () => {
+  const grantHeart = () => {
     useGameStore.setState((s) => ({ hearts: Math.min(5, s.hearts + 1) }));
     navigation.navigate('Map');
   };
@@ -38,8 +39,26 @@ export default function NoLivesScreen({ navigation }: Props) {
             <Icon name="clock" size={17} color={colors.ink} />
             <Text style={styles.regenText}>{t.nolives.regen}</Text>
           </View>
-          <Button label={t.nolives.cta1} variant="primary" onPress={reviewTips} />
-          <Button label={t.nolives.cta2} variant="secondary" onPress={() => navigation.navigate('Missions')} />
+
+          {showTips ? (
+            <>
+              <View style={styles.tipsBox}>
+                <Text style={styles.tipsTitle}>{t.nolives.tipsTitle}</Text>
+                {[t.nolives.tip1, t.nolives.tip2, t.nolives.tip3].map((tip) => (
+                  <View key={tip} style={styles.tipRow}>
+                    <Icon name="eye" size={16} color={colors.blue} />
+                    <Text style={styles.tipText}>{tip}</Text>
+                  </View>
+                ))}
+              </View>
+              <Button label={t.nolives.tipsCta} variant="primary" onPress={grantHeart} />
+            </>
+          ) : (
+            <>
+              <Button label={t.nolives.cta1} variant="primary" onPress={() => setShowTips(true)} />
+              <Button label={t.nolives.cta2} variant="secondary" onPress={() => navigation.navigate('Missions')} />
+            </>
+          )}
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -67,4 +86,8 @@ const styles = StyleSheet.create({
   body: { fontFamily: fonts.body, fontSize: 15, lineHeight: 23, textAlign: 'center', color: colors.inkMuted },
   regen: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: colors.cardBgAlt, borderRadius: 999, paddingVertical: 11, paddingHorizontal: 18 },
   regenText: { fontFamily: fonts.displayBold, fontSize: 13, color: '#3C4766' },
+  tipsBox: { width: '100%', backgroundColor: colors.white, borderRadius: 18, padding: 16, gap: 11 },
+  tipsTitle: { fontFamily: fonts.displayBold, fontSize: 14, color: colors.ink },
+  tipRow: { flexDirection: 'row', gap: 10, alignItems: 'flex-start' },
+  tipText: { flex: 1, fontFamily: fonts.body, fontSize: 13, lineHeight: 19, color: colors.inkMuted },
 });

@@ -23,7 +23,7 @@
 | 06 | Encuentra las señales (toca la evidencia) | `32FindSignals.tsx` | Implementado | Encadenada como segundo caso del día, después del resultado del swipe (acierto o error), antes de volver al mapa. |
 | 07 | Resultado: acierto | `28ResultCorrect.tsx` | Implementado | |
 | 08 | Resultado: error (sin castigo) | `29ResultWrong.tsx` | Implementado | Resta una lupa y explica el porqué; nunca corta el aprendizaje. |
-| 09 | Sin lupas / modo práctica | `03NoLives.tsx` | Parcial | El CTA "modo práctica libre" ahora navega a `Missions` (destino real, sin lupas de por medio). El CTA "revisar consejos" sigue siendo un atajo (rellena 1 lupa) — pendiente de contenido real. |
+| 09 | Sin lupas / modo práctica | `03NoLives.tsx` | Implementado | "Revisar consejos" muestra 3 consejos reales antes de otorgar la lupa; "modo práctica libre" navega a `Missions` (destino real, sin lupas de por medio). |
 | 10 | Ligas de detectives | `30Leagues.tsx` | Implementado | Tabla estática (zona de ascenso/descenso + fila propia); sin backend de ligas reales. |
 | 11 | Perfil e insignias | `31Profile.tsx` | Implementado | Estadísticas y 8 insignias derivadas de datos reales del store (rachas, misiones, precisión), ajustes de texto grande/alto contraste/recordatorios persistidos. |
 | 12 | Modo texto grande (accesible) | — | Implementado como **modo**, no pantalla aparte | HU-03 se resolvió como un ajuste (`seniorMode` en el store + `useFontScale()`) aplicado a las pantallas de lectura de evidencia, en vez de duplicar cada pantalla en una versión grande. |
@@ -73,4 +73,4 @@ tramo mejor cubierto del app.
 
 - **Completo:** v2 (partida multijugador, 14/14), las misiones 2/3/4 (9/9 lógicas), y ahora también el flujo individual v1 (diagnóstico, intro de caso, swipe, resultado acierto/error, ligas, perfil).
 - **Resuelto:** el mapa ya no abre la partida v2 por error — el nodo activo abre un caso individual real, y la partida multijugador tiene su propia entrada desde Misiones. La Misión 4 (antes con candado permanente sin ningún camino para desbloquearla) ahora se abre al completar la Misión 3, y sus estrellas (`mission3Stars`/`mission4Stars`) se persisten igual que las de 1 y 2.
-- **Pendiente para la próxima iteración:** el CTA "revisar consejos" de `03NoLives.tsx` sigue siendo un atajo sin pantalla de consejos detrás. Las ligas son una tabla estática (sin backend de puntuación real entre jugadores). HU-05 (jugar sin cuenta), HU-06 (rol docente), HU-19 (editor de contenidos) y HU-20 (modo práctica que no gasta lupas) siguen sin pantalla propia.
+- **Pendiente para la próxima iteración:** las ligas son una tabla estática (sin backend de puntuación real entre jugadores). HU-05 (jugar sin cuenta), HU-06 (rol docente), HU-19 (editor de contenidos) y HU-20 (modo práctica que no gasta lupas) siguen sin pantalla propia.

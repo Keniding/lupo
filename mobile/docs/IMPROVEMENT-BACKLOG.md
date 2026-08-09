@@ -109,13 +109,22 @@ Suma a `casesSolved`/`casesAttempted`, así que también alimenta las
 estadísticas de `31Profile.tsx`. Si el jugador se queda sin lupas en el
 swipe, sigue yendo a `NoLives` en vez de forzar el segundo caso.
 
+## ✅ Hecho — sesión 4 (consejos reales antes de devolver la lupa)
+
+### 10. `03NoLives.tsx` — "revisar consejos" ya no era más que un botón
+
+Tocar el CTA rellenaba una lupa y volvía al mapa sin mostrar ningún
+consejo, pese a llamarse "revisar consejos". Ahora revela 3 consejos
+reales (redactados a partir de las señales que ya usan los casos: remitente
+desconocido + pedir secreto, plazos de presión, y "ninguna entidad real
+pide la clave completa") antes de otorgar la lupa con un botón explícito
+("Listo, +1 lupa"). El modo práctica sigue yendo directo a Misiones.
+
 ## 🔜 Siguiente
 
-1. **`03NoLives.tsx` → "revisar consejos"**: sigue siendo un atajo (rellena
-   1 lupa y vuelve al mapa) sin contenido de consejos real detrás.
-2. **Ligas**: `30Leagues.tsx` es una tabla estática: no hay backend de
+1. **Ligas**: `30Leagues.tsx` es una tabla estática: no hay backend de
    puntuación real entre jugadores, ni distinción entre semanas.
-3. **HU pendientes de v3** sin pantalla propia todavía: HU-05 (jugar sin
+2. **HU pendientes de v3** sin pantalla propia todavía: HU-05 (jugar sin
    cuenta), HU-06 (rol docente), HU-19 (editor de contenidos), HU-20
    (modo práctica que no gasta lupas ni afecta la racha — hoy "práctica"
    solo redirige a Misiones, que sí gasta progreso normal).
