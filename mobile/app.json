@@ -23,6 +23,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "owner": "keniding"
+    "owner": "keniding",
+    "extra": {
+      "eas": {
+        "projectId": "aaaf3c1f-d91d-4112-aee2-bea978ea6f72"
+      }
+    }
   }
 }
