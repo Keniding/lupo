@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { DotRow } from '../components/SelectableRow';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
@@ -42,7 +43,7 @@ export default function Mission3VerdictScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.m3verdict} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.m3verdict} scroll>
       <Text style={styles.title}>{m3.verdict}</Text>
 
       <View style={{ gap: 10, marginTop: 14 }}>

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { IconBubble } from '../components/Misc';
@@ -24,7 +25,7 @@ export default function RoleDetectiveScreen({ navigation }: Props) {
   ];
 
   return (
-    <Screen colors={gradients.roleDetective} align="center" scroll style={{ paddingTop: 32, paddingBottom: 28 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.roleDetective} align="center" scroll style={{ paddingTop: 32, paddingBottom: 28 }}>
       <Text style={styles.kicker}>{v.role.kicker}</Text>
 
       <Card style={{ width: '100%', marginTop: 18 }} radius={22} border={{ width: 4, color: colors.white }} shadowHeight={6}>

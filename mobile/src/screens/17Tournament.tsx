@@ -5,6 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Icon } from '../components/Icon';
+import { BackButton } from '../components/BackButton';
+import { goBackOrHome } from '../navigation/goBack';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -23,7 +25,7 @@ function MetricBar({ label, after, before }: { label: string; after: number; bef
   );
 }
 
-export default function TournamentScreen({}: Props) {
+export default function TournamentScreen({ navigation }: Props) {
   const t = useT();
   const v = t.v2;
 
@@ -37,6 +39,7 @@ export default function TournamentScreen({}: Props) {
     <LinearGradient colors={gradients.tournament} style={{ flex: 1 }}>
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'bottom']}>
         <View style={styles.header}>
+          <BackButton onPress={() => goBackOrHome(navigation)} />
           <Text style={styles.title}>{v.tour.title}</Text>
           <Text style={styles.sub}>{v.tour.sub}</Text>
         </View>

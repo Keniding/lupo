@@ -13,6 +13,8 @@ import ResultWrongScreen from '../screens/29ResultWrong';
 import LeaguesScreen from '../screens/30Leagues';
 import ProfileScreen from '../screens/31Profile';
 import FindSignalsScreen from '../screens/32FindSignals';
+import LoginScreen from '../screens/33Login';
+import RegisterScreen from '../screens/34Register';
 import LobbyScreen from '../screens/04Lobby';
 import RoleDetectiveScreen from '../screens/05RoleDetective';
 import RoleHiddenScreen from '../screens/06RoleHidden';
@@ -51,6 +53,8 @@ export function RootNavigator() {
       <Stack.Screen name="FindSignals" component={FindSignalsScreen} />
       <Stack.Screen name="Leagues" component={LeaguesScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Lobby" component={LobbyScreen} />
       <Stack.Screen name="RoleDetective" component={RoleDetectiveScreen} />
       <Stack.Screen name="RoleHidden" component={RoleHiddenScreen} />

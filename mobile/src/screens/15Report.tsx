@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
@@ -25,7 +26,7 @@ export default function ReportScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.report} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.report} scroll>
       <Text style={styles.title}>{v.rep.title}</Text>
 
       <View style={styles.scoreRow}>

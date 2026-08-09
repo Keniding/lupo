@@ -3,6 +3,7 @@ import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { CheckRow } from '../components/SelectableRow';
 import { Button } from '../components/Button';
@@ -40,7 +41,7 @@ export default function BoardScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.board} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.board} scroll>
       <Text style={styles.title}>{v.board.title}</Text>
 
       <Card style={{ marginTop: 14 }} padding={12} radius={18}>

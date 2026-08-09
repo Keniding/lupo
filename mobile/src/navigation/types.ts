@@ -10,6 +10,8 @@ export type RootStackParamList = {
   FindSignals: undefined;
   Leagues: undefined;
   Profile: undefined;
+  Login: undefined;
+  Register: undefined;
   Lobby: undefined;
   RoleDetective: undefined;
   RoleHidden: undefined;

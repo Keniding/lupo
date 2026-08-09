@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
@@ -24,7 +25,7 @@ export default function ResultWrongScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.consequenceBad} align="center" scroll style={{ paddingTop: 46, paddingBottom: 26 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.consequenceBad} align="center" scroll style={{ paddingTop: 46, paddingBottom: 26 }}>
       <View style={styles.mascot}>
         <Icon name="search" size={36} color="rgba(255,255,255,.85)" />
       </View>

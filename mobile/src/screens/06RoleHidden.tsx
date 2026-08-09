@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
 import { colors, gradients } from '../theme/colors';
@@ -16,7 +17,7 @@ export default function RoleHiddenScreen({ navigation }: Props) {
   const v = t.v2;
 
   return (
-    <Screen colors={gradients.roleHidden} scroll style={{ paddingTop: 32, paddingBottom: 28 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.roleHidden} scroll style={{ paddingTop: 32, paddingBottom: 28 }}>
       <Text style={styles.kicker}>{v.role.kicker}</Text>
 
       <View style={styles.headerRow}>

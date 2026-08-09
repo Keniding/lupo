@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
@@ -15,7 +16,7 @@ export default function Mission4EvidenceScreen({ navigation }: Props) {
   const m4 = t.m4;
 
   return (
-    <Screen colors={gradients.m4evidence} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.m4evidence} scroll>
       <View style={styles.tag}>
         <Text style={styles.tagText}>{m4.tag}</Text>
       </View>

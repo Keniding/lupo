@@ -4,6 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
+import { BackButton } from '../components/BackButton';
+import { goBackOrHome } from '../navigation/goBack';
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -29,6 +31,7 @@ export default function ChatScreen({ navigation }: Props) {
     <LinearGradient colors={['#E6ECFA', '#E6ECFA']} style={styles.flex}>
       <SafeAreaView style={styles.flex} edges={['top', 'bottom']}>
         <LinearGradient colors={[colors.skyBlue, colors.navyMid]} style={styles.header}>
+          <BackButton onPress={() => goBackOrHome(navigation)} />
           <View style={styles.avatar}>
             <Text style={styles.avatarLabel}>6</Text>
           </View>

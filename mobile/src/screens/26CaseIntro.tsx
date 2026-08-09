@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
@@ -15,7 +16,7 @@ export default function CaseIntroScreen({ navigation }: Props) {
   const intro = t.intro;
 
   return (
-    <Screen colors={gradients.noLives} align="center" style={{ justifyContent: 'center' }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.noLives} align="center" style={{ justifyContent: 'center' }}>
       <View style={styles.card}>
         <View style={styles.thumb}>
           <Text style={styles.thumbNumber}>#14</Text>

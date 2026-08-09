@@ -6,6 +6,8 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Icon } from '../components/Icon';
 import { BottomNav } from '../components/BottomNav';
+import { BackButton } from '../components/BackButton';
+import { goBackOrHome } from '../navigation/goBack';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -34,6 +36,9 @@ export default function LeaguesScreen({ navigation }: Props) {
     <LinearGradient colors={[colors.navyMid, colors.navy]} style={styles.flex}>
       <SafeAreaView style={styles.flex} edges={['top', 'bottom']}>
         <View style={styles.header}>
+          <View style={styles.backRow}>
+            <BackButton onPress={() => goBackOrHome(navigation)} />
+          </View>
           <View style={styles.trophyBubble}>
             <Icon name="trophy" size={32} color="#5A6377" />
           </View>
@@ -95,6 +100,7 @@ export default function LeaguesScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   flex: { flex: 1 },
   header: { alignItems: 'center', gap: 8, paddingTop: 14, paddingBottom: 18, paddingHorizontal: 20 },
+  backRow: { alignSelf: 'stretch' },
   trophyBubble: { width: 68, height: 68, borderRadius: 999, backgroundColor: '#E9EDF5', alignItems: 'center', justifyContent: 'center', borderWidth: 3, borderColor: colors.white },
   title: { fontFamily: fonts.display, fontSize: 22, color: colors.white },
   sub: { fontFamily: fonts.bodyMedium, fontSize: 13, color: 'rgba(255,255,255,.8)' },

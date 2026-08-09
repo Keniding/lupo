@@ -3,6 +3,8 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
+import { openGatedScreen } from '../navigation/gates';
 import { Card } from '../components/Card';
 import { IconBubble } from '../components/Misc';
 import { Icon } from '../components/Icon';
@@ -20,9 +22,10 @@ export default function MissionsScreen({ navigation }: Props) {
   const mission2Stars = useGameStore((s) => s.mission2Stars);
   const mission3Stars = useGameStore((s) => s.mission3Stars);
   const mission4Stars = useGameStore((s) => s.mission4Stars);
+  const isAuthenticated = useGameStore((s) => s.isAuthenticated);
 
   return (
-    <Screen colors={gradients.missions} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.missions} scroll>
       <Text style={styles.title}>{v.miss.title}</Text>
 
       <View style={{ gap: 11, marginTop: 16 }}>
@@ -129,7 +132,7 @@ export default function MissionsScreen({ navigation }: Props) {
       <View style={styles.claimBox}>
         <Text style={styles.claimText}>{v.claim}</Text>
       </View>
-      <Pressable onPress={() => navigation.navigate('Tournament')}>
+      <Pressable onPress={() => openGatedScreen(navigation, isAuthenticated, 'Tournament')}>
         <Text style={styles.tourLink}>{v.tour.title} →</Text>
       </Pressable>
     </Screen>

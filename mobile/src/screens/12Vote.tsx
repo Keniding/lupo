@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { DotRow } from '../components/SelectableRow';
 import { Avatar } from '../components/Avatar';
 import { Button } from '../components/Button';
@@ -21,7 +22,7 @@ export default function VoteScreen({ navigation }: Props) {
   const pickVote = useGameStore((s) => s.pickVote);
 
   return (
-    <Screen colors={gradients.vote} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.vote} scroll>
       <Text style={styles.title}>{v.vote.title}</Text>
       <Text style={styles.sub}>{v.vote.sub}</Text>
 

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { colors, gradients } from '../theme/colors';
@@ -40,7 +41,7 @@ export default function Mission4ResultScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.m4result} align="center" scroll style={{ paddingTop: 46, paddingBottom: 26 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.m4result} align="center" scroll style={{ paddingTop: 46, paddingBottom: 26 }}>
       <View style={styles.stamp}>
         <Text style={styles.stampText}>{m4.stamp}</Text>
       </View>

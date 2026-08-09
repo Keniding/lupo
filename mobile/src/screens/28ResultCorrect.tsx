@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
 import { colors, gradients } from '../theme/colors';
@@ -16,7 +17,7 @@ export default function ResultCorrectScreen({ navigation }: Props) {
   const ok = t.ok;
 
   return (
-    <Screen colors={[colors.teal, colors.green]} align="center" scroll style={{ paddingTop: 40, paddingBottom: 26 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={[colors.teal, colors.green]} align="center" scroll style={{ paddingTop: 40, paddingBottom: 26 }}>
       <View style={styles.stamp}>
         <Icon name="shieldCheck" size={30} color={colors.greenShadow} />
         <Text style={styles.stampText}>{ok.stamp}</Text>

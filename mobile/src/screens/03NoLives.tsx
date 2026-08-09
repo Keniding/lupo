@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
+import { goBackOrHome } from '../navigation/goBack';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -27,6 +28,9 @@ export default function NoLivesScreen({ navigation }: Props) {
       <SafeAreaView style={styles.flex} edges={['top', 'bottom']}>
         <View style={styles.overlay} />
         <View style={styles.sheet}>
+          <Pressable style={styles.closeBtn} onPress={() => goBackOrHome(navigation)} hitSlop={10}>
+            <Icon name="x" size={20} color={colors.slate} />
+          </Pressable>
           <View style={styles.handle} />
           <View style={styles.hearts}>
             {[0, 1, 2, 3, 4].map((i) => (
@@ -80,6 +84,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 14,
   },
+  closeBtn: { position: 'absolute', top: 16, right: 16, width: 32, height: 32, borderRadius: 999, backgroundColor: colors.cardBgAlt, alignItems: 'center', justifyContent: 'center', zIndex: 1 },
   handle: { width: 46, height: 5, borderRadius: 999, backgroundColor: colors.border },
   hearts: { flexDirection: 'row', gap: 8, marginTop: 8 },
   title: { fontFamily: fonts.display, fontSize: 26, lineHeight: 33, textAlign: 'center', color: colors.ink },

@@ -97,6 +97,16 @@ interface GameState {
   toggleSeniorMode: () => void;
   toggleHighContrast: () => void;
   toggleReminders: () => void;
+
+  // HU-05: play as a guest by default — an account is only needed to enter
+  // leagues or the tournament. No backend exists yet, so this is a local
+  // "is there a named profile" flag, not real authentication.
+  isAuthenticated: boolean;
+  userName: string | null;
+  userEmail: string | null;
+  login: (email: string) => void;
+  register: (name: string, email: string) => void;
+  logout: () => void;
 }
 
 export const useGameStore = create<GameState>()(
@@ -170,6 +180,13 @@ export const useGameStore = create<GameState>()(
       toggleSeniorMode: () => set((s) => ({ seniorMode: !s.seniorMode })),
       toggleHighContrast: () => set((s) => ({ highContrast: !s.highContrast })),
       toggleReminders: () => set((s) => ({ reminders: !s.reminders })),
+
+      isAuthenticated: false,
+      userName: null,
+      userEmail: null,
+      login: (email) => set((s) => ({ isAuthenticated: true, userEmail: email, userName: s.userName ?? email.split('@')[0] })),
+      register: (name, email) => set({ isAuthenticated: true, userName: name, userEmail: email }),
+      logout: () => set({ isAuthenticated: false }),
     }),
     {
       name: 'lupo-game-store',
@@ -188,6 +205,9 @@ export const useGameStore = create<GameState>()(
         seniorMode: s.seniorMode,
         highContrast: s.highContrast,
         reminders: s.reminders,
+        isAuthenticated: s.isAuthenticated,
+        userName: s.userName,
+        userEmail: s.userEmail,
       }),
     }
   )

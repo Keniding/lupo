@@ -3,6 +3,7 @@ import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
 import { colors, gradients } from '../theme/colors';
@@ -45,7 +46,7 @@ export default function FindSignalsScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.decision} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.decision} scroll>
       <Text style={styles.kicker}>{fl.kicker}</Text>
       <Text style={styles.prompt}>{fl.prompt}</Text>
 

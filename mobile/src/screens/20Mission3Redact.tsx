@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { CheckRow } from '../components/SelectableRow';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
@@ -29,7 +30,7 @@ export default function Mission3RedactScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.m3redact} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.m3redact} scroll>
       <View style={styles.tag}>
         <Text style={styles.tagText}>{m3.tag}</Text>
       </View>

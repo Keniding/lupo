@@ -6,6 +6,10 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Icon } from '../components/Icon';
 import { BottomNav } from '../components/BottomNav';
+import { BackButton } from '../components/BackButton';
+import { goBackOrHome } from '../navigation/goBack';
+import { openGatedScreen } from '../navigation/gates';
+import { Button } from '../components/Button';
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -37,6 +41,10 @@ export default function ProfileScreen({ navigation }: Props) {
   const toggleSeniorMode = useGameStore((s) => s.toggleSeniorMode);
   const toggleHighContrast = useGameStore((s) => s.toggleHighContrast);
   const toggleReminders = useGameStore((s) => s.toggleReminders);
+  const isAuthenticated = useGameStore((s) => s.isAuthenticated);
+  const userName = useGameStore((s) => s.userName);
+  const userEmail = useGameStore((s) => s.userEmail);
+  const logout = useGameStore((s) => s.logout);
 
   const accuracy = casesAttempted > 0 ? `${Math.round((casesSolved / casesAttempted) * 100)}%` : '—';
 
@@ -53,7 +61,7 @@ export default function ProfileScreen({ navigation }: Props) {
 
   const goToTab = (tab: 'map' | 'leagues' | 'practice' | 'profile') => {
     if (tab === 'map') navigation.navigate('Map');
-    else if (tab === 'leagues') navigation.navigate('Leagues');
+    else if (tab === 'leagues') openGatedScreen(navigation, isAuthenticated, 'Leagues');
     else if (tab === 'practice') navigation.navigate('Missions');
   };
 
@@ -61,16 +69,23 @@ export default function ProfileScreen({ navigation }: Props) {
     <LinearGradient colors={[colors.navy, colors.bgDeep]} style={styles.flex}>
       <SafeAreaView style={styles.flex} edges={['top', 'bottom']}>
         <View style={styles.header}>
+          <View style={styles.backRow}>
+            <BackButton onPress={() => goBackOrHome(navigation)} />
+          </View>
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>M</Text>
+            <Text style={styles.avatarText}>{(userName ?? p.guest).charAt(0).toUpperCase()}</Text>
             <View style={styles.avatarBadge}>
               <Icon name="search" size={14} color="#7A5B00" />
             </View>
           </View>
-          <Text style={styles.name}>Marina Q.</Text>
-          <View style={styles.levelPill}>
-            <Text style={styles.levelText}>{p.level}</Text>
-          </View>
+          <Text style={styles.name}>{userName ?? p.guest}</Text>
+          {isAuthenticated ? (
+            <View style={styles.levelPill}>
+              <Text style={styles.levelText}>{p.level}</Text>
+            </View>
+          ) : (
+            <Button label={p.loginCta} variant="ghost" size="md" onPress={() => navigation.navigate('Login')} />
+          )}
         </View>
 
         <ScrollView contentContainerStyle={styles.body} showsVerticalScrollIndicator={false}>
@@ -112,10 +127,15 @@ export default function ProfileScreen({ navigation }: Props) {
               <Text style={styles.settingLabel}>{p.contrast}</Text>
               <Toggle on={highContrast} onPress={toggleHighContrast} />
             </View>
-            <View style={[styles.settingRow, { borderBottomWidth: 0 }]}>
+            <View style={isAuthenticated ? styles.settingRow : [styles.settingRow, { borderBottomWidth: 0 }]}>
               <Text style={styles.settingLabel}>{p.reminders}</Text>
               <Toggle on={reminders} onPress={toggleReminders} />
             </View>
+            {isAuthenticated && (
+              <Pressable style={[styles.settingRow, { borderBottomWidth: 0 }]} onPress={logout}>
+                <Text style={[styles.settingLabel, { color: colors.red }]}>{p.logoutCta}</Text>
+              </Pressable>
+            )}
           </View>
         </ScrollView>
 
@@ -127,7 +147,8 @@ export default function ProfileScreen({ navigation }: Props) {
 
 const styles = StyleSheet.create({
   flex: { flex: 1 },
-  header: { alignItems: 'center', gap: 9, paddingTop: 18, paddingBottom: 18 },
+  header: { alignItems: 'center', gap: 9, paddingTop: 18, paddingBottom: 18, paddingHorizontal: 20 },
+  backRow: { alignSelf: 'stretch' },
   avatar: { width: 84, height: 84, borderRadius: 999, backgroundColor: 'rgba(255,255,255,.1)', borderWidth: 3, borderColor: colors.blue, alignItems: 'center', justifyContent: 'center' },
   avatarText: { fontFamily: fonts.display, fontSize: 28, color: colors.blue },
   avatarBadge: { position: 'absolute', right: -2, bottom: -2, width: 28, height: 28, borderRadius: 999, backgroundColor: colors.gold, borderWidth: 3, borderColor: colors.navy, alignItems: 'center', justifyContent: 'center' },

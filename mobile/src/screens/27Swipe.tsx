@@ -3,6 +3,7 @@ import { View, Text, Animated, Pressable, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Icon } from '../components/Icon';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
@@ -45,7 +46,7 @@ export default function SwipeScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.decision} style={{ paddingTop: 10 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.decision} style={{ paddingTop: 10 }}>
       <View style={styles.header}>
         <Text style={styles.kicker}>{swipe.kicker}</Text>
         <View style={styles.timer}>

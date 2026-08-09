@@ -3,6 +3,7 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { PillOption } from '../components/SelectableRow';
 import { Icon } from '../components/Icon';
 import { Button } from '../components/Button';
@@ -34,7 +35,7 @@ export default function Mission2EvidenceScreen({ navigation }: Props) {
   const pick = (k: VerdictM2) => pickM2Verdict(k);
 
   return (
-    <Screen colors={gradients.m2evidence} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.m2evidence} scroll>
       <View style={styles.tag}>
         <Text style={styles.tagText}>{m2.tag}</Text>
       </View>

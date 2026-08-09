@@ -120,11 +120,64 @@ desconocido + pedir secreto, plazos de presión, y "ninguna entidad real
 pide la clave completa") antes de otorgar la lupa con un botón explícito
 ("Listo, +1 lupa"). El modo práctica sigue yendo directo a Misiones.
 
+## ✅ Hecho — sesión 5 (navegación sin salida + login/registro)
+
+### 11. Ninguna pantalla tenía un botón de retorno visible
+
+Con `headerShown: false` en todo el stack y sin toolbar en la mayoría de
+las pantallas de flujo, la única forma de "volver" era el gesto nativo del
+sistema (o el botón físico en Android) — sin ninguna señal visual de que
+existiera, y ausente del todo en las pantallas presentadas como
+`transparentModal`. Se agregó:
+
+- `components/BackButton.tsx` + `navigation/goBack.ts` (`goBackOrHome`,
+  que usa `goBack()` si hay historial y cae a `Map` si no).
+- `Screen.tsx` ahora acepta `onBack` y renderiza el botón antes del resto
+  del contenido; se aplicó a las 24 pantallas que usan `Screen` (todo el
+  flujo v2, las misiones 2/3/4, y el flujo v1 nuevo), excepto `01Splash`
+  (pantalla de entrada, no tiene "atrás" real) y `25Diagnostic` (ya tenía
+  su propio botón "X" de cierre, para no duplicar).
+- Pantallas de layout propio sin `Screen` (`03NoLives.tsx` como modal con
+  botón de cierre en vez de flecha, `07Chat.tsx`, `17Tournament.tsx` —
+  esta última ni siquiera recibía `navigation` en sus props—,
+  `30Leagues.tsx`, `31Profile.tsx`) recibieron el mismo botón a mano.
+  `02Map.tsx` queda sin botón de retorno a propósito: es la pantalla
+  "home" del loop diario, igual que la pestaña de inicio en cualquier app
+  con navegación por pestañas.
+
+### 12. Pantallas de login y registro
+
+No existían. Se agregaron `33Login.tsx` y `34Register.tsx` (sin backend:
+guardan `isAuthenticated`/`userName`/`userEmail` local en el store,
+persistido) siguiendo HU-05 ("jugar sin cuenta… la cuenta solo se pide al
+entrar a ligas o torneos"):
+
+- `01Splash.tsx` → "Ya tengo cuenta" ahora navega a `Login` (antes iba
+  directo al mapa, sin pasar por ninguna pantalla de sesión).
+- Entrar a Ligas (desde el mapa, perfil o el propio hub de ligas) o al
+  Torneo (desde Misiones) redirige a `Login` si no hay sesión —
+  `navigation/gates.ts` centraliza esa regla en vez de repetirla suelta.
+  El progreso de casos nunca se bloquea: solo ligas/torneo piden cuenta.
+- `31Profile.tsx` muestra el nombre real (o "Invitado" + botón de inicio
+  de sesión) y un "Cerrar sesión" cuando hay cuenta activa, en vez del
+  nombre "Marina Q." fijo que traía el mockup.
+
+### Verificación de esta sesión
+
+`npx tsc --noEmit` limpio, diff estructural de las 4 traducciones
+(incluye el nuevo namespace `auth` y las claves nuevas de `nolives`/
+`profile`), `expo export --platform android` compiló sin errores, y se
+volvió a listar cada `navigation.navigate/replace` del árbol contra las
+rutas registradas en `RootNavigator.tsx` (ninguna apunta a una ruta
+inexistente).
+
 ## 🔜 Siguiente
 
 1. **Ligas**: `30Leagues.tsx` es una tabla estática: no hay backend de
-   puntuación real entre jugadores, ni distinción entre semanas.
-2. **HU pendientes de v3** sin pantalla propia todavía: HU-05 (jugar sin
-   cuenta), HU-06 (rol docente), HU-19 (editor de contenidos), HU-20
-   (modo práctica que no gasta lupas ni afecta la racha — hoy "práctica"
-   solo redirige a Misiones, que sí gasta progreso normal).
+   puntuación real entre jugadores, ni distinción entre semanas, ni
+   autenticación real (el login acepta cualquier correo/contraseña no
+   vacíos — es un flag local, no una cuenta verificada).
+2. **HU pendientes de v3** sin pantalla propia todavía: HU-06 (rol
+   docente), HU-19 (editor de contenidos), HU-20 (modo práctica que no
+   gasta lupas ni afecta la racha — hoy "práctica" solo redirige a
+   Misiones, que sí gasta progreso normal).

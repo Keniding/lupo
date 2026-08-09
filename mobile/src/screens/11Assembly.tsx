@@ -3,6 +3,7 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { ProgressBar } from '../components/Misc';
 import { Icon } from '../components/Icon';
@@ -20,7 +21,7 @@ export default function AssemblyScreen({ navigation }: Props) {
   const goVote = () => navigation.navigate('Vote');
 
   return (
-    <Screen colors={gradients.assembly} scroll style={{ paddingTop: 28, paddingBottom: 26 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.assembly} scroll style={{ paddingTop: 28, paddingBottom: 26 }}>
       <View style={styles.topRow}>
         <Text style={styles.kicker}>{v.asm.kicker}</Text>
         <View style={styles.timer}>

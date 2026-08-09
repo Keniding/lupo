@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { DotRow } from '../components/SelectableRow';
 import { Button } from '../components/Button';
 import { colors, gradients } from '../theme/colors';
@@ -31,7 +32,7 @@ export default function DecisionScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.decision} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.decision} scroll>
       <Text style={styles.kicker}>{v.dec.kicker}</Text>
       <Text style={styles.prompt}>{v.dec.prompt}</Text>
       <Text style={styles.tag}>{v.dec.tag}</Text>

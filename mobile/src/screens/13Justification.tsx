@@ -3,6 +3,7 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { colors, gradients } from '../theme/colors';
@@ -28,7 +29,7 @@ export default function JustificationScreen({ navigation }: Props) {
   };
 
   return (
-    <Screen colors={gradients.justification} scroll>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.justification} scroll>
       <Text style={styles.title}>{v.just.title}</Text>
       <Text style={styles.sub}>{v.just.sub}</Text>
 

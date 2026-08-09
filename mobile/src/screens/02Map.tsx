@@ -8,6 +8,7 @@ import { StatChip, IconBubble } from '../components/Misc';
 import { BottomNav } from '../components/BottomNav';
 import { Icon } from '../components/Icon';
 import { MapPath, type MapPathSegment } from '../components/MapPath';
+import { openGatedScreen } from '../navigation/gates';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -41,6 +42,7 @@ export default function MapScreen({ navigation }: Props) {
   const pp = useGameStore((s) => s.pp);
   const streak = useGameStore((s) => s.streak);
   const mission1Stars = useGameStore((s) => s.mission1Stars);
+  const isAuthenticated = useGameStore((s) => s.isAuthenticated);
 
   const openLevel = () => {
     if (hearts <= 0) {
@@ -51,7 +53,7 @@ export default function MapScreen({ navigation }: Props) {
   };
 
   const goToTab = (tab: 'map' | 'leagues' | 'practice' | 'profile') => {
-    if (tab === 'leagues') navigation.navigate('Leagues');
+    if (tab === 'leagues') openGatedScreen(navigation, isAuthenticated, 'Leagues');
     else if (tab === 'practice') navigation.navigate('Missions');
     else if (tab === 'profile') navigation.navigate('Profile');
   };

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
 import { colors, gradients } from '../theme/colors';
@@ -24,7 +25,7 @@ export default function ConsequenceScreen({ navigation }: Props) {
   const v = t.v2;
 
   return (
-    <Screen colors={gradients.consequenceBad} scroll style={{ paddingTop: 32, paddingBottom: 28 }}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.consequenceBad} scroll style={{ paddingTop: 32, paddingBottom: 28 }}>
       <View style={styles.badge}>
         <Icon name="alert" size={20} color={colors.gold} />
         <Text style={styles.badgeText}>{v.cons.badTitle}</Text>

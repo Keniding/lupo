@@ -3,6 +3,7 @@ import { View, Text, ScrollView, Pressable, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
+import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { Avatar } from '../components/Avatar';
 import { Button } from '../components/Button';
@@ -21,7 +22,7 @@ export default function LobbyScreen({ navigation }: Props) {
   const v = t.v2;
 
   return (
-    <Screen colors={gradients.lobby}>
+    <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.lobby}>
       <Text style={styles.kicker}>{v.lobby.kicker}</Text>
       <Text style={styles.name}>{v.name}</Text>
       <Text style={styles.sub}>{v.sub}</Text>
