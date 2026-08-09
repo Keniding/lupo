@@ -20,7 +20,7 @@
 | 03 | Mapa de casos (sendero) | `02Map.tsx` | Implementado | Camino rediseñado con `MapPath` (SVG); el nodo activo ahora abre el caso individual, no la partida v2. |
 | 04 | Introducción al caso | `26CaseIntro.tsx` | Implementado | |
 | 05 | Reto swipe | `27Swipe.tsx` | Implementado | Botones NO/SÍ + animación de despido de tarjeta (sin PanResponder, ver nota en el archivo). |
-| 06 | Encuentra las señales (toca la evidencia) | — | **Pendiente** | Mecánica alternativa (tap-en-email) sin caso propio todavía asignado; documentado para la siguiente iteración en vez de dejarla como pantalla sin entrada. |
+| 06 | Encuentra las señales (toca la evidencia) | `32FindSignals.tsx` | Implementado | Encadenada como segundo caso del día, después del resultado del swipe (acierto o error), antes de volver al mapa. |
 | 07 | Resultado: acierto | `28ResultCorrect.tsx` | Implementado | |
 | 08 | Resultado: error (sin castigo) | `29ResultWrong.tsx` | Implementado | Resta una lupa y explica el porqué; nunca corta el aprendizaje. |
 | 09 | Sin lupas / modo práctica | `03NoLives.tsx` | Parcial | El CTA "modo práctica libre" ahora navega a `Missions` (destino real, sin lupas de por medio). El CTA "revisar consejos" sigue siendo un atajo (rellena 1 lupa) — pendiente de contenido real. |
@@ -73,4 +73,4 @@ tramo mejor cubierto del app.
 
 - **Completo:** v2 (partida multijugador, 14/14), las misiones 2/3/4 (9/9 lógicas), y ahora también el flujo individual v1 (diagnóstico, intro de caso, swipe, resultado acierto/error, ligas, perfil).
 - **Resuelto:** el mapa ya no abre la partida v2 por error — el nodo activo abre un caso individual real, y la partida multijugador tiene su propia entrada desde Misiones. La Misión 4 (antes con candado permanente sin ningún camino para desbloquearla) ahora se abre al completar la Misión 3, y sus estrellas (`mission3Stars`/`mission4Stars`) se persisten igual que las de 1 y 2.
-- **Pendiente para la próxima iteración:** la mecánica "encuentra las señales" (v1·06, tap sobre email) sigue sin un caso propio asignado — se documenta aquí en vez de dejarla enlazada sin contenido real. El CTA "revisar consejos" de `03NoLives.tsx` sigue siendo un atajo sin pantalla de consejos detrás. Las ligas son una tabla estática (sin backend de puntuación real entre jugadores).
+- **Pendiente para la próxima iteración:** el CTA "revisar consejos" de `03NoLives.tsx` sigue siendo un atajo sin pantalla de consejos detrás. Las ligas son una tabla estática (sin backend de puntuación real entre jugadores). HU-05 (jugar sin cuenta), HU-06 (rol docente), HU-19 (editor de contenidos) y HU-20 (modo práctica que no gasta lupas) siguen sin pantalla propia.

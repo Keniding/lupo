@@ -41,7 +41,7 @@ export default function ResultCorrectScreen({ navigation }: Props) {
         <Text style={styles.whyText}>{ok.why}</Text>
       </View>
 
-      <Button label={ok.next} variant="primary" style={{ width: '100%', marginTop: 16 }} onPress={() => navigation.navigate('Map')} />
+      <Button label={ok.next} variant="primary" style={{ width: '100%', marginTop: 16 }} onPress={() => navigation.navigate('FindSignals')} />
     </Screen>
   );
 }

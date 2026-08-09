@@ -7,6 +7,7 @@ export type RootStackParamList = {
   Swipe: undefined;
   ResultCorrect: undefined;
   ResultWrong: undefined;
+  FindSignals: undefined;
   Leagues: undefined;
   Profile: undefined;
   Lobby: undefined;

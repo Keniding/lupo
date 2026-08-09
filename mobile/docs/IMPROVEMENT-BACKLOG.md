@@ -94,17 +94,28 @@ idiomas); se corrió `npx expo export --platform android`, que compiló los
 todo `navigation.navigate(...)`/`.replace(...)` del árbol apunte a una
 ruta registrada en `RootNavigator.tsx`.
 
+## ✅ Hecho — sesión 3 ("encuentra las señales" ya no queda huérfana)
+
+### 9. Mecánica de tap-en-evidencia (v1·06) conectada de punta a punta
+
+Se había documentado como pendiente explícitamente para no construirla a
+medias sin destino. Se resolvió encadenándola como el segundo caso del día:
+`27Swipe.tsx` → `28ResultCorrect.tsx`/`29ResultWrong.tsx` → nueva
+`32FindSignals.tsx` (email de "aduana" con 4 zonas tocables: remitente,
+enlace, urgencia, firma mal escrita) → vuelta al mapa. La explicación se
+revela en la misma pantalla al confirmar (mismo patrón que
+`21Mission3Verdict.tsx`), sin necesitar una pantalla de resultado aparte.
+Suma a `casesSolved`/`casesAttempted`, así que también alimenta las
+estadísticas de `31Profile.tsx`. Si el jugador se queda sin lupas en el
+swipe, sigue yendo a `NoLives` en vez de forzar el segundo caso.
+
 ## 🔜 Siguiente
 
-1. **"Encuentra las señales"** (v1·06, mecánica de tap sobre email) sigue
-   sin un caso propio asignado ni entrada en la navegación — no se
-   construyó a medias para no dejar una pantalla sin conexión real.
-   Necesita decidir primero a qué caso del catálogo pertenece.
-2. **`03NoLives.tsx` → "revisar consejos"**: sigue siendo un atajo (rellena
+1. **`03NoLives.tsx` → "revisar consejos"**: sigue siendo un atajo (rellena
    1 lupa y vuelve al mapa) sin contenido de consejos real detrás.
-3. **Ligas**: `30Leagues.tsx` es una tabla estática: no hay backend de
+2. **Ligas**: `30Leagues.tsx` es una tabla estática: no hay backend de
    puntuación real entre jugadores, ni distinción entre semanas.
-4. **HU pendientes de v3** sin pantalla propia todavía: HU-05 (jugar sin
+3. **HU pendientes de v3** sin pantalla propia todavía: HU-05 (jugar sin
    cuenta), HU-06 (rol docente), HU-19 (editor de contenidos), HU-20
    (modo práctica que no gasta lupas ni afecta la racha — hoy "práctica"
    solo redirige a Misiones, que sí gasta progreso normal).

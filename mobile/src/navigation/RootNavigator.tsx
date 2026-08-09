@@ -12,6 +12,7 @@ import ResultCorrectScreen from '../screens/28ResultCorrect';
 import ResultWrongScreen from '../screens/29ResultWrong';
 import LeaguesScreen from '../screens/30Leagues';
 import ProfileScreen from '../screens/31Profile';
+import FindSignalsScreen from '../screens/32FindSignals';
 import LobbyScreen from '../screens/04Lobby';
 import RoleDetectiveScreen from '../screens/05RoleDetective';
 import RoleHiddenScreen from '../screens/06RoleHidden';
@@ -47,6 +48,7 @@ export function RootNavigator() {
       <Stack.Screen name="Swipe" component={SwipeScreen} />
       <Stack.Screen name="ResultCorrect" component={ResultCorrectScreen} />
       <Stack.Screen name="ResultWrong" component={ResultWrongScreen} />
+      <Stack.Screen name="FindSignals" component={FindSignalsScreen} />
       <Stack.Screen name="Leagues" component={LeaguesScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Lobby" component={LobbyScreen} />

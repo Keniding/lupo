@@ -20,7 +20,7 @@ export default function ResultWrongScreen({ navigation }: Props) {
 
   const next = () => {
     if (hearts <= 0) navigation.navigate('NoLives');
-    else navigation.navigate('Map');
+    else navigation.navigate('FindSignals');
   };
 
   return (
