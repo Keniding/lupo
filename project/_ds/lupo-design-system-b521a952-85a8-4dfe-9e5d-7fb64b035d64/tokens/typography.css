@@ -1,0 +1,22 @@
+/* Lupo — Typography tokens */
+:root {
+  /* Families */
+  --font-display: 'Baloo 2', system-ui, sans-serif;   /* titles, case names, buttons, XP */
+  --font-body: 'Inter', system-ui, sans-serif;         /* reading text, descriptions, dialogue */
+  --font-evidence: 'JetBrains Mono', ui-monospace, monospace; /* URLs, senders, digital evidence */
+
+  /* Weights */
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  /* Scale — size / line-height */
+  --text-display-xl: 32px;   --leading-display-xl: 40px;
+  --text-display-l: 24px;    --leading-display-l: 32px;
+  --text-heading: 20px;      --leading-heading: 28px;
+  --text-body-size: 16px;    --leading-body: 24px;
+  --text-caption: 13px;      --leading-caption: 18px;
+  --text-min-accessible: 16px;
+}

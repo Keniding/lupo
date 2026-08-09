@@ -1,0 +1,8 @@
+/* Lupo — Radius tokens */
+:root {
+  --radius-button: 20px;
+  --radius-card: 16px;
+  --radius-polaroid: 8px;
+  --radius-modal: 24px;
+  --radius-pill: 999px;
+}

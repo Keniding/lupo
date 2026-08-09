@@ -1,0 +1,42 @@
+/* Lupo — Color tokens */
+:root {
+  /* Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F4F7FB;
+  --bg-corkboard: #EFE6D8;
+
+  /* Brand */
+  --brand-primary: #3457D5;
+  --brand-primary-dark: #233E9E;
+
+  /* Semantic / gamification */
+  --alert-phishing: #FF5A5F;
+  --verified-success: #00C48C;
+  --xp-gold: #FFC93C;
+  --streak-fire: #FF8C42;
+  --hearts-life: #FF4D6D;
+  --border-thread-red: #D62839;
+  --suspicious-amber: #F5A623;
+
+  /* Text */
+  --text-primary: #1A1A2E;
+  --text-secondary: #6B7280;
+  --text-inverse: #FFFFFF;
+
+  /* States */
+  --disabled: #D1D5DB;
+
+  /* Semantic aliases */
+  --surface-page: var(--bg-primary);
+  --surface-sunken: var(--bg-secondary);
+  --surface-board: var(--bg-corkboard);
+  --surface-card: var(--bg-primary);
+  --text-body: var(--text-primary);
+  --text-muted: var(--text-secondary);
+  --text-on-brand: var(--text-inverse);
+  --action-primary: var(--brand-primary);
+  --action-primary-hover: var(--brand-primary-dark);
+  --focus-ring: var(--brand-primary);
+  --border-subtle: #E6E9F0;
+  --border-hairline: rgba(26, 26, 46, 0.10);
+}

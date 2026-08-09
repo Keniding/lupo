@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/lupo-design-system-b521a952-85a8-4dfe-9e5d-7fb64b035d64/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/lupo-design-system-b521a952-85a8-4dfe-9e5d-7fb64b035d64/tokens/typography.css">
+<script src="i18n.js"></script>
+<script src="i18n-v2.js"></script>
+<script src="i18n-missions.js"></script>
+<script src="_ds/lupo-design-system-b521a952-85a8-4dfe-9e5d-7fb64b035d64/_ds_bundle.js"></script>
+<script>window.L = window.LupoDesignSystem_b521a9;</script>
+<style>
+body{margin:0;background:#0E1B44;font-family:'Inter',system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+a{color:#FFC93C;text-decoration:none}a:hover{color:#E8952A}
+.dv-turn{padding:44px 46px 36px;border-bottom:1px solid rgba(255,255,255,.12)}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 22px;flex-wrap:wrap}
+.dv-tid{font:700 10px ui-monospace,Menlo,monospace;padding:4px 8px;background:#FFC93C;color:#1B2E6B;border-radius:5px;text-decoration:none}
+.dv-tname{font:700 14px/1.2 'Baloo 2',sans-serif;color:#fff}
+.dv-opts{display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:11px}
+.dv-oid{font:700 10.5px ui-monospace,Menlo,monospace;padding:4px 8px;background:rgba(255,255,255,.14);color:#fff;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:9px;font:600 12px/1.3 'Inter',sans-serif;color:rgba(255,255,255,.65)}
+.scr{width:390px;height:844px;border-radius:30px;overflow:hidden;box-shadow:0 12px 36px rgba(10,26,74,.55);position:relative;display:flex;flex-direction:column;box-sizing:border-box}
+.cap{font:600 11px/1.3 'Inter',sans-serif;color:rgba(255,255,255,.5)}
+@keyframes v4pop{0%{transform:scale(2.4) rotate(-9deg);opacity:0}60%{transform:scale(.92) rotate(-9deg);opacity:1}100%{transform:scale(1) rotate(-9deg);opacity:1}}
+@keyframes v4float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes v4glow{0%,100%{box-shadow:0 0 0 0 rgba(224,57,155,.55)}50%{box-shadow:0 0 0 14px rgba(224,57,155,0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t4">
+<div class="dv-thd">
+  <a class="dv-tid" href="#t4">4</a>
+  <span class="dv-tname">v4 · Rebranding infantil — paleta candy sobre azul profundo</span>
+  <span style="display:flex;gap:6px;margin-left:14px">
+    <sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
+      <span onClick="{{ l.pick }}" style="position:relative;cursor:pointer;font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:.5px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff">{{ l.label }}<sc-if value="{{ l.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border-radius:999px;background:#FFC93C;box-shadow:0 3px 0 #E8952A"></span><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#1B2E6B">{{ l.label }}</span></sc-if></span>
+    </sc-for>
+  </span>
+  <span style="font:400 11px/1.3 'Inter',sans-serif;color:rgba(255,255,255,.45)">Mismo producto y mismos textos; cambia el mundo visual. Las versiones anteriores siguen en su archivo.</span>
+</div>
+
+<div class="dv-opts">
+<div class="dv-opt" id="4a">
+<div class="dv-olabel"><a class="dv-oid" href="#4a">4a</a>Pantallas — entrada, mapa y partida</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;max-width:2600px">
+
+<!-- 01 Splash -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">01 · Portada</div>
+<div class="scr" style="background:linear-gradient(170deg,#4A7FD6,#1B2E6B);align-items:center;padding:60px 26px 34px">
+  <div style="position:absolute;top:-60px;left:-40px;width:230px;height:230px;border-radius:999px;background:rgba(127,179,240,.28)"></div>
+  <div style="position:absolute;bottom:170px;right:-60px;width:190px;height:190px;border-radius:999px;background:rgba(224,57,155,.18)"></div>
+  <div style="position:relative;font:800 54px/1 'Baloo 2',sans-serif;color:#FFC93C;text-shadow:0 4px 0 #E8952A,0 8px 0 rgba(10,26,74,.6);letter-spacing:1px;transform:rotate(-3deg)">LUPO</div>
+  <div style="position:relative;margin-top:14px;font:700 15px/1 'Baloo 2',sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:#fff;text-shadow:0 2px 0 rgba(10,26,74,.8)">{{ t.tagline }}</div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;width:100%">
+    <div style="width:220px;height:220px;border-radius:999px;background:rgba(255,255,255,.12);border:4px dashed rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:v4float 5s ease-in-out infinite">
+      <x-import component-from-global-scope="L.Icon" name="search" size="54" color="#FFC93C" hint-size="54px,54px"></x-import>
+      <span style="font:600 12px/1.4 'Inter',sans-serif;color:rgba(255,255,255,.7);text-align:center;padding:0 26px">Mascota Lupo (arte pendiente)</span>
+    </div>
+  </div>
+  <div style="position:relative;width:100%;display:flex;flex-direction:column;gap:14px">
+    <div style="background:#4CC93B;color:#fff;font:800 20px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.22);cursor:pointer;min-height:48px;box-sizing:border-box">{{ t.ob.cta }}</div>
+    <div style="background:rgba(255,255,255,.14);color:#fff;font:700 17px/1 'Baloo 2',sans-serif;text-align:center;padding:17px;border-radius:999px;cursor:pointer;min-height:48px;box-sizing:border-box">{{ t.ob.login }}</div>
+    <div style="display:flex;gap:8px;justify-content:center;margin-top:2px">
+      <sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
+        <span onClick="{{ l.pick }}" style="position:relative;cursor:pointer;font:800 13px/1 'Baloo 2',sans-serif;padding:11px 14px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;min-width:44px;text-align:center">{{ l.label }}<sc-if value="{{ l.on }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border-radius:999px;background:#FFC93C;box-shadow:0 3px 0 #E8952A"></span><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#1B2E6B">{{ l.label }}</span></sc-if></span>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 02 Mapa de niveles -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">02 · Mapa de niveles</div>
+<div class="scr" style="background:linear-gradient(170deg,#4A7FD6,#2B4FA0)">
+  <div style="display:flex;align-items:center;gap:10px;padding:16px 16px 12px;background:rgba(10,26,74,.35)">
+    <span style="display:flex;align-items:center;gap:6px;background:rgba(10,26,74,.55);border:2px solid #FFC93C;border-radius:999px;padding:7px 12px;font:800 15px/1 'Baloo 2',sans-serif;color:#fff"><x-import component-from-global-scope="L.Icon" name="heart" size="17" color="#E8483A" hint-size="17px,17px"></x-import>5</span>
+    <span style="display:flex;align-items:center;gap:6px;background:rgba(10,26,74,.55);border:2px solid #FFC93C;border-radius:999px;padding:7px 12px;font:800 15px/1 'Baloo 2',sans-serif;color:#fff"><span style="width:16px;height:16px;border-radius:999px;background:#FFC93C;box-shadow:inset 0 -2px 0 #E8952A"></span>505</span>
+    <span style="display:flex;align-items:center;gap:6px;background:rgba(10,26,74,.55);border:2px solid #FFC93C;border-radius:999px;padding:7px 12px;font:800 15px/1 'Baloo 2',sans-serif;color:#fff"><x-import component-from-global-scope="L.Icon" name="flame" size="17" color="#FF8C42" hint-size="17px,17px"></x-import>7</span>
+    <span style="margin-left:auto;width:38px;height:38px;border-radius:999px;background:#E8483A;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 rgba(10,26,74,.5);cursor:pointer"><x-import component-from-global-scope="L.Icon" name="user" size="19" color="#fff" hint-size="19px,19px"></x-import></span>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:18px 0 22px;display:flex;flex-direction:column;align-items:center;gap:0">
+    <div style="width:calc(100% - 32px);background:rgba(10,26,74,.4);border:3px solid rgba(255,255,255,.25);border-radius:18px;padding:14px 16px;box-sizing:border-box;display:flex;gap:12px;align-items:center;margin-bottom:14px">
+      <span style="width:40px;height:40px;border-radius:999px;background:#2FC6B0;display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="L.Icon" name="search" size="20" color="#fff" hint-size="20px,20px"></x-import></span>
+      <span style="font:600 13px/19px 'Inter',sans-serif;color:#fff">{{ t.map.tip }}</span>
+    </div>
+    <div style="transform:translateX(-72px)">
+      <div style="width:78px;height:78px;border-radius:999px;background:#4CC93B;box-shadow:0 6px 0 #2E9E20;display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="L.Icon" name="check" size="34" color="#fff" hint-size="34px,34px"></x-import></div>
+      <div style="display:flex;gap:3px;justify-content:center;margin-top:6px">
+        <x-import component-from-global-scope="L.Icon" name="star" size="15" color="#FFC93C" hint-size="15px,15px"></x-import>
+        <x-import component-from-global-scope="L.Icon" name="star" size="15" color="#FFC93C" hint-size="15px,15px"></x-import>
+        <x-import component-from-global-scope="L.Icon" name="star" size="15" color="#FFC93C" hint-size="15px,15px"></x-import>
+      </div>
+    </div>
+    <div style="width:5px;height:34px;border-radius:999px;background:rgba(255,255,255,.28);margin:2px 0;transform:translateX(-40px)"></div>
+    <div style="transform:translateX(8px)">
+      <div style="width:78px;height:78px;border-radius:999px;background:#4CC93B;box-shadow:0 6px 0 #2E9E20;display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="L.Icon" name="check" size="34" color="#fff" hint-size="34px,34px"></x-import></div>
+      <div style="display:flex;gap:3px;justify-content:center;margin-top:6px">
+        <x-import component-from-global-scope="L.Icon" name="star" size="15" color="#FFC93C" hint-size="15px,15px"></x-import>
+        <x-import component-from-global-scope="L.Icon" name="star" size="15" color="#FFC93C" hint-size="15px,15px"></x-import>
+        <x-import component-from-global-scope="L.Icon" name="star" size="15" color="#C9CFE0" hint-size="15px,15px"></x-import>
+      </div>
+    </div>
+    <div style="width:5px;height:34px;border-radius:999px;background:rgba(255,255,255,.28);margin:2px 0;transform:translateX(46px)"></div>
+    <div style="position:relative;transform:translateX(66px);margin-bottom:26px">
+      <div style="width:96px;height:96px;border-radius:999px;background:#FFC93C;box-shadow:0 7px 0 #E8952A;display:flex;align-items:center;justify-content:center;animation:v4glow 2.4s ease-out infinite">
+        <span style="font:800 34px/1 'Baloo 2',sans-serif;color:#1B2E6B">14</span>
+      </div>
+      <div style="position:absolute;left:50%;top:-34px;transform:translateX(-50%);background:#fff;color:#1B2E6B;font:800 12px/1 'Baloo 2',sans-serif;padding:8px 13px;border-radius:999px;white-space:nowrap;box-shadow:0 3px 0 rgba(10,26,74,.25)">{{ t.map.investigate }}</div>
+    </div>
+    <div style="width:calc(100% - 32px);display:flex;align-items:center;gap:10px;margin:6px 0 16px">
+      <span style="flex:1;height:4px;border-radius:999px;background:rgba(255,255,255,.25)"></span>
+      <span style="background:#7B3FE4;color:#fff;font:800 12px/1 'Baloo 2',sans-serif;padding:9px 15px;border-radius:999px;box-shadow:0 3px 0 rgba(10,26,74,.4)">{{ t.map.unitNext }}</span>
+      <span style="flex:1;height:4px;border-radius:999px;background:rgba(255,255,255,.25)"></span>
+    </div>
+    <div style="display:flex;gap:30px;align-items:center">
+      <div style="position:relative;width:74px;height:74px;border-radius:999px;background:#8A93A8;box-shadow:0 5px 0 rgba(10,26,74,.45);display:flex;align-items:center;justify-content:center">
+        <x-import component-from-global-scope="L.Icon" name="lock" size="28" color="rgba(255,255,255,.85)" hint-size="28px,28px"></x-import>
+        <span style="position:absolute;bottom:-9px;background:rgba(10,26,74,.85);color:#fff;font:800 10px/1 'Baloo 2',sans-serif;padding:5px 9px;border-radius:999px;white-space:nowrap">Nivel 16</span>
+      </div>
+      <div style="width:82px;height:82px;border-radius:20px;background:linear-gradient(160deg,#FFE07A,#FFC93C);box-shadow:0 6px 0 #E8952A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;transform:rotate(5deg)">
+        <x-import component-from-global-scope="L.Icon" name="trophy" size="26" color="#7A4A00" hint-size="26px,26px"></x-import>
+        <span style="font:800 9.5px/1.1 'Baloo 2',sans-serif;color:#7A4A00;text-align:center;padding:0 6px">{{ t.map.chest }}</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:9px 10px 18px;background:rgba(10,26,74,.55)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 0;min-height:48px;box-sizing:border-box;border-radius:14px;background:rgba(255,201,60,.22);color:#FFC93C"><x-import component-from-global-scope="L.Icon" name="map" size="23" hint-size="23px,23px"></x-import><span style="font:700 11px/1 'Baloo 2',sans-serif">{{ t.nav.map }}</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 0;min-height:48px;box-sizing:border-box;color:rgba(255,255,255,.65)"><x-import component-from-global-scope="L.Icon" name="trophy" size="23" hint-size="23px,23px"></x-import><span style="font:600 11px/1 'Baloo 2',sans-serif">{{ t.nav.leagues }}</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 0;min-height:48px;box-sizing:border-box;color:rgba(255,255,255,.65)"><x-import component-from-global-scope="L.Icon" name="dumbbell" size="23" hint-size="23px,23px"></x-import><span style="font:600 11px/1 'Baloo 2',sans-serif">{{ t.nav.practice }}</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 0;min-height:48px;box-sizing:border-box;color:rgba(255,255,255,.65)"><x-import component-from-global-scope="L.Icon" name="user" size="23" hint-size="23px,23px"></x-import><span style="font:600 11px/1 'Baloo 2',sans-serif">{{ t.nav.profile }}</span></div>
+  </div>
+</div>
+</div>
+
+<!-- 03 Sin vidas -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">03 · Sin vidas</div>
+<div class="scr" style="background:linear-gradient(170deg,#4A7FD6,#1B2E6B);justify-content:flex-end">
+  <div style="position:absolute;inset:0;background:rgba(10,26,74,.5)"></div>
+  <div style="position:relative;background:#F5F8FF;border-top:5px solid #fff;border-radius:28px 28px 30px 30px;padding:18px 24px 30px;display:flex;flex-direction:column;align-items:center;gap:14px;color:#1B2E6B">
+    <div style="width:46px;height:5px;border-radius:999px;background:#C9CFE0"></div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <x-import component-from-global-scope="L.Icon" name="heart" size="34" color="#C9CFE0" hint-size="34px,34px"></x-import>
+      <x-import component-from-global-scope="L.Icon" name="heart" size="34" color="#C9CFE0" hint-size="34px,34px"></x-import>
+      <x-import component-from-global-scope="L.Icon" name="heart" size="34" color="#C9CFE0" hint-size="34px,34px"></x-import>
+      <x-import component-from-global-scope="L.Icon" name="heart" size="34" color="#C9CFE0" hint-size="34px,34px"></x-import>
+      <x-import component-from-global-scope="L.Icon" name="heart" size="34" color="#C9CFE0" hint-size="34px,34px"></x-import>
+    </div>
+    <div style="font:800 26px/33px 'Baloo 2',sans-serif;text-align:center">{{ t.nolives.title }}</div>
+    <div style="font:400 15px/23px 'Inter',sans-serif;color:#5B6480;text-align:center;text-wrap:pretty">{{ t.nolives.body }}</div>
+    <div style="display:flex;align-items:center;gap:8px;background:#E6ECFA;border-radius:999px;padding:11px 18px;font:700 13px/1 'Baloo 2',sans-serif;color:#3C4766">
+      <x-import component-from-global-scope="L.Icon" name="clock" size="17" hint-size="17px,17px"></x-import>{{ t.nolives.regen }}
+    </div>
+    <div style="width:100%;background:#4CC93B;color:#fff;font:800 18px/1 'Baloo 2',sans-serif;text-align:center;padding:19px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;box-sizing:border-box;min-height:48px">{{ t.nolives.cta1 }}</div>
+    <div style="width:100%;background:#3FA9F5;color:#fff;font:800 18px/1 'Baloo 2',sans-serif;text-align:center;padding:19px;border-radius:999px;box-shadow:0 6px 0 #2379B8;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;box-sizing:border-box;min-height:48px">{{ t.nolives.cta2 }}</div>
+  </div>
+</div>
+</div>
+
+<!-- 04 Sala -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">04 · Sala de partida</div>
+<div class="scr" style="background:linear-gradient(170deg,#2B4FA0,#1B2E6B);padding:26px 20px 26px">
+  <div style="font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:2.2px;text-transform:uppercase;color:#FFC93C">{{ v.lobby.kicker }}</div>
+  <div style="font:800 30px/37px 'Baloo 2',sans-serif;margin-top:8px;text-shadow:0 3px 0 rgba(10,26,74,.7);text-wrap:pretty">{{ v.name }}</div>
+  <div style="font:400 14px/21px 'Inter',sans-serif;color:rgba(255,255,255,.72);margin-top:6px">{{ v.sub }}</div>
+  <div style="align-self:flex-start;margin-top:12px;background:#FFC93C;color:#1B2E6B;font:800 14px/1 'Baloo 2',sans-serif;padding:11px 17px;border-radius:999px;box-shadow:0 4px 0 #E8952A">{{ v.lobby.code }}</div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin:18px 0 10px">
+    <span style="font:800 17px/1 'Baloo 2',sans-serif">{{ v.lobby.players }}</span>
+    <span style="font:700 14px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.6)">6 / 10</span>
+  </div>
+  <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:9px">
+    <div style="display:flex;align-items:center;gap:12px;background:#F5F8FF;border:3px solid #fff;border-radius:16px;padding:11px 13px;color:#1B2E6B"><span style="width:38px;height:38px;border-radius:999px;background:#3FA9F5;color:#fff;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Baloo 2',sans-serif">L</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Laura</span><span style="font:800 12px/1 'Baloo 2',sans-serif;color:#2E9E20">{{ v.lobby.ready }}</span></div>
+    <div style="display:flex;align-items:center;gap:12px;background:#F5F8FF;border:3px solid #fff;border-radius:16px;padding:11px 13px;color:#1B2E6B"><span style="width:38px;height:38px;border-radius:999px;background:#7B3FE4;color:#fff;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Baloo 2',sans-serif">M</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Mateo</span><span style="font:800 12px/1 'Baloo 2',sans-serif;color:#2E9E20">{{ v.lobby.ready }}</span></div>
+    <div style="display:flex;align-items:center;gap:12px;background:#F5F8FF;border:3px solid #fff;border-radius:16px;padding:11px 13px;color:#1B2E6B"><span style="width:38px;height:38px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Baloo 2',sans-serif">S</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Sofía</span><span style="font:800 12px/1 'Baloo 2',sans-serif;color:#2E9E20">{{ v.lobby.ready }}</span></div>
+    <div style="display:flex;align-items:center;gap:12px;background:#F5F8FF;border:3px solid #fff;border-radius:16px;padding:11px 13px;color:#1B2E6B"><span style="width:38px;height:38px;border-radius:999px;background:#E8952A;color:#fff;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Baloo 2',sans-serif">D</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Diego</span><span style="font:800 12px/1 'Baloo 2',sans-serif;color:#8A93A8">{{ v.lobby.waiting }}</span></div>
+    <div style="display:flex;align-items:center;gap:12px;background:#F5F8FF;border:3px solid #fff;border-radius:16px;padding:11px 13px;color:#1B2E6B"><span style="width:38px;height:38px;border-radius:999px;background:#E0399B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Baloo 2',sans-serif">V</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Valentina</span><span style="font:800 12px/1 'Baloo 2',sans-serif;color:#2E9E20">{{ v.lobby.ready }}</span></div>
+    <div style="display:flex;align-items:center;gap:12px;background:#F5F8FF;border:3px solid #fff;border-radius:16px;padding:11px 13px;color:#1B2E6B"><span style="width:38px;height:38px;border-radius:999px;background:#2FC6B0;color:#fff;display:flex;align-items:center;justify-content:center;font:800 15px/1 'Baloo 2',sans-serif">A</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Alex</span><span style="font:800 12px/1 'Baloo 2',sans-serif;color:#2E9E20">{{ v.lobby.ready }}</span></div>
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(255,201,60,.16);border:2px solid rgba(255,201,60,.5);border-radius:16px;padding:13px;margin-top:4px">
+      <x-import component-from-global-scope="L.Icon" name="target" size="19" color="#FFC93C" hint-size="19px,19px"></x-import>
+      <span style="flex:1;font:600 13px/1.3 'Inter',sans-serif;color:rgba(255,255,255,.8)">{{ v.lobby.level }}</span>
+      <span style="font:800 14px/1 'Baloo 2',sans-serif;color:#FFC93C">{{ v.lobby.lv }}</span>
+    </div>
+  </div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;margin-top:14px;min-height:48px;box-sizing:border-box">{{ v.lobby.start }}</div>
+</div>
+</div>
+
+<!-- 05 Rol detective -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">05 · Tu rol: detective</div>
+<div class="scr" style="background:linear-gradient(170deg,#3FA9F5,#1B2E6B);padding:32px 24px 28px;align-items:center">
+  <div style="font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:2.2px;text-transform:uppercase;color:#FFC93C">{{ v.role.kicker }}</div>
+  <div style="width:100%;background:#F5F8FF;border:4px solid #fff;border-radius:22px;box-shadow:0 6px 0 rgba(10,26,74,.35);padding:22px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:11px;color:#1B2E6B;margin-top:18px">
+    <div style="width:80px;height:80px;border-radius:999px;background:#3FA9F5;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 0 #2379B8"><x-import component-from-global-scope="L.Icon" name="search" size="36" color="#fff" hint-size="36px,36px"></x-import></div>
+    <div style="font:800 26px/1 'Baloo 2',sans-serif;letter-spacing:2px;color:#3FA9F5">{{ v.role.det }}</div>
+    <div style="font:400 15px/23px 'Inter',sans-serif;color:#5B6480;text-align:center;text-wrap:pretty">{{ v.role.detDesc }}</div>
+  </div>
+  <div style="width:100%;background:#fff;border-radius:20px;box-shadow:0 6px 0 rgba(10,26,74,.3);padding:18px;box-sizing:border-box;margin-top:16px;color:#1B2E6B;display:flex;flex-direction:column;gap:13px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="width:48px;height:48px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 19px/1 'Baloo 2',sans-serif">S</span>
+      <span style="font:800 20px/1 'Baloo 2',sans-serif">Sofía</span>
+      <span style="margin-left:auto;font:700 11px/1 'Baloo 2',sans-serif;color:#8A93A8;letter-spacing:1.2px;text-transform:uppercase">{{ v.role.card }}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:9px 14px;font:400 15px/1.4 'Inter',sans-serif">
+      <span style="color:#8A93A8">{{ v.role.age }}</span><span style="font-weight:700">11</span>
+      <span style="color:#8A93A8">{{ v.role.hobby }}</span><span style="font-weight:700">Dibujar</span>
+      <span style="color:#8A93A8">{{ v.role.city }}</span><span style="font-weight:700">Lima</span>
+      <span style="color:#8A93A8">{{ v.role.game }}</span><span style="font-weight:700">Roblox</span>
+    </div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="width:100%;background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;box-sizing:border-box;min-height:48px">{{ v.role.got }}</div>
+</div>
+</div>
+
+<!-- 06 Rol perfil oculto -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">06 · Perfil oculto (guiado por el sistema)</div>
+<div class="scr" style="background:linear-gradient(170deg,#7B3FE4,#1B2E6B);padding:32px 24px 28px">
+  <div style="font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:2.2px;text-transform:uppercase;color:#FFC93C">{{ v.role.kicker }}</div>
+  <div style="display:flex;align-items:center;gap:14px;margin-top:16px">
+    <span style="width:66px;height:66px;border-radius:999px;background:rgba(255,255,255,.14);border:3px dashed rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="L.Icon" name="fingerprint" size="30" color="#FFC93C" hint-size="30px,30px"></x-import></span>
+    <span style="font:800 26px/1 'Baloo 2',sans-serif;letter-spacing:1.5px;color:#FFC93C;text-shadow:0 3px 0 rgba(10,26,74,.6)">{{ v.role.imp }}</span>
+  </div>
+  <div style="font:400 16px/25px 'Inter',sans-serif;color:rgba(255,255,255,.78);margin-top:14px;text-wrap:pretty">{{ v.role.impDesc }}</div>
+  <div style="background:rgba(10,26,74,.4);border-radius:20px;padding:18px;margin-top:16px;display:flex;flex-direction:column;gap:11px">
+    <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.55)">{{ v.chat.ask }}</div>
+    <div style="background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;font:600 15px/22px 'Inter',sans-serif">A. Cambiar de tema</div>
+    <div style="background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;font:600 15px/22px 'Inter',sans-serif">B. Hacer una pregunta normal</div>
+    <div style="background:#FFC93C;color:#1B2E6B;border-radius:14px;padding:14px;font:700 15px/22px 'Inter',sans-serif;box-shadow:0 4px 0 #E8952A">C. Conducta de riesgo diseñada por el juego</div>
+  </div>
+  <div style="display:flex;gap:12px;align-items:flex-start;background:rgba(76,201,59,.18);border:2px solid rgba(76,201,59,.5);border-radius:18px;padding:15px;margin-top:14px">
+    <x-import component-from-global-scope="L.Icon" name="shield" size="21" color="#4CC93B" hint-size="21px,21px"></x-import>
+    <div style="font:400 14px/21px 'Inter',sans-serif;color:rgba(255,255,255,.8);text-wrap:pretty">Nadie escribe sus propias mentiras: el juego controla qué situaciones educativas aparecen.</div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="background:#FFC93C;color:#1B2E6B;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #E8952A;cursor:pointer;min-height:48px;box-sizing:border-box">{{ v.role.got }}</div>
+</div>
+</div>
+
+<!-- 07 Chat -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">07 · Sala de conversación</div>
+<div class="scr" style="background:#E6ECFA;color:#1B2E6B">
+  <div style="background:linear-gradient(160deg,#3FA9F5,#2B4FA0);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px">
+    <span style="width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font:800 15px/1 'Baloo 2',sans-serif">6</span>
+    <span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:800 17px/1 'Baloo 2',sans-serif">{{ v.chat.room }}</span><span style="font:400 12px/1 'Inter',sans-serif;opacity:.8">{{ v.chat.members }}</span></span>
+    <span style="font:800 11px/1 'Baloo 2',sans-serif;background:#FFC93C;color:#1B2E6B;padding:8px 11px;border-radius:999px">{{ v.chat.phase }}</span>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px">
+    <div style="align-self:flex-start;max-width:80%;display:flex;flex-direction:column;gap:4px">
+      <span style="font:700 11px/1 'Baloo 2',sans-serif;color:#8A93A8;padding-left:4px">Mateo</span>
+      <span style="background:#fff;border-radius:6px 18px 18px 18px;padding:12px 14px;box-shadow:0 3px 0 rgba(10,26,74,.1);font:400 15px/22px 'Inter',sans-serif">¡Hola! A mí también me gustan los videojuegos 🎮</span>
+    </div>
+    <div style="align-self:flex-start;max-width:82%;display:flex;flex-direction:column;gap:4px">
+      <span style="font:700 11px/1 'Baloo 2',sans-serif;color:#8A93A8;padding-left:4px">Alex</span>
+      <span style="background:#fff;border-radius:6px 18px 18px 18px;padding:12px 14px;box-shadow:0 3px 0 rgba(10,26,74,.1);font:400 15px/22px 'Inter',sans-serif">Yo tengo 10 años. Cuando estaba en la universidad jugaba mucho a eso.</span>
+    </div>
+    <div style="align-self:flex-end;max-width:78%;background:#4CC93B;color:#fff;border-radius:18px 6px 18px 18px;padding:12px 14px;font:400 15px/22px 'Inter',sans-serif;box-shadow:0 3px 0 #2E9E20">¿Qué juego te gusta más?</div>
+    <div style="align-self:flex-start;max-width:82%;display:flex;flex-direction:column;gap:4px">
+      <span style="font:700 11px/1 'Baloo 2',sans-serif;color:#8A93A8;padding-left:4px">Alex</span>
+      <span style="background:#fff;border-radius:6px 18px 18px 18px;padding:12px 14px;box-shadow:0 3px 0 rgba(10,26,74,.1);font:400 15px/22px 'Inter',sans-serif">Dime primero dónde estudias tú 😊</span>
+    </div>
+    <div style="align-self:flex-start;max-width:82%;display:flex;flex-direction:column;gap:4px">
+      <span style="font:700 11px/1 'Baloo 2',sans-serif;color:#8A93A8;padding-left:4px">Alex</span>
+      <span style="background:#fff;border-radius:6px 18px 18px 18px;padding:12px 14px;box-shadow:0 3px 0 rgba(10,26,74,.1);font:400 15px/22px 'Inter',sans-serif">No le digas a los demás que hablamos.</span>
+    </div>
+    <div style="align-self:flex-start;font:500 13px/1 'Inter',sans-serif;color:#8A93A8;padding-left:6px">{{ v.chat.typing }}</div>
+  </div>
+  <div style="background:#fff;padding:14px 16px 22px;display:flex;flex-direction:column;gap:10px">
+    <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#8A93A8">{{ v.chat.ask }}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span style="background:#E6ECFA;border-radius:999px;padding:12px 16px;font:600 13px/1 'Inter',sans-serif;cursor:pointer;min-height:44px;display:flex;align-items:center">{{ v.chat.q1 }}</span>
+      <span style="background:#E6ECFA;border-radius:999px;padding:12px 16px;font:600 13px/1 'Inter',sans-serif;cursor:pointer;min-height:44px;display:flex;align-items:center">{{ v.chat.q2 }}</span>
+      <span style="background:#E6ECFA;border-radius:999px;padding:12px 16px;font:600 13px/1 'Inter',sans-serif;cursor:pointer;min-height:44px;display:flex;align-items:center">{{ v.chat.q3 }}</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 08 Decisión -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">08 · Decisión — toca una opción</div>
+<div class="scr" style="background:linear-gradient(170deg,#2B4FA0,#1B2E6B);padding:28px 22px 28px">
+  <div style="font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:1.8px;text-transform:uppercase;color:#FFC93C">{{ v.dec.kicker }}</div>
+  <div style="font:800 25px/33px 'Baloo 2',sans-serif;margin-top:10px;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ v.dec.prompt }}</div>
+  <div style="font:400 14px/21px 'Inter',sans-serif;color:rgba(255,255,255,.65);margin-top:8px">{{ v.dec.tag }}</div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-top:18px">
+    <div onClick="{{ decPick.a }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:17px;box-shadow:0 5px 0 rgba(10,26,74,.35);min-height:48px;box-sizing:border-box"><span style="width:15px;height:15px;border-radius:999px;background:#E8483A;flex:none"></span><span style="font:600 15px/22px 'Inter',sans-serif">{{ v.dec.a }}</span><sc-if value="{{ decOn.a }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #E8483A;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ decPick.b }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:17px;box-shadow:0 5px 0 rgba(10,26,74,.35);min-height:48px;box-sizing:border-box"><span style="width:15px;height:15px;border-radius:999px;background:#FFC93C;flex:none"></span><span style="font:600 15px/22px 'Inter',sans-serif">{{ v.dec.b }}</span><sc-if value="{{ decOn.b }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ decPick.c }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:17px;box-shadow:0 5px 0 rgba(10,26,74,.35);min-height:48px;box-sizing:border-box"><span style="width:15px;height:15px;border-radius:999px;background:#4CC93B;flex:none"></span><span style="font:600 15px/22px 'Inter',sans-serif">{{ v.dec.c }}</span><sc-if value="{{ decOn.c }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:18px"></span></sc-if></div>
+  </div>
+  <sc-if value="{{ decOn.a }}" hint-placeholder-val="{{ false }}">
+    <div style="background:rgba(232,72,58,.2);border:2px solid rgba(232,72,58,.6);border-radius:18px;padding:17px;margin-top:16px;display:flex;flex-direction:column;gap:8px">
+      <div style="font:800 15px/1 'Baloo 2',sans-serif;color:#FF9E96">{{ v.cons.badTitle }}</div>
+      <div style="font:400 15px/23px 'Inter',sans-serif;text-wrap:pretty">{{ v.cons.bad }}</div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ decOn.c }}" hint-placeholder-val="{{ false }}">
+    <div style="background:rgba(76,201,59,.2);border:2px solid rgba(76,201,59,.6);border-radius:18px;padding:17px;margin-top:16px;display:flex;flex-direction:column;gap:8px">
+      <div style="font:800 15px/1 'Baloo 2',sans-serif;color:#9BE88E">{{ v.cons.goodTitle }}</div>
+      <div style="font:400 15px/23px 'Inter',sans-serif;text-wrap:pretty">{{ v.cons.good }}</div>
+      <div style="font:800 14px/1 'Baloo 2',sans-serif;color:#FFC93C">{{ v.cons.pts }}</div>
+    </div>
+  </sc-if>
+  <div style="flex:1"></div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;min-height:48px;box-sizing:border-box">{{ v.cons.next }}</div>
+</div>
+</div>
+
+<!-- 09 Consecuencia -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">09 · Consecuencia y patrón</div>
+<div class="scr" style="background:linear-gradient(170deg,#E8483A,#1B2E6B);padding:32px 22px 28px">
+  <div style="align-self:flex-start;display:flex;align-items:center;gap:10px;background:rgba(10,26,74,.5);border:2px solid rgba(255,255,255,.35);padding:12px 18px;border-radius:999px;font:800 15px/1 'Baloo 2',sans-serif">
+    <x-import component-from-global-scope="L.Icon" name="alert" size="20" color="#FFC93C" hint-size="20px,20px"></x-import>{{ v.cons.badTitle }}
+  </div>
+  <div style="font:800 25px/33px 'Baloo 2',sans-serif;margin-top:16px;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ v.cons.bad }}</div>
+  <div style="background:#F5F8FF;color:#1B2E6B;border-radius:20px;padding:18px;margin-top:18px;display:flex;flex-direction:column;gap:12px;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+    <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#8A93A8">Patrón del catfishing</div>
+    <div style="display:flex;align-items:center;gap:11px"><span style="width:28px;height:28px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">1</span><span style="font:600 15px/1.3 'Inter',sans-serif">Confianza</span></div>
+    <div style="display:flex;align-items:center;gap:11px"><span style="width:28px;height:28px;border-radius:999px;background:#FFC93C;color:#1B2E6B;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">2</span><span style="font:600 15px/1.3 'Inter',sans-serif">Recopilación de información</span></div>
+    <div style="display:flex;align-items:center;gap:11px"><span style="width:28px;height:28px;border-radius:999px;background:#E8952A;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">3</span><span style="font:700 15px/1.3 'Inter',sans-serif">Secreto</span></div>
+    <div style="display:flex;align-items:center;gap:11px"><span style="width:28px;height:28px;border-radius:999px;background:#E0399B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">4</span><span style="font:600 15px/1.3 'Inter',sans-serif">Presión</span></div>
+    <div style="display:flex;align-items:center;gap:11px"><span style="width:28px;height:28px;border-radius:999px;background:#E8483A;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">5</span><span style="font:600 15px/1.3 'Inter',sans-serif">Riesgo</span></div>
+  </div>
+  <div style="background:rgba(10,26,74,.4);border-radius:18px;padding:16px;margin-top:14px;font:400 15px/23px 'Inter',sans-serif;text-wrap:pretty">Ahora vas por la fase <b>3</b>. Observa si alguien intenta aislar la conversación.</div>
+  <div style="flex:1"></div>
+  <div style="background:#FFC93C;color:#1B2E6B;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #E8952A;cursor:pointer;min-height:48px;box-sizing:border-box">{{ v.cons.next }}</div>
+</div>
+</div>
+
+<!-- 10 Tablero -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">10 · Tablero del detective — marca señales</div>
+<div class="scr" style="background:linear-gradient(170deg,#2B4FA0,#1B2E6B);padding:26px 20px 24px">
+  <div style="font:800 23px/1 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6)">{{ v.board.title }}</div>
+  <div style="display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:12px 14px;margin-top:14px;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+    <span style="width:42px;height:42px;border-radius:999px;background:#2FC6B0;color:#fff;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Baloo 2',sans-serif">A</span>
+    <span style="flex:1;font:800 17px/1 'Baloo 2',sans-serif">Alex</span>
+    <span style="font:600 12px/1.3 'Inter',sans-serif;color:#8A93A8;text-align:right;max-width:130px">{{ v.board.hint }}</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px">
+    <div onClick="{{ bTap.s1 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><span style="width:13px;height:13px;border-radius:999px;background:#E8483A;flex:none"></span><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ v.board.sig1 }}</span><sc-if value="{{ bOn.s1 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ bTap.s2 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><span style="width:13px;height:13px;border-radius:999px;background:#E8483A;flex:none"></span><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ v.board.sig2 }}</span><sc-if value="{{ bOn.s2 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ bTap.s3 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><span style="width:13px;height:13px;border-radius:999px;background:#E8483A;flex:none"></span><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ v.board.sig3 }}</span><sc-if value="{{ bOn.s3 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ bTap.s4 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><span style="width:13px;height:13px;border-radius:999px;background:#E8483A;flex:none"></span><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ v.board.sig4 }}</span><sc-if value="{{ bOn.s4 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ bTap.s5 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><span style="width:13px;height:13px;border-radius:999px;background:#E8483A;flex:none"></span><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ v.board.sig5 }}</span><sc-if value="{{ bOn.s5 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ bTap.s6 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><span style="width:13px;height:13px;border-radius:999px;background:#FFC93C;flex:none"></span><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ v.board.sig6 }}</span><sc-if value="{{ bOn.s6 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ bTap.s7 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><span style="width:13px;height:13px;border-radius:999px;background:#4CC93B;flex:none"></span><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ v.board.sig7 }}</span><sc-if value="{{ bOn.s7 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:19px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;margin-top:14px;min-height:48px;box-sizing:border-box">{{ v.board.save }}</div>
+</div>
+</div>
+
+<!-- 11 Asamblea -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">11 · Asamblea</div>
+<div class="scr" style="background:linear-gradient(170deg,#7B3FE4,#1B2E6B);padding:28px 22px 26px">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <span style="font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#FFC93C">{{ v.asm.kicker }}</span>
+    <span style="background:#E8483A;color:#fff;font:800 18px/1 'Baloo 2',sans-serif;padding:9px 15px;border-radius:999px;box-shadow:0 4px 0 rgba(10,26,74,.5)">{{ v.asm.timer }}</span>
+  </div>
+  <div style="font:800 27px/35px 'Baloo 2',sans-serif;margin-top:14px;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ v.asm.title }}</div>
+  <div style="height:12px;border-radius:999px;background:rgba(10,26,74,.5);overflow:hidden;margin-top:14px"><div style="width:48%;height:100%;background:#FFC93C;border-radius:999px"></div></div>
+  <div style="font:600 13px/1 'Inter',sans-serif;color:rgba(255,255,255,.6);margin-top:8px">{{ v.asm.turn }}</div>
+  <div style="background:#F5F8FF;color:#1B2E6B;border-radius:20px;padding:20px;margin-top:16px;display:flex;flex-direction:column;gap:13px;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="width:48px;height:48px;border-radius:999px;background:#E0399B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 19px/1 'Baloo 2',sans-serif">V</span>
+      <span style="font:800 16px/1 'Baloo 2',sans-serif">{{ v.asm.speaking }}</span>
+    </div>
+    <div style="font:400 17px/26px 'Inter',sans-serif;text-wrap:pretty">{{ v.asm.quote }}</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:16px">
+    <div style="text-align:center;background:#4CC93B;color:#fff;font:800 15px/1 'Baloo 2',sans-serif;padding:16px;border-radius:999px;box-shadow:0 5px 0 #2E9E20;cursor:pointer;min-height:48px;box-sizing:border-box;display:flex;align-items:center;justify-content:center">{{ v.asm.support }}</div>
+    <div style="text-align:center;background:#E8483A;color:#fff;font:800 15px/1 'Baloo 2',sans-serif;padding:16px;border-radius:999px;box-shadow:0 5px 0 #A82C22;cursor:pointer;min-height:48px;box-sizing:border-box;display:flex;align-items:center;justify-content:center">{{ v.asm.question }}</div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.14);color:#fff;font:700 15px/1 'Baloo 2',sans-serif;padding:16px;border-radius:999px;cursor:pointer;margin-top:11px;min-height:48px;box-sizing:border-box">
+    <x-import component-from-global-scope="L.Icon" name="search" size="18" hint-size="18px,18px"></x-import>{{ v.asm.clue }}
+  </div>
+  <div style="flex:1"></div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <span style="width:36px;height:36px;border-radius:999px;background:#3FA9F5;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">L</span>
+    <span style="width:36px;height:36px;border-radius:999px;background:#7B3FE4;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif;border:2px solid rgba(255,255,255,.4)">M</span>
+    <span style="width:36px;height:36px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">S</span>
+    <span style="width:36px;height:36px;border-radius:999px;background:#E8952A;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">D</span>
+    <span style="width:36px;height:36px;border-radius:999px;background:#E0399B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif;outline:3px solid #FFC93C;outline-offset:2px">V</span>
+    <span style="width:36px;height:36px;border-radius:999px;background:#2FC6B0;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">A</span>
+  </div>
+</div>
+</div>
+
+<!-- 12 Votación -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">12 · Votación — elige un jugador</div>
+<div class="scr" style="background:linear-gradient(170deg,#2B4FA0,#1B2E6B);padding:30px 22px 26px">
+  <div style="font:800 28px/35px 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6)">{{ v.vote.title }}</div>
+  <div style="font:400 15px/22px 'Inter',sans-serif;color:rgba(255,255,255,.65);margin-top:6px">{{ v.vote.sub }}</div>
+  <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px">
+    <div onClick="{{ vTap.laura }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:13px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:44px;height:44px;border-radius:999px;background:#3FA9F5;color:#fff;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Baloo 2',sans-serif">L</span><span style="flex:1;font:700 16px/1 'Baloo 2',sans-serif">Laura</span><sc-if value="{{ vOn.laura }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ vTap.mateo }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:13px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:44px;height:44px;border-radius:999px;background:#7B3FE4;color:#fff;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Baloo 2',sans-serif">M</span><span style="flex:1;font:700 16px/1 'Baloo 2',sans-serif">Mateo</span><sc-if value="{{ vOn.mateo }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ vTap.diego }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:13px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:44px;height:44px;border-radius:999px;background:#E8952A;color:#fff;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Baloo 2',sans-serif">D</span><span style="flex:1;font:700 16px/1 'Baloo 2',sans-serif">Diego</span><sc-if value="{{ vOn.diego }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ vTap.valentina }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:13px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:44px;height:44px;border-radius:999px;background:#E0399B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Baloo 2',sans-serif">V</span><span style="flex:1;font:700 16px/1 'Baloo 2',sans-serif">Valentina</span><sc-if value="{{ vOn.valentina }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ vTap.alex }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:13px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:44px;height:44px;border-radius:999px;background:#2FC6B0;color:#fff;display:flex;align-items:center;justify-content:center;font:800 17px/1 'Baloo 2',sans-serif">A</span><span style="flex:1;font:700 16px/1 'Baloo 2',sans-serif">Alex</span><sc-if value="{{ vOn.alex }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:18px"></span></sc-if></div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="display:flex;align-items:center;gap:9px;justify-content:center;font:700 13px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.7);padding-bottom:14px">
+    <span style="display:flex;gap:5px">
+      <span style="width:11px;height:11px;border-radius:999px;background:#FFC93C"></span>
+      <span style="width:11px;height:11px;border-radius:999px;background:#FFC93C"></span>
+      <span style="width:11px;height:11px;border-radius:999px;background:#FFC93C"></span>
+      <span style="width:11px;height:11px;border-radius:999px;background:rgba(255,255,255,.25)"></span>
+      <span style="width:11px;height:11px;border-radius:999px;background:rgba(255,255,255,.25)"></span>
+      <span style="width:11px;height:11px;border-radius:999px;background:rgba(255,255,255,.25)"></span>
+    </span>
+    3 / 6 {{ v.vote.voted }}
+  </div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;min-height:48px;box-sizing:border-box">{{ v.vote.confirm }}</div>
+</div>
+</div>
+
+<!-- 13 Justificación -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">13 · Justificación puntuada</div>
+<div class="scr" style="background:linear-gradient(170deg,#3FA9F5,#1B2E6B);padding:30px 22px 26px">
+  <div style="font:800 27px/34px 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ v.just.title }}</div>
+  <div style="font:400 15px/23px 'Inter',sans-serif;color:rgba(255,255,255,.7);margin-top:8px;text-wrap:pretty">{{ v.just.sub }}</div>
+  <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px">
+    <div onClick="{{ jTap.j1 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="flex:1;font:600 15px/22px 'Inter',sans-serif">{{ v.board.sig1 }}</span><span style="font:800 15px/1 'Baloo 2',sans-serif;color:#E8952A">{{ v.just.p1 }}</span><sc-if value="{{ jOn.j1 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:18px;background:rgba(76,201,59,.1)"></span></sc-if></div>
+    <div onClick="{{ jTap.j2 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="flex:1;font:600 15px/22px 'Inter',sans-serif">{{ v.board.sig2 }}</span><span style="font:800 15px/1 'Baloo 2',sans-serif;color:#E8952A">{{ v.just.p2 }}</span><sc-if value="{{ jOn.j2 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:18px;background:rgba(76,201,59,.1)"></span></sc-if></div>
+    <div onClick="{{ jTap.j3 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="flex:1;font:600 15px/22px 'Inter',sans-serif">{{ v.board.sig4 }}</span><span style="font:800 15px/1 'Baloo 2',sans-serif;color:#E8952A">{{ v.just.p3 }}</span><sc-if value="{{ jOn.j3 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:18px;background:rgba(76,201,59,.1)"></span></sc-if></div>
+    <div onClick="{{ jTap.j4 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="flex:1;font:600 15px/22px 'Inter',sans-serif">{{ v.board.sig3 }}</span><span style="font:800 15px/1 'Baloo 2',sans-serif;color:#E8952A">{{ v.just.p4 }}</span><sc-if value="{{ jOn.j4 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:18px;background:rgba(76,201,59,.1)"></span></sc-if></div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="background:rgba(10,26,74,.45);border:3px solid #FFC93C;border-radius:20px;padding:17px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+    <span style="font:700 14px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.75)">{{ v.rep.score }}</span>
+    <span style="font:800 28px/1 'Baloo 2',sans-serif;color:#FFC93C">{{ justScore }}</span>
+  </div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;min-height:48px;box-sizing:border-box">{{ v.just.submit }}</div>
+</div>
+</div>
+
+<!-- 14 Revelación -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">14 · Revelación</div>
+<div class="scr" style="background:linear-gradient(170deg,#E0399B,#1B2E6B);padding:28px 22px 26px;align-items:center">
+  <div style="font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:2.2px;text-transform:uppercase;color:#FFC93C">{{ v.reveal.kicker }}</div>
+  <div style="font:600 15px/1 'Inter',sans-serif;color:rgba(255,255,255,.75);margin-top:10px">{{ v.reveal.was }}</div>
+  <div style="position:relative;margin-top:14px;width:150px;height:150px;border-radius:999px;background:#F5F8FF;border:6px solid #fff;box-shadow:0 7px 0 rgba(10,26,74,.4);display:flex;align-items:center;justify-content:center">
+    <span style="width:82px;height:82px;border-radius:999px;background:#2FC6B0;color:#fff;display:flex;align-items:center;justify-content:center;font:800 34px/1 'Baloo 2',sans-serif">A</span>
+    <span style="position:absolute;bottom:-14px;background:#E8483A;color:#fff;font:800 15px/1 'Baloo 2',sans-serif;letter-spacing:1.5px;padding:9px 18px;border-radius:999px;box-shadow:0 4px 0 #A82C22;animation:v4pop .32s cubic-bezier(.2,1.4,.4,1) both">{{ v.reveal.name }}</span>
+  </div>
+  <div style="width:100%;background:#F5F8FF;color:#1B2E6B;border-radius:20px;padding:18px;box-sizing:border-box;margin-top:26px;box-shadow:0 5px 0 rgba(10,26,74,.3);display:flex;flex-direction:column;gap:11px">
+    <div style="font:800 15px/1.3 'Baloo 2',sans-serif">{{ v.reveal.missed }}</div>
+    <div style="display:flex;gap:10px;align-items:flex-start"><span style="width:10px;height:10px;border-radius:999px;background:#E8483A;margin-top:6px;flex:none"></span><span style="font:400 15px/22px 'Inter',sans-serif">{{ v.reveal.s1 }}</span></div>
+    <div style="display:flex;gap:10px;align-items:flex-start"><span style="width:10px;height:10px;border-radius:999px;background:#E8483A;margin-top:6px;flex:none"></span><span style="font:400 15px/22px 'Inter',sans-serif">{{ v.reveal.s2 }}</span></div>
+    <div style="display:flex;gap:10px;align-items:flex-start"><span style="width:10px;height:10px;border-radius:999px;background:#E8483A;margin-top:6px;flex:none"></span><span style="font:400 15px/22px 'Inter',sans-serif">{{ v.reveal.s3 }}</span></div>
+  </div>
+  <div style="width:100%;margin-top:16px;display:flex;flex-direction:column;gap:9px">
+    <div style="font:800 16px/1 'Baloo 2',sans-serif">{{ v.reveal.what }}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span style="background:#E8483A;color:#fff;font:800 13px/1 'Baloo 2',sans-serif;letter-spacing:1px;padding:12px 16px;border-radius:999px;box-shadow:0 4px 0 #A82C22">{{ v.reveal.st1 }}</span>
+      <span style="background:#7B3FE4;color:#fff;font:800 13px/1 'Baloo 2',sans-serif;letter-spacing:1px;padding:12px 16px;border-radius:999px;box-shadow:0 4px 0 #4E22A0">{{ v.reveal.st2 }}</span>
+      <span style="background:#E8952A;color:#fff;font:800 13px/1 'Baloo 2',sans-serif;letter-spacing:1px;padding:12px 16px;border-radius:999px;box-shadow:0 4px 0 #A8631A">{{ v.reveal.st3 }}</span>
+      <span style="background:#4CC93B;color:#fff;font:800 13px/1 'Baloo 2',sans-serif;letter-spacing:1px;padding:12px 16px;border-radius:999px;box-shadow:0 4px 0 #2E9E20">{{ v.reveal.st4 }}</span>
+    </div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="width:100%;background:#FFC93C;color:#1B2E6B;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #E8952A;cursor:pointer;box-sizing:border-box;min-height:48px">{{ v.reveal.next }}</div>
+</div>
+</div>
+
+<!-- 15 Reporte -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">15 · Reporte personalizado (IA)</div>
+<div class="scr" style="background:linear-gradient(170deg,#2FC6B0,#1B2E6B);padding:30px 22px 26px">
+  <div style="font:800 26px/34px 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ v.rep.title }}</div>
+  <div style="display:flex;align-items:center;gap:12px;margin-top:14px">
+    <span style="font:800 46px/1 'Baloo 2',sans-serif;color:#FFC93C;text-shadow:0 4px 0 #E8952A">120</span>
+    <span style="font:700 14px/1.3 'Baloo 2',sans-serif;color:rgba(255,255,255,.75)">{{ v.rep.score }}</span>
+    <span style="margin-left:auto;display:flex;gap:4px">
+      <x-import component-from-global-scope="L.Icon" name="star" size="26" color="#FFC93C" hint-size="26px,26px"></x-import>
+      <x-import component-from-global-scope="L.Icon" name="star" size="26" color="#FFC93C" hint-size="26px,26px"></x-import>
+      <x-import component-from-global-scope="L.Icon" name="star" size="26" color="rgba(255,255,255,.3)" hint-size="26px,26px"></x-import>
+    </span>
+  </div>
+  <div style="background:#F5F8FF;color:#1B2E6B;border-radius:20px;padding:18px;margin-top:18px;display:flex;flex-direction:column;gap:11px;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+    <div style="display:flex;align-items:center;gap:9px;font:800 15px/1 'Baloo 2',sans-serif;color:#2E9E20"><x-import component-from-global-scope="L.Icon" name="shieldCheck" size="19" hint-size="19px,19px"></x-import>{{ v.rep.strong }}</div>
+    <div style="font:400 15px/22px 'Inter',sans-serif">{{ v.rep.st1 }}</div>
+    <div style="font:400 15px/22px 'Inter',sans-serif">{{ v.rep.st2 }}</div>
+  </div>
+  <div style="background:#F5F8FF;color:#1B2E6B;border-radius:20px;padding:18px;margin-top:12px;display:flex;flex-direction:column;gap:11px;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+    <div style="display:flex;align-items:center;gap:9px;font:800 15px/1 'Baloo 2',sans-serif;color:#E8952A"><x-import component-from-global-scope="L.Icon" name="alert" size="19" hint-size="19px,19px"></x-import>{{ v.rep.improve }}</div>
+    <div style="font:400 15px/22px 'Inter',sans-serif">{{ v.rep.im1 }}</div>
+  </div>
+  <div style="background:rgba(10,26,74,.45);border:3px solid #FFC93C;border-radius:20px;padding:18px;margin-top:12px;display:flex;flex-direction:column;gap:9px">
+    <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#FFC93C">{{ v.rep.rule }}</div>
+    <div style="font:700 17px/25px 'Baloo 2',sans-serif;text-wrap:pretty">{{ v.rep.ruleText }}</div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;min-height:48px;box-sizing:border-box">{{ v.rep.next }}</div>
+</div>
+</div>
+
+<!-- 16 Misiones -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">16 · Misiones y Game Master IA</div>
+<div class="scr" style="background:linear-gradient(170deg,#2B4FA0,#1B2E6B);padding:28px 20px 24px">
+  <div style="font:800 27px/1 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6)">{{ v.miss.title }}</div>
+  <div style="display:flex;flex-direction:column;gap:11px;margin-top:16px">
+    <div style="background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:15px;display:flex;gap:13px;align-items:center;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+      <span style="width:46px;height:46px;border-radius:14px;background:#3FA9F5;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 0 #2379B8"><x-import component-from-global-scope="L.Icon" name="fingerprint" size="22" color="#fff" hint-size="22px,22px"></x-import></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:800 16px/1.2 'Baloo 2',sans-serif">{{ v.miss.m1 }}</span><span style="font:400 13px/19px 'Inter',sans-serif;color:#5B6480">{{ v.miss.m1d }}</span></span>
+      <span style="margin-left:auto;display:flex;gap:2px;flex:none"><x-import component-from-global-scope="L.Icon" name="star" size="14" color="#FFC93C" hint-size="14px,14px"></x-import><x-import component-from-global-scope="L.Icon" name="star" size="14" color="#FFC93C" hint-size="14px,14px"></x-import><x-import component-from-global-scope="L.Icon" name="star" size="14" color="#FFC93C" hint-size="14px,14px"></x-import></span>
+    </div>
+    <div style="background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:15px;display:flex;gap:13px;align-items:center;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+      <span style="width:46px;height:46px;border-radius:14px;background:#E8952A;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 0 #A8631A"><x-import component-from-global-scope="L.Icon" name="eye" size="22" color="#fff" hint-size="22px,22px"></x-import></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:800 16px/1.2 'Baloo 2',sans-serif">{{ v.miss.m2 }}</span><span style="font:400 13px/19px 'Inter',sans-serif;color:#5B6480">{{ v.miss.m2d }}</span></span>
+      <span style="margin-left:auto;display:flex;gap:2px;flex:none"><x-import component-from-global-scope="L.Icon" name="star" size="14" color="#FFC93C" hint-size="14px,14px"></x-import><x-import component-from-global-scope="L.Icon" name="star" size="14" color="#C9CFE0" hint-size="14px,14px"></x-import><x-import component-from-global-scope="L.Icon" name="star" size="14" color="#C9CFE0" hint-size="14px,14px"></x-import></span>
+    </div>
+    <div style="position:relative;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:15px;display:flex;gap:13px;align-items:center;box-shadow:0 5px 0 rgba(10,26,74,.3)">
+      <span style="width:46px;height:46px;border-radius:14px;background:#4CC93B;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 0 #2E9E20"><x-import component-from-global-scope="L.Icon" name="lock" size="22" color="#fff" hint-size="22px,22px"></x-import></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:800 16px/1.2 'Baloo 2',sans-serif">{{ v.miss.m3 }}</span><span style="font:400 13px/19px 'Inter',sans-serif;color:#5B6480">{{ v.miss.m3d }}</span></span>
+    </div>
+    <div style="position:relative;background:#8A93A8;color:#fff;border-radius:18px;padding:15px;display:flex;gap:13px;align-items:center;box-shadow:0 5px 0 rgba(10,26,74,.35)">
+      <span style="width:46px;height:46px;border-radius:14px;background:rgba(10,26,74,.4);display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="L.Icon" name="lock" size="22" color="#fff" hint-size="22px,22px"></x-import></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:800 16px/1.2 'Baloo 2',sans-serif">{{ v.miss.m4 }}</span><span style="font:400 13px/19px 'Inter',sans-serif;color:rgba(255,255,255,.75)">Se desbloquea en el nivel 16</span></span>
+    </div>
+  </div>
+  <div style="font:800 19px/1 'Baloo 2',sans-serif;margin-top:18px">{{ v.miss.levels }}</div>
+  <div style="display:flex;flex-direction:column;gap:9px;margin-top:11px">
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.12);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#4CC93B"></span><span style="font:600 14px/1.3 'Inter',sans-serif">{{ v.miss.lv1 }}</span></div>
+    <div style="display:flex;align-items:center;gap:11px;background:#FFC93C;color:#1B2E6B;border-radius:14px;padding:13px 15px;box-shadow:0 4px 0 #E8952A"><span style="width:11px;height:11px;border-radius:999px;background:#E8952A"></span><span style="font:700 14px/1.3 'Inter',sans-serif">{{ v.miss.lv2 }}</span></div>
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.12);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#E8483A"></span><span style="font:600 14px/1.3 'Inter',sans-serif">{{ v.miss.lv3 }}</span></div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="background:rgba(10,26,74,.5);border-radius:18px;padding:17px;font:400 15px/23px 'Inter',sans-serif;text-wrap:pretty">{{ v.claim }}</div>
+</div>
+</div>
+
+<!-- 17 Torneo -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">17 · Torneo escolar</div>
+<div class="scr" style="background:linear-gradient(170deg,#7B3FE4,#1B2E6B)">
+  <div style="padding:26px 22px 20px;display:flex;flex-direction:column;gap:7px">
+    <div style="font:800 24px/31px 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ v.tour.title }}</div>
+    <div style="font:400 14px/1 'Inter',sans-serif;color:rgba(255,255,255,.72)">{{ v.tour.sub }}</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:0 20px 20px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:10px;font:700 14px/1 'Baloo 2',sans-serif">
+      <span style="width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.35)"></span>{{ v.tour.pre }}
+      <span style="width:12px;height:12px;border-radius:999px;background:#4CC93B;margin-left:12px"></span>{{ v.tour.post }}
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="font:600 14px/20px 'Inter',sans-serif">{{ v.tour.m1 }}</div>
+      <div style="height:18px;border-radius:999px;background:rgba(10,26,74,.5);position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:81%;background:#4CC93B"></div><div style="position:absolute;left:0;top:0;bottom:0;width:34%;background:rgba(255,255,255,.4)"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="font:600 14px/20px 'Inter',sans-serif">{{ v.tour.m2 }}</div>
+      <div style="height:18px;border-radius:999px;background:rgba(10,26,74,.5);position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:88%;background:#4CC93B"></div><div style="position:absolute;left:0;top:0;bottom:0;width:41%;background:rgba(255,255,255,.4)"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="font:600 14px/20px 'Inter',sans-serif">{{ v.tour.m3 }}</div>
+      <div style="height:18px;border-radius:999px;background:rgba(10,26,74,.5);position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:69%;background:#4CC93B"></div><div style="position:absolute;left:0;top:0;bottom:0;width:22%;background:rgba(255,255,255,.4)"></div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="font:600 14px/20px 'Inter',sans-serif">{{ v.tour.m4 }}</div>
+      <div style="height:18px;border-radius:999px;background:rgba(10,26,74,.5);position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:74%;background:#4CC93B"></div><div style="position:absolute;left:0;top:0;bottom:0;width:28%;background:rgba(255,255,255,.4)"></div></div>
+    </div>
+    <div style="background:#4CC93B;border-radius:20px;padding:18px;display:flex;align-items:center;gap:14px;box-shadow:0 5px 0 #2E9E20">
+      <span style="font:800 34px/1 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(0,0,0,.2)">+47%</span>
+      <span style="font:600 14px/20px 'Inter',sans-serif;text-wrap:pretty">{{ v.tour.delta }}</span>
+    </div>
+    <div style="font:800 18px/1 'Baloo 2',sans-serif">{{ v.tour.teams }}</div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <div style="display:flex;align-items:center;gap:12px;background:#FFC93C;color:#1B2E6B;border-radius:16px;padding:13px 15px;box-shadow:0 4px 0 #E8952A"><x-import component-from-global-scope="L.Icon" name="trophy" size="20" color="#7A4A00" hint-size="20px,20px"></x-import><span style="flex:1;font:800 15px/1 'Baloo 2',sans-serif">Los Verificadores</span><span style="font:800 15px/1 'Baloo 2',sans-serif">2 410</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.14);border-radius:16px;padding:13px 15px"><span style="font:800 15px/1 'Baloo 2',sans-serif;width:20px;color:rgba(255,255,255,.7)">2</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Ojo Crítico</span><span style="font:800 15px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.8)">2 180</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.14);border-radius:16px;padding:13px 15px"><span style="font:800 15px/1 'Baloo 2',sans-serif;width:20px;color:rgba(255,255,255,.7)">3</span><span style="flex:1;font:700 15px/1 'Baloo 2',sans-serif">Hilo Rojo</span><span style="font:800 15px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.8)">1 905</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 18 M2 evidencia -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">18 · Misión 2 · análisis por zonas</div>
+<div class="scr" style="background:linear-gradient(170deg,#E8952A,#1B2E6B);padding:26px 20px 24px">
+  <div style="align-self:flex-start;background:#FFC93C;color:#1B2E6B;font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:1.3px;padding:10px 15px;border-radius:999px;box-shadow:0 4px 0 #E8952A">{{ m2.tag }}</div>
+  <div style="font:800 22px/29px 'Baloo 2',sans-serif;margin-top:14px;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ m2.prompt }}</div>
+  <div style="position:relative;height:280px;border-radius:20px;background:#F5F8FF;border:4px solid #fff;box-shadow:0 5px 0 rgba(10,26,74,.3);overflow:hidden;margin-top:14px;display:flex;align-items:center;justify-content:center">
+    <span style="font:600 12px/1.4 'Inter',sans-serif;color:#8A93A8;text-align:center;padding:0 40px">{{ m2.img }}</span>
+    <div onClick="{{ zTap.z1 }}" style="position:absolute;left:20px;top:28px;width:110px;height:92px;border-radius:14px;border:3px dashed rgba(27,46,107,.25);cursor:pointer"><sc-if value="{{ zOn.z1 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:-3px;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.2)"></span><span style="position:absolute;left:6px;bottom:6px;background:#4CC93B;color:#fff;font:800 10px/1 'Baloo 2',sans-serif;padding:6px 9px;border-radius:999px">{{ m2.z1 }}</span></sc-if></div>
+    <div onClick="{{ zTap.z2 }}" style="position:absolute;right:22px;top:24px;width:114px;height:70px;border-radius:14px;border:3px dashed rgba(27,46,107,.25);cursor:pointer"><sc-if value="{{ zOn.z2 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:-3px;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.2)"></span><span style="position:absolute;left:6px;bottom:6px;background:#4CC93B;color:#fff;font:800 10px/1 'Baloo 2',sans-serif;padding:6px 9px;border-radius:999px">{{ m2.z2 }}</span></sc-if></div>
+    <div onClick="{{ zTap.z3 }}" style="position:absolute;left:32px;bottom:24px;width:126px;height:78px;border-radius:14px;border:3px dashed rgba(27,46,107,.25);cursor:pointer"><sc-if value="{{ zOn.z3 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:-3px;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.2)"></span><span style="position:absolute;left:6px;bottom:6px;background:#4CC93B;color:#fff;font:800 10px/1 'Baloo 2',sans-serif;padding:6px 9px;border-radius:999px">{{ m2.z3 }}</span></sc-if></div>
+    <div onClick="{{ zTap.z4 }}" style="position:absolute;right:26px;bottom:32px;width:100px;height:74px;border-radius:14px;border:3px dashed rgba(27,46,107,.25);cursor:pointer"><sc-if value="{{ zOn.z4 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:-3px;border:4px solid #FFC93C;border-radius:14px;background:rgba(255,201,60,.25)"></span><span style="position:absolute;left:6px;bottom:6px;background:#FFC93C;color:#1B2E6B;font:800 10px/1 'Baloo 2',sans-serif;padding:6px 9px;border-radius:999px">{{ m2.z4 }}</span></sc-if></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:11px;background:rgba(10,26,74,.45);border:3px solid #FFC93C;border-radius:999px;padding:12px 18px;margin-top:14px">
+    <x-import component-from-global-scope="L.Icon" name="target" size="19" color="#FFC93C" hint-size="19px,19px"></x-import>
+    <span style="flex:1;font:700 14px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.8)">{{ m2.found }}</span>
+    <span style="font:800 18px/1 'Baloo 2',sans-serif;color:#FFC93C">{{ zCount }}</span>
+  </div>
+  <div style="font:800 17px/1 'Baloo 2',sans-serif;margin-top:16px">{{ m2.verdict }}</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:11px">
+    <div onClick="{{ m2Tap.ai }}" style="position:relative;cursor:pointer;text-align:center;font:800 16px/1 'Baloo 2',sans-serif;background:#F5F8FF;color:#1B2E6B;padding:17px;border-radius:999px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box">{{ m2.vAi }}<sc-if value="{{ m2On.ai }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #E8483A;border-radius:999px"></span></sc-if></div>
+    <div onClick="{{ m2Tap.real }}" style="position:relative;cursor:pointer;text-align:center;font:800 16px/1 'Baloo 2',sans-serif;background:#F5F8FF;color:#1B2E6B;padding:17px;border-radius:999px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box">{{ m2.vReal }}<sc-if value="{{ m2On.real }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:999px"></span></sc-if></div>
+    <div onClick="{{ m2Tap.doubt }}" style="position:relative;cursor:pointer;text-align:center;font:700 15px/1 'Baloo 2',sans-serif;background:rgba(255,255,255,.14);color:#fff;padding:16px;border-radius:999px;min-height:48px;box-sizing:border-box">{{ m2.vDoubt }}<sc-if value="{{ m2On.doubt }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:999px"></span></sc-if></div>
+  </div>
+  <sc-if value="{{ m2On.doubt }}" hint-placeholder-val="{{ false }}">
+    <div style="background:rgba(255,201,60,.2);border:2px solid rgba(255,201,60,.6);border-radius:16px;padding:14px;margin-top:12px;font:400 14px/21px 'Inter',sans-serif;text-wrap:pretty">{{ m2.doubtOk }}</div>
+  </sc-if>
+</div>
+</div>
+
+<!-- 19 M2 resultado -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">19 · Misión 2 · resultado</div>
+<div class="scr" style="background:linear-gradient(170deg,#FFC93C,#E8952A);color:#1B2E6B;padding:54px 22px 26px;align-items:center">
+  <div style="background:#fff;border:5px solid #1B2E6B;color:#1B2E6B;border-radius:16px;padding:13px 24px;font:800 30px/1 'Baloo 2',sans-serif;letter-spacing:2.5px;animation:v4pop .32s cubic-bezier(.2,1.4,.4,1) both;box-shadow:0 6px 0 rgba(10,26,74,.35)">{{ m2.stamp }}</div>
+  <div style="font:800 27px/34px 'Baloo 2',sans-serif;text-align:center;margin-top:22px">{{ m2.title }}</div>
+  <div style="display:flex;gap:6px;margin-top:12px">
+    <x-import component-from-global-scope="L.Icon" name="star" size="38" color="#fff" hint-size="38px,38px"></x-import>
+    <x-import component-from-global-scope="L.Icon" name="star" size="38" color="#fff" hint-size="38px,38px"></x-import>
+    <x-import component-from-global-scope="L.Icon" name="star" size="38" color="rgba(255,255,255,.4)" hint-size="38px,38px"></x-import>
+  </div>
+  <div style="width:100%;background:#fff;border-radius:20px;padding:18px;box-sizing:border-box;margin-top:20px;box-shadow:0 5px 0 rgba(10,26,74,.25);font:400 15px/23px 'Inter',sans-serif;text-wrap:pretty">{{ m2.why }}</div>
+  <div style="width:100%;display:flex;flex-direction:column;gap:9px;margin-top:14px">
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.75);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#4CC93B"></span><span style="flex:1;font:600 14px/1.3 'Inter',sans-serif">{{ m2.z1 }}</span><span style="font:800 14px/1 'Baloo 2',sans-serif;color:#2E9E20">+20</span></div>
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.75);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#4CC93B"></span><span style="flex:1;font:600 14px/1.3 'Inter',sans-serif">{{ m2.z2 }}</span><span style="font:800 14px/1 'Baloo 2',sans-serif;color:#2E9E20">+20</span></div>
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.75);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#4CC93B"></span><span style="flex:1;font:600 14px/1.3 'Inter',sans-serif">{{ m2.z3 }}</span><span style="font:800 14px/1 'Baloo 2',sans-serif;color:#2E9E20">+20</span></div>
+  </div>
+  <div style="width:100%;background:#1B2E6B;color:#fff;border-radius:20px;padding:17px;box-sizing:border-box;margin-top:14px;display:flex;flex-direction:column;gap:8px">
+    <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#FFC93C">{{ m2.rule }}</div>
+    <div style="font:700 16px/24px 'Baloo 2',sans-serif;text-wrap:pretty">{{ m2.ruleTxt }}</div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="width:100%;background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;box-sizing:border-box;min-height:48px">{{ m2.next }}</div>
+</div>
+</div>
+
+<!-- 20 M3 -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">20 · Misión 3 · oculta los datos</div>
+<div class="scr" style="background:linear-gradient(170deg,#4CC93B,#1B2E6B);padding:26px 20px 24px">
+  <div style="align-self:flex-start;background:#FFC93C;color:#1B2E6B;font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:1.3px;padding:10px 15px;border-radius:999px;box-shadow:0 4px 0 #E8952A">{{ m3.tag }}</div>
+  <div style="font:800 22px/29px 'Baloo 2',sans-serif;margin-top:14px;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ m3.prompt }}</div>
+  <div style="background:#fff;color:#1B2E6B;border-radius:20px;box-shadow:0 5px 0 rgba(10,26,74,.3);overflow:hidden;margin-top:14px">
+    <div style="height:140px;background:#E6ECFA;display:flex;align-items:center;justify-content:center;font:600 12px/1.4 'Inter',sans-serif;color:#8A93A8;text-align:center;padding:0 30px">Foto del caso (la aporta el equipo)</div>
+    <div style="padding:14px;display:flex;flex-direction:column;gap:7px">
+      <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#8A93A8">{{ m3.caption }}</div>
+      <div style="font:400 15px/22px 'Inter',sans-serif;text-wrap:pretty">{{ m3.capTxt }}</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px">
+    <div onClick="{{ rTap.r1 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><x-import component-from-global-scope="L.Icon" name="lock" size="17" color="#8A93A8" hint-size="17px,17px"></x-import><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ m3.r1 }}</span><sc-if value="{{ rOn.r1 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ rTap.r2 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><x-import component-from-global-scope="L.Icon" name="lock" size="17" color="#8A93A8" hint-size="17px,17px"></x-import><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ m3.r2 }}</span><sc-if value="{{ rOn.r2 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ rTap.r3 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><x-import component-from-global-scope="L.Icon" name="lock" size="17" color="#8A93A8" hint-size="17px,17px"></x-import><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ m3.r3 }}</span><sc-if value="{{ rOn.r3 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ rTap.r4 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><x-import component-from-global-scope="L.Icon" name="lock" size="17" color="#8A93A8" hint-size="17px,17px"></x-import><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ m3.r4 }}</span><sc-if value="{{ rOn.r4 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ rTap.r5 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:11px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:14px;min-height:48px;box-sizing:border-box"><x-import component-from-global-scope="L.Icon" name="map" size="17" color="#8A93A8" hint-size="17px,17px"></x-import><span style="flex:1;font:600 15px/1.3 'Inter',sans-serif">{{ m3.r5 }}</span><sc-if value="{{ rOn.r5 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:14px;background:rgba(76,201,59,.12)"></span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 14px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="display:flex;align-items:center;gap:11px;background:rgba(10,26,74,.45);border:3px solid #FFC93C;border-radius:999px;padding:12px 18px;margin-top:14px">
+    <x-import component-from-global-scope="L.Icon" name="shield" size="19" color="#FFC93C" hint-size="19px,19px"></x-import>
+    <span style="flex:1;font:700 14px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.8)">{{ m3.hidden }}</span>
+    <span style="font:800 18px/1 'Baloo 2',sans-serif;color:#FFC93C">{{ rCount }}</span>
+  </div>
+</div>
+</div>
+
+<!-- 21 M3 veredicto -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">21 · Misión 3 · veredicto y resultado</div>
+<div class="scr" style="background:linear-gradient(170deg,#2FC6B0,#1B2E6B);padding:28px 22px 26px">
+  <div style="font:800 23px/30px 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6)">{{ m3.verdict }}</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
+    <div onClick="{{ m3Tap.share }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:14px;height:14px;border-radius:999px;background:#E8483A;flex:none"></span><span style="font:600 15px/22px 'Inter',sans-serif">{{ m3.vShare }}</span><sc-if value="{{ m3On.share }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #E8483A;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ m3Tap.edit }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:14px;height:14px;border-radius:999px;background:#4CC93B;flex:none"></span><span style="font:600 15px/22px 'Inter',sans-serif">{{ m3.vEdit }}</span><sc-if value="{{ m3On.edit }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:18px"></span></sc-if></div>
+    <div onClick="{{ m3Tap.no }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:18px;padding:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box"><span style="width:14px;height:14px;border-radius:999px;background:#FFC93C;flex:none"></span><span style="font:600 15px/22px 'Inter',sans-serif">{{ m3.vNo }}</span><sc-if value="{{ m3On.no }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:18px"></span></sc-if></div>
+  </div>
+  <div style="align-self:center;margin-top:24px;background:#fff;border:5px solid #4CC93B;color:#2E9E20;border-radius:14px;padding:11px 22px;font:800 26px/1 'Baloo 2',sans-serif;letter-spacing:2px;animation:v4pop .32s cubic-bezier(.2,1.4,.4,1) both;box-shadow:0 6px 0 rgba(10,26,74,.3)">{{ m3.stamp }}</div>
+  <div style="font:800 24px/31px 'Baloo 2',sans-serif;text-align:center;margin-top:20px;text-wrap:pretty">{{ m3.title }}</div>
+  <div style="background:#F5F8FF;color:#1B2E6B;border-radius:20px;padding:18px;margin-top:14px;font:400 15px/23px 'Inter',sans-serif;box-shadow:0 5px 0 rgba(10,26,74,.3);text-wrap:pretty">{{ m3.why }}</div>
+  <div style="background:rgba(10,26,74,.5);border:3px solid #FFC93C;border-radius:20px;padding:17px;margin-top:12px;display:flex;flex-direction:column;gap:8px">
+    <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#FFC93C">{{ m3.rule }}</div>
+    <div style="font:700 17px/25px 'Baloo 2',sans-serif;text-wrap:pretty">{{ m3.ruleTxt }}</div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;min-height:48px;box-sizing:border-box">{{ m3.next }}</div>
+</div>
+</div>
+
+<!-- 22 M4 evidencia -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">22 · Misión 4 · evidencia</div>
+<div class="scr" style="background:linear-gradient(170deg,#E8483A,#1B2E6B);padding:28px 22px 26px">
+  <div style="align-self:flex-start;background:#FFC93C;color:#1B2E6B;font:800 12px/1 'Baloo 2',sans-serif;letter-spacing:1.3px;padding:10px 15px;border-radius:999px;box-shadow:0 4px 0 #E8952A">{{ m4.tag }}</div>
+  <div style="font:800 27px/34px 'Baloo 2',sans-serif;margin-top:14px;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ m4.name }}</div>
+  <div style="font:400 15px/23px 'Inter',sans-serif;color:rgba(255,255,255,.72);margin-top:8px;text-wrap:pretty">{{ m4.brief }}</div>
+  <div style="background:#fff;color:#1B2E6B;border-radius:20px;box-shadow:0 5px 0 rgba(10,26,74,.3);overflow:hidden;margin-top:16px">
+    <div style="background:#FFE0DE;padding:12px 14px;font:600 12px/1.4 'JetBrains Mono',monospace;color:#C0392B;word-break:break-all">{{ m4.site }}</div>
+    <div style="padding:16px 14px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:800 19px/26px 'Baloo 2',sans-serif;text-wrap:pretty">{{ m4.headline }}</div>
+      <div style="height:104px;border-radius:12px;background:#E6ECFA;display:flex;align-items:center;justify-content:center;font:600 12px/1.4 'Inter',sans-serif;color:#8A93A8;text-align:center;padding:0 24px">Imagen del artículo (la aporta el equipo)</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="background:#FFE0DE;color:#C0392B;font:700 12px/1 'Baloo 2',sans-serif;padding:9px 13px;border-radius:999px">{{ m4.date }}</span>
+        <span style="background:#FFE0DE;color:#C0392B;font:700 12px/1 'Baloo 2',sans-serif;padding:9px 13px;border-radius:999px">{{ m4.author }}</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:16px"><span style="font:700 13px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.7)">{{ m4.goal }}</span><span style="font:800 13px/1 'Baloo 2',sans-serif;color:#FFC93C">{{ m4.diff }}</span></div>
+  <div style="font:700 17px/25px 'Baloo 2',sans-serif;margin-top:6px;text-wrap:pretty">{{ m4.goalTxt }}</div>
+  <div style="flex:1"></div>
+  <div style="background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;min-height:48px;box-sizing:border-box">{{ m4.cta }}</div>
+</div>
+</div>
+
+<!-- 23 M4 verificación -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">23 · Misión 4 · verificación de 5 puntos</div>
+<div class="scr" style="background:linear-gradient(170deg,#2B4FA0,#1B2E6B);padding:26px 20px 24px">
+  <div style="font:800 22px/29px 'Baloo 2',sans-serif;text-shadow:0 3px 0 rgba(10,26,74,.6);text-wrap:pretty">{{ m4.prompt }}</div>
+  <div style="display:flex;flex-direction:column;gap:9px;margin-top:16px">
+    <div onClick="{{ cTap.c1 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:15px;min-height:48px;box-sizing:border-box"><span style="width:24px;height:24px;border-radius:8px;border:3px solid #C9CFE0;flex:none"></span><span style="flex:1;font:600 15px/21px 'Inter',sans-serif">{{ m4.c1 }}</span><sc-if value="{{ cOn.c1 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:8px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ cTap.c2 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:15px;min-height:48px;box-sizing:border-box"><span style="width:24px;height:24px;border-radius:8px;border:3px solid #C9CFE0;flex:none"></span><span style="flex:1;font:600 15px/21px 'Inter',sans-serif">{{ m4.c2 }}</span><sc-if value="{{ cOn.c2 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:8px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ cTap.c3 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:15px;min-height:48px;box-sizing:border-box"><span style="width:24px;height:24px;border-radius:8px;border:3px solid #C9CFE0;flex:none"></span><span style="flex:1;font:600 15px/21px 'Inter',sans-serif">{{ m4.c3 }}</span><sc-if value="{{ cOn.c3 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:8px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ cTap.c4 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:15px;min-height:48px;box-sizing:border-box"><span style="width:24px;height:24px;border-radius:8px;border:3px solid #C9CFE0;flex:none"></span><span style="flex:1;font:600 15px/21px 'Inter',sans-serif">{{ m4.c4 }}</span><sc-if value="{{ cOn.c4 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:8px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+    <div onClick="{{ cTap.c5 }}" style="position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;background:#F5F8FF;color:#1B2E6B;border-radius:14px;padding:15px;min-height:48px;box-sizing:border-box"><span style="width:24px;height:24px;border-radius:8px;border:3px solid #C9CFE0;flex:none"></span><span style="flex:1;font:600 15px/21px 'Inter',sans-serif">{{ m4.c5 }}</span><sc-if value="{{ cOn.c5 }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:8px;background:#4CC93B;color:#fff;display:flex;align-items:center;justify-content:center;font:800 13px/1 'Baloo 2',sans-serif">✓</span></sc-if></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:11px;background:rgba(10,26,74,.45);border:3px solid #FFC93C;border-radius:999px;padding:12px 18px;margin-top:14px">
+    <span style="flex:1;font:700 14px/1 'Baloo 2',sans-serif;color:rgba(255,255,255,.8)">{{ m4.checked }}</span>
+    <span style="font:800 18px/1 'Baloo 2',sans-serif;color:#FFC93C">{{ cCount }}</span>
+  </div>
+  <div style="font:800 17px/1 'Baloo 2',sans-serif;margin-top:16px">{{ m4.verdict }}</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:11px">
+    <div onClick="{{ m4Tap.trust }}" style="position:relative;cursor:pointer;text-align:center;font:800 16px/1 'Baloo 2',sans-serif;background:#F5F8FF;color:#1B2E6B;padding:17px;border-radius:999px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box">{{ m4.vTrust }}<sc-if value="{{ m4On.trust }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #4CC93B;border-radius:999px"></span></sc-if></div>
+    <div onClick="{{ m4Tap.check }}" style="position:relative;cursor:pointer;text-align:center;font:800 16px/1 'Baloo 2',sans-serif;background:#F5F8FF;color:#1B2E6B;padding:17px;border-radius:999px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box">{{ m4.vCheck }}<sc-if value="{{ m4On.check }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #FFC93C;border-radius:999px"></span></sc-if></div>
+    <div onClick="{{ m4Tap.false }}" style="position:relative;cursor:pointer;text-align:center;font:800 16px/1 'Baloo 2',sans-serif;background:#F5F8FF;color:#1B2E6B;padding:17px;border-radius:999px;box-shadow:0 5px 0 rgba(10,26,74,.3);min-height:48px;box-sizing:border-box">{{ m4.vFalse }}<sc-if value="{{ m4On.false }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:4px solid #E8483A;border-radius:999px"></span></sc-if></div>
+  </div>
+</div>
+</div>
+
+<!-- 24 M4 resultado -->
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="cap">24 · Misión 4 · resultado</div>
+<div class="scr" style="background:linear-gradient(170deg,#3FA9F5,#1B2E6B);padding:46px 22px 26px;align-items:center">
+  <div style="background:#fff;border:5px solid #E8952A;color:#E8952A;border-radius:14px;padding:11px 20px;font:800 22px/1 'Baloo 2',sans-serif;letter-spacing:1.8px;text-align:center;animation:v4pop .32s cubic-bezier(.2,1.4,.4,1) both;box-shadow:0 6px 0 rgba(10,26,74,.3)">{{ m4.stamp }}</div>
+  <div style="font:800 26px/33px 'Baloo 2',sans-serif;text-align:center;margin-top:20px;text-shadow:0 3px 0 rgba(10,26,74,.5)">{{ m4.title }}</div>
+  <div style="width:100%;background:#F5F8FF;color:#1B2E6B;border-radius:20px;padding:18px;box-sizing:border-box;margin-top:16px;box-shadow:0 5px 0 rgba(10,26,74,.3);font:400 15px/23px 'Inter',sans-serif;text-wrap:pretty">{{ m4.why }}</div>
+  <div style="width:100%;display:flex;flex-direction:column;gap:9px;margin-top:16px">
+    <div style="font:800 16px/1 'Baloo 2',sans-serif">{{ m4.others }}</div>
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(232,72,58,.22);border:2px solid rgba(232,72,58,.5);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#E8483A;flex:none"></span><span style="font:400 14px/20px 'Inter',sans-serif">{{ m4.o1 }}</span></div>
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(232,72,58,.22);border:2px solid rgba(232,72,58,.5);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#E8483A;flex:none"></span><span style="font:400 14px/20px 'Inter',sans-serif">{{ m4.o2 }}</span></div>
+    <div style="display:flex;align-items:center;gap:11px;background:rgba(232,72,58,.22);border:2px solid rgba(232,72,58,.5);border-radius:14px;padding:13px 15px"><span style="width:11px;height:11px;border-radius:999px;background:#E8483A;flex:none"></span><span style="font:400 14px/20px 'Inter',sans-serif">{{ m4.o3 }}</span></div>
+  </div>
+  <div style="width:100%;background:rgba(10,26,74,.5);border:3px solid #FFC93C;border-radius:20px;padding:17px;box-sizing:border-box;margin-top:14px;display:flex;flex-direction:column;gap:8px">
+    <div style="font:800 11px/1 'Baloo 2',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#FFC93C">{{ m4.rule }}</div>
+    <div style="font:700 17px/25px 'Baloo 2',sans-serif;text-wrap:pretty">{{ m4.ruleTxt }}</div>
+  </div>
+  <div style="flex:1"></div>
+  <div style="width:100%;background:#4CC93B;color:#fff;font:800 19px/1 'Baloo 2',sans-serif;text-align:center;padding:20px;border-radius:999px;box-shadow:0 6px 0 #2E9E20;text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;box-sizing:border-box;min-height:48px">{{ m4.next }}</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;es&quot;,&quot;en&quot;,&quot;pt&quot;,&quot;fr&quot;],&quot;default&quot;:&quot;es&quot;,&quot;tsType&quot;:&quot;'es'|'en'|'pt'|'fr'&quot;,&quot;section&quot;:&quot;Idioma&quot;}}">
+class Component extends DCLogic {
+  state = { lang: null, ready: false, dec: null, board: {}, vote: null,
+    just: { j1: true, j2: true }, zones: { z1: true }, m2v: null,
+    redact: { r1: true, r5: true }, m3v: null, checks: {}, m4v: null };
+
+  componentDidMount() {
+    const wait = () => {
+      const I = window.LUPO_I18N;
+      if (I && I.DICT.es.v2 && I.DICT.es.m2) this.setState({ ready: true });
+      else setTimeout(wait, 60);
+    };
+    wait();
+  }
+
+  renderVals() {
+    const I = window.LUPO_I18N;
+    const code = this.state.lang || this.props.lang || 'es';
+    const t = I ? (I.DICT[code] || I.DICT.es) : undefined;
+    const langs = (I ? I.LANGS : []).map(l => ({
+      code: l.code, label: l.label, name: l.name, on: l.code === code,
+      pick: () => this.setState({ lang: l.code }),
+    }));
+
+    const multi = (bag, keys, field) => {
+      const on = {}, tap = {};
+      keys.forEach(k => {
+        on[k] = !!bag[k];
+        tap[k] = () => this.setState(s => ({ [field]: Object.assign({}, s[field], { [k]: !s[field][k] }) }));
+      });
+      return { on, tap, count: keys.filter(k => bag[k]).length };
+    };
+    const one = (field, keys) => {
+      const on = {}, tap = {};
+      keys.forEach(k => { on[k] = this.state[field] === k; tap[k] = () => this.setState({ [field]: k }); });
+      return { on, tap };
+    };
+
+    const b = multi(this.state.board, ['s1', 's2', 's3', 's4', 's5', 's6', 's7'], 'board');
+    const z = multi(this.state.zones, ['z1', 'z2', 'z3', 'z4'], 'zones');
+    const rd = multi(this.state.redact, ['r1', 'r2', 'r3', 'r4', 'r5'], 'redact');
+    const ck = multi(this.state.checks, ['c1', 'c2', 'c3', 'c4', 'c5'], 'checks');
+    const jPts = { j1: 40, j2: 30, j3: 20, j4: 30 };
+    const jOn = {}, jTap = {};
+    let justScore = 0;
+    Object.keys(jPts).forEach(k => {
+      jOn[k] = !!this.state.just[k];
+      if (jOn[k]) justScore += jPts[k];
+      jTap[k] = () => this.setState(s => ({ just: Object.assign({}, s.just, { [k]: !s.just[k] }) }));
+    });
+    const d = one('dec', ['a', 'b', 'c']);
+    const vt = one('vote', ['laura', 'mateo', 'diego', 'valentina', 'alex']);
+    const p2 = one('m2v', ['ai', 'real', 'doubt']);
+    const p3 = one('m3v', ['share', 'edit', 'no']);
+    const p4 = one('m4v', ['trust', 'check', 'false']);
+
+    return {
+      t, langs, ready: this.state.ready,
+      v: t ? t.v2 : undefined, m2: t ? t.m2 : undefined, m3: t ? t.m3 : undefined, m4: t ? t.m4 : undefined,
+      decOn: d.on, decPick: d.tap,
+      bOn: b.on, bTap: b.tap,
+      vOn: vt.on, vTap: vt.tap,
+      jOn, jTap, justScore: justScore + ' PP',
+      zOn: z.on, zTap: z.tap, zCount: z.count + '/3',
+      rOn: rd.on, rTap: rd.tap, rCount: rd.count + '/5',
+      cOn: ck.on, cTap: ck.tap, cCount: ck.count + '/5',
+      m2On: p2.on, m2Tap: p2.tap, m3On: p3.on, m3Tap: p3.tap, m4On: p4.on, m4Tap: p4.tap,
+    };
+  }
+}
+</script>
+</body>
+</html>

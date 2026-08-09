@@ -1,0 +1,312 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/content/**",
+              "components/core/**",
+              "components/game/**",
+              "ui_kits/lupo_app/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Baloo 2|Inter|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Baloo 2, Inter, JetBrains Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonPrimary'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|onClick|disabled|loading|icon|fullWidth|type|style|key|ref|className|style|children)$/]",
+        "message": "<ButtonPrimary> doesn't accept that prop. Declared props: children, onClick, disabled, loading, icon, fullWidth, type, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonPrimary'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<ButtonPrimary> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonSecondary'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|onClick|disabled|icon|fullWidth|type|style|key|ref|className|style|children)$/]",
+        "message": "<ButtonSecondary> doesn't accept that prop. Declared props: children, onClick, disabled, icon, fullWidth, type, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonSecondary'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<ButtonSecondary> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EvidenceCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:kind|sender|handle|time|subject|children|flags|style|key|ref|className|style|children)$/]",
+        "message": "<EvidenceCard> doesn't accept that prop. Declared props: kind, sender, handle, time, subject, children, flags, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EvidenceCard'] > JSXAttribute[name.name='kind'] > Literal[value!=/^(?:sms|email|social|chat)$/]",
+        "message": "<EvidenceCard> kind must be one of 'sms' | 'email' | 'social' | 'chat'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|color|strokeWidth|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, color, strokeWidth."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LupasCounter'] > JSXAttribute > JSXIdentifier[name!=/^(?:count|max|showNumber|size|style|key|ref|className|style|children)$/]",
+        "message": "<LupasCounter> doesn't accept that prop. Declared props: count, max, showNumber, size, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LupasCounter'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<LupasCounter> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MascotBubble'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|emotion|mascotSrc|side|name|style|key|ref|className|style|children)$/]",
+        "message": "<MascotBubble> doesn't accept that prop. Declared props: children, emotion, mascotSrc, side, name, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MascotBubble'] > JSXAttribute[name.name='emotion'] > Literal[value!=/^(?:neutral_alerta|feliz_acierto|preocupado_error|sorprendido_pista|celebrando_racha)$/]",
+        "message": "<MascotBubble> emotion must be one of 'neutral_alerta' | 'feliz_acierto' | 'preocupado_error' | 'sorprendido_pista' | 'celebrando_racha'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MascotBubble'] > JSXAttribute[name.name='side'] > Literal[value!=/^(?:left|right)$/]",
+        "message": "<MascotBubble> side must be one of 'left' | 'right'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PolaroidNode'] > JSXAttribute > JSXIdentifier[name!=/^(?:state|caption|verdict|photo|onInvestigate|tilt|style|key|ref|className|style|children)$/]",
+        "message": "<PolaroidNode> doesn't accept that prop. Declared props: state, caption, verdict, photo, onInvestigate, tilt, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PolaroidNode'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:completado|actual|bloqueado)$/]",
+        "message": "<PolaroidNode> state must be one of 'completado' | 'actual' | 'bloqueado'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PolaroidNode'] > JSXAttribute[name.name='verdict'] > Literal[value!=/^(?:verificado|falso|sospechoso)$/]",
+        "message": "<PolaroidNode> verdict must be one of 'verificado' | 'falso' | 'sospechoso'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProgressPathThread'] > JSXAttribute > JSXIdentifier[name!=/^(?:width|height|bend|dashed|active|style|key|ref|className|style|children)$/]",
+        "message": "<ProgressPathThread> doesn't accept that prop. Declared props: width, height, bend, dashed, active, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StampBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|animate|rotate|style|key|ref|className|style|children)$/]",
+        "message": "<StampBadge> doesn't accept that prop. Declared props: variant, size, animate, rotate, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StampBadge'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:verificado|falso|sospechoso)$/]",
+        "message": "<StampBadge> variant must be one of 'verificado' | 'falso' | 'sospechoso'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StampBadge'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<StampBadge> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StreakFlame'] > JSXAttribute > JSXIdentifier[name!=/^(?:days|size|style|key|ref|className|style|children)$/]",
+        "message": "<StreakFlame> doesn't accept that prop. Declared props: days, size, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='StreakFlame'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<StreakFlame> size must be one of 'sm' | 'md' | 'lg'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "ButtonPrimary": {
+        "replaces": []
+      },
+      "ButtonSecondary": {
+        "replaces": []
+      },
+      "EvidenceCard": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "LupasCounter": {
+        "replaces": []
+      },
+      "MascotBubble": {
+        "replaces": []
+      },
+      "PolaroidNode": {
+        "replaces": []
+      },
+      "ProgressPathThread": {
+        "replaces": []
+      },
+      "StampBadge": {
+        "replaces": []
+      },
+      "StreakFlame": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--action-primary",
+      "--action-primary-hover",
+      "--alert-phishing",
+      "--bg-corkboard",
+      "--bg-primary",
+      "--bg-secondary",
+      "--border-hairline",
+      "--border-subtle",
+      "--border-thread-red",
+      "--brand-primary",
+      "--brand-primary-dark",
+      "--disabled",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-evidence",
+      "--hearts-life",
+      "--leading-body",
+      "--leading-caption",
+      "--leading-display-l",
+      "--leading-display-xl",
+      "--leading-heading",
+      "--radius-button",
+      "--radius-card",
+      "--radius-modal",
+      "--radius-pill",
+      "--radius-polaroid",
+      "--shadow-card-pressed",
+      "--shadow-card-resting",
+      "--shadow-floating-mascot",
+      "--shadow-polaroid",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--streak-fire",
+      "--surface-board",
+      "--surface-card",
+      "--surface-page",
+      "--surface-sunken",
+      "--suspicious-amber",
+      "--text-body",
+      "--text-body-size",
+      "--text-caption",
+      "--text-display-l",
+      "--text-display-xl",
+      "--text-heading",
+      "--text-inverse",
+      "--text-min-accessible",
+      "--text-muted",
+      "--text-on-brand",
+      "--text-primary",
+      "--text-secondary",
+      "--touch-target-min",
+      "--verified-success",
+      "--weight-black",
+      "--weight-body",
+      "--weight-bold",
+      "--weight-medium",
+      "--weight-semibold",
+      "--xp-gold"
+    ],
+    "tokenKinds": {
+      "--bg-primary": "color",
+      "--bg-secondary": "color",
+      "--bg-corkboard": "color",
+      "--brand-primary": "color",
+      "--brand-primary-dark": "color",
+      "--alert-phishing": "color",
+      "--verified-success": "color",
+      "--xp-gold": "color",
+      "--streak-fire": "color",
+      "--hearts-life": "color",
+      "--border-thread-red": "color",
+      "--suspicious-amber": "color",
+      "--text-primary": "font",
+      "--text-secondary": "font",
+      "--text-inverse": "font",
+      "--disabled": "color",
+      "--surface-page": "color",
+      "--surface-sunken": "color",
+      "--surface-board": "color",
+      "--surface-card": "color",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-on-brand": "font",
+      "--action-primary": "color",
+      "--action-primary-hover": "color",
+      "--focus-ring": "color",
+      "--border-subtle": "color",
+      "--border-hairline": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-evidence": "font",
+      "--weight-body": "font",
+      "--weight-medium": "font",
+      "--weight-semibold": "font",
+      "--weight-bold": "font",
+      "--weight-black": "font",
+      "--text-display-xl": "font",
+      "--leading-display-xl": "font",
+      "--text-display-l": "font",
+      "--leading-display-l": "font",
+      "--text-heading": "font",
+      "--leading-heading": "font",
+      "--text-body-size": "font",
+      "--leading-body": "font",
+      "--text-caption": "font",
+      "--leading-caption": "font",
+      "--text-min-accessible": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--touch-target-min": "spacing",
+      "--radius-button": "radius",
+      "--radius-card": "radius",
+      "--radius-polaroid": "radius",
+      "--radius-modal": "radius",
+      "--radius-pill": "radius",
+      "--shadow-card-resting": "shadow",
+      "--shadow-card-pressed": "shadow",
+      "--shadow-floating-mascot": "shadow",
+      "--shadow-polaroid": "shadow"
+    },
+    "fontFamilies": [
+      "Baloo 2",
+      "Inter",
+      "JetBrains Mono"
+    ]
+  }
+}

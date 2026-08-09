@@ -1,0 +1,7 @@
+/* Lupo — Shadow tokens */
+:root {
+  --shadow-card-resting: 0px 2px 6px rgba(26, 26, 46, 0.08);
+  --shadow-card-pressed: 0px 1px 2px rgba(26, 26, 46, 0.06);
+  --shadow-floating-mascot: 0px 8px 20px rgba(52, 87, 213, 0.25);
+  --shadow-polaroid: 0px 4px 10px rgba(26, 26, 46, 0.14);
+}
