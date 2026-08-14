@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import type { RootStackParamList } from './types';
 
+import IntroScreen from '../screens/00Intro';
 import SplashScreen from '../screens/01Splash';
 import MapScreen from '../screens/02Map';
 import NoLivesScreen from '../screens/03NoLives';
@@ -39,9 +40,10 @@ import Mission4ResultScreen from '../screens/24Mission4Result';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export function RootNavigator() {
+export function RootNavigator({ showIntro }: { showIntro: boolean }) {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Splash">
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={showIntro ? 'Intro' : 'Splash'}>
+      <Stack.Screen name="Intro" component={IntroScreen} />
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="Diagnostic" component={DiagnosticScreen} />
       <Stack.Screen name="Map" component={MapScreen} />

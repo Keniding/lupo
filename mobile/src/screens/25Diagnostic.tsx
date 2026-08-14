@@ -5,6 +5,7 @@ import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
 import { Card } from '../components/Card';
 import { Icon } from '../components/Icon';
+import { Mascot } from '../components/Mascot';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -58,7 +59,10 @@ export default function DiagnosticScreen({ navigation }: Props) {
         <Text style={[styles.evBody, { fontSize: 15 * fontScale, lineHeight: 22 * fontScale }]}>{current.body}</Text>
       </Card>
 
-      <View style={{ flex: 1 }} />
+      <View style={styles.thinkWrap}>
+        <Mascot emotion="parcial" animation="float" size={132} />
+      </View>
+
       <Text style={styles.note}>{q.note}</Text>
       <Pressable style={styles.option} onPress={advance}>
         <Text style={styles.optionText}>{q.real}</Text>
@@ -84,6 +88,9 @@ const styles = StyleSheet.create({
   evSender: { fontFamily: fonts.bodyBold, fontSize: 14, color: colors.ink },
   evHandle: { fontFamily: fonts.evidenceRegular, fontSize: 12, color: colors.inkMuted },
   evBody: { fontFamily: fonts.body, fontSize: 15, lineHeight: 22, color: colors.ink },
+  // Takes over the old flex spacer between the evidence card and the answers,
+  // so the mascot absorbs the slack instead of leaving a dead gap.
+  thinkWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', minHeight: 132, paddingVertical: 8 },
   note: { fontFamily: fonts.body, fontSize: 13, lineHeight: 19, color: 'rgba(255,255,255,.65)', textAlign: 'center', marginBottom: 10 },
   option: { backgroundColor: 'rgba(255,255,255,.08)', borderWidth: 2, borderColor: 'rgba(255,255,255,.35)', borderBottomWidth: 4, borderRadius: 16, paddingVertical: 17, alignItems: 'center', marginBottom: 12, minHeight: 48, justifyContent: 'center' },
   optionText: { fontFamily: fonts.display, fontSize: 17, color: colors.white },

@@ -98,6 +98,11 @@ interface GameState {
   toggleHighContrast: () => void;
   toggleReminders: () => void;
 
+  // First-launch intro videos. Persisted, so the clips play once and every
+  // later launch goes straight to the splash.
+  hasSeenIntro: boolean;
+  markIntroSeen: () => void;
+
   // HU-05: play as a guest by default — an account is only needed to enter
   // leagues or the tournament. No backend exists yet, so this is a local
   // "is there a named profile" flag, not real authentication.
@@ -181,6 +186,9 @@ export const useGameStore = create<GameState>()(
       toggleHighContrast: () => set((s) => ({ highContrast: !s.highContrast })),
       toggleReminders: () => set((s) => ({ reminders: !s.reminders })),
 
+      hasSeenIntro: false,
+      markIntroSeen: () => set({ hasSeenIntro: true }),
+
       isAuthenticated: false,
       userName: null,
       userEmail: null,
@@ -205,6 +213,7 @@ export const useGameStore = create<GameState>()(
         seniorMode: s.seniorMode,
         highContrast: s.highContrast,
         reminders: s.reminders,
+        hasSeenIntro: s.hasSeenIntro,
         isAuthenticated: s.isAuthenticated,
         userName: s.userName,
         userEmail: s.userEmail,

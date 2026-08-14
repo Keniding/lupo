@@ -7,6 +7,7 @@ import { goBackOrHome } from '../navigation/goBack';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
+import { Mascot } from '../components/Mascot';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -26,9 +27,7 @@ export default function ResultWrongScreen({ navigation }: Props) {
 
   return (
     <Screen onBack={() => goBackOrHome(navigation)} colors={gradients.consequenceBad} align="center" scroll style={{ paddingTop: 46, paddingBottom: 26 }}>
-      <View style={styles.mascot}>
-        <Icon name="search" size={36} color="rgba(255,255,255,.85)" />
-      </View>
+      <Mascot emotion="error" animation="shake" size={172} />
 
       <Text style={styles.title}>{bad.title}</Text>
 
@@ -51,7 +50,6 @@ export default function ResultWrongScreen({ navigation }: Props) {
 }
 
 const styles = StyleSheet.create({
-  mascot: { width: 100, height: 100, borderRadius: 999, borderWidth: 2, borderColor: 'rgba(255,255,255,.4)', borderStyle: 'dashed', alignItems: 'center', justifyContent: 'center' },
   title: { fontFamily: fonts.display, fontSize: 23, lineHeight: 30, color: colors.white, textAlign: 'center', marginTop: 18, textShadowColor: 'rgba(10,26,74,.5)', textShadowOffset: { width: 0, height: 2 }, textShadowRadius: 0 },
   lostPill: { flexDirection: 'row', alignItems: 'center', gap: 9, backgroundColor: 'rgba(10,26,74,.4)', borderRadius: 999, paddingVertical: 10, paddingHorizontal: 18, marginTop: 14 },
   lostText: { fontFamily: fonts.display, fontSize: 14, color: colors.white },

@@ -20,6 +20,9 @@ import {
   X,
   ArrowLeft,
   Mail,
+  Volume2,
+  VolumeX,
+  ChevronRight,
   type LucideIcon,
 } from 'lucide-react-native';
 
@@ -44,6 +47,9 @@ const ICONS: Record<string, LucideIcon> = {
   x: X,
   back: ArrowLeft,
   mail: Mail,
+  volume: Volume2,
+  volumeOff: VolumeX,
+  chevronRight: ChevronRight,
 };
 
 export type IconName = keyof typeof ICONS;

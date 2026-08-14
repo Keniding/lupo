@@ -6,6 +6,7 @@ import { Screen } from '../components/Screen';
 import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
+import { Mascot } from '../components/Mascot';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -22,6 +23,8 @@ export default function ResultCorrectScreen({ navigation }: Props) {
         <Icon name="shieldCheck" size={30} color={colors.greenShadow} />
         <Text style={styles.stampText}>{ok.stamp}</Text>
       </View>
+
+      <Mascot emotion="acierto" animation="pop" size={172} style={{ marginTop: 18 }} />
 
       <Text style={styles.title}>{ok.title}</Text>
 

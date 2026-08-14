@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 310" width="240" height="310">
+  <title>Mascot perro - neutral</title>
+  <g id="perro" data-name="Perro">
+    <g id="orejas" data-name="Orejas" fill="#FF5A36">
+      <path id="oreja_izq" data-name="Oreja izquierda" d="M 78 78 C 46 76 26 106 30 148 C 33 182 52 200 70 194 C 82 190 84 170 80 150 C 74 122 74 96 78 78 Z"/>
+      <path id="oreja_der" data-name="Oreja derecha" d="M 162 78 C 194 76 214 106 210 148 C 207 182 188 200 170 194 C 158 190 156 170 160 150 C 166 122 166 96 162 78 Z"/>
+    </g>
+    <g id="cuerpo" data-name="Cuerpo">
+      <path id="cola" data-name="Cola" d="M 162 222 C 184 214 200 228 198 246 C 197 256 186 260 180 252 C 176 246 182 240 188 242 C 190 234 180 228 164 234 Z" fill="#5BC0BE"/>
+      <ellipse id="pata_izq" data-name="Pata izquierda" cx="104" cy="276" rx="15" ry="17" fill="#F2EDE4"/>
+      <ellipse id="pata_der" data-name="Pata derecha" cx="136" cy="276" rx="15" ry="17" fill="#F2EDE4"/>
+      <path id="torso" data-name="Torso" d="M 120 158 C 96 158 78 180 74 208 C 70 240 90 268 120 268 C 150 268 170 240 166 208 C 162 180 144 158 120 158 Z" fill="#F2EDE4"/>
+      <path id="brazo_izq" data-name="Brazo izquierdo" d="M 82 186 C 66 190 60 212 66 230 C 70 242 84 242 86 230 C 88 214 86 196 82 186 Z" fill="#5BC0BE"/>
+      <path id="brazo_der" data-name="Brazo derecho" d="M 158 186 C 174 190 180 212 174 230 C 170 242 156 242 154 230 C 152 214 154 196 158 186 Z" fill="#5BC0BE"/>
+    </g>
+    <g id="cabeza" data-name="Cabeza">
+      <circle id="craneo" data-name="Craneo" cx="120" cy="105" r="60" fill="#F2EDE4"/>
+      <path id="mancha" data-name="Mancha" d="M 72 78 C 92 66 116 74 120 94 C 122 110 110 126 92 124 C 72 122 62 100 72 78 Z" fill="#FF5A36"/>
+      <circle id="ojo_izq" data-name="Ojo izquierdo" cx="97" cy="102" r="11" fill="#1B2A4A"/>
+      <circle id="ojo_der" data-name="Ojo derecho" cx="143" cy="102" r="11" fill="#1B2A4A"/>
+      <path id="ceja_izq" data-name="Ceja izquierda" d="M 82 78 C 90 70 104 70 112 76 L 110 82 C 103 78 92 79 85 85 Z" fill="#1B2A4A"/>
+      <path id="ceja_der" data-name="Ceja derecha" d="M 158 78 C 150 70 136 70 128 76 L 130 82 C 137 78 148 79 155 85 Z" fill="#1B2A4A"/>
+      <path id="nariz" data-name="Nariz" d="M 108 118 C 108 113 132 113 132 118 C 132 127 124 133 120 133 C 116 133 108 127 108 118 Z" fill="#1B2A4A"/>
+      <path id="boca" data-name="Boca" d="M 105 140 C 109 151 118 151 120 142 C 122 151 131 151 135 140 L 130 137 C 127 145 122 145 120 137 C 118 145 113 145 110 137 Z" fill="#1B2A4A"/>
+    </g>
+  </g>
+</svg>

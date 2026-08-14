@@ -5,6 +5,7 @@ import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
 import { goBackOrHome } from '../navigation/goBack';
 import { Icon } from '../components/Icon';
+import { Mascot } from '../components/Mascot';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -75,6 +76,10 @@ export default function SwipeScreen({ navigation }: Props) {
           </View>
           <Text style={[styles.evBody, { fontSize: 16 * fontScale, lineHeight: 24 * fontScale }]}>{swipe.body}</Text>
         </Animated.View>
+
+        {/* Lupo weighs the evidence alongside the player: the skeptical face
+            is the "thinking" beat, and it stays put when the card flings. */}
+        <Mascot emotion="parcial" animation="float" size={156} style={{ marginTop: 24 }} />
       </View>
 
       <Text style={styles.prompt}>{swipe.prompt}</Text>

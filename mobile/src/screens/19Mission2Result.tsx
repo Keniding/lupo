@@ -6,6 +6,7 @@ import { Screen } from '../components/Screen';
 import { goBackOrHome } from '../navigation/goBack';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
+import { Mascot } from '../components/Mascot';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT } from '../i18n';
@@ -47,6 +48,13 @@ export default function Mission2ResultScreen({ navigation }: Props) {
       <View style={styles.stamp}>
         <Text style={styles.stampText}>{m2.stamp}</Text>
       </View>
+      <Mascot
+        emotion={zoneScore >= 3 ? 'acierto' : zoneScore > 0 ? 'parcial' : 'error'}
+        animation="pop"
+        size={158}
+        style={{ marginTop: 18 }}
+      />
+
       <Text style={styles.title}>{m2.title}</Text>
       <View style={styles.starsRow}>
         {[0, 1, 2].map((i) => (

@@ -90,6 +90,7 @@ export const DICT = {
       senior: 'Texto grande', contrast: 'Alto contraste', reminders: 'Recordatorios diarios',
       badgeNames: ['Primera pista', 'Racha de 7 días', 'Cazador de phishing', 'Ojo de detective', 'Sin errores', 'Reportero', 'Escudo de privacidad', 'Verificador'],
       guest: 'Invitado', loginCta: 'Iniciar sesión', logoutCta: 'Cerrar sesión',
+      replayIntro: 'Ver la introducción otra vez',
     },
     auth: {
       loginTitle: 'Inicia sesión', loginSub: 'Guarda tu progreso y entra a ligas y torneos.',
@@ -166,7 +167,8 @@ export const DICT = {
       rule: 'Regla aprendida', ruleTxt: 'Lo que no se puede verificar tampoco se debería reenviar.',
       next: 'Volver a misiones',
     },
-    cm: { xp: 'PP', continueLabel: 'Continuar', collect: 'Tarjeta desbloqueada', of: 'de' },
+    cm: { xp: 'PP', continueLabel: 'Continuar', collect: 'Tarjeta desbloqueada', of: 'de', skipIntro: 'Saltar intro' },
+
   },
 
   en: {
@@ -245,6 +247,7 @@ export const DICT = {
       senior: 'Large text', contrast: 'High contrast', reminders: 'Daily reminders',
       badgeNames: ['First clue', '7-day streak', 'Phishing hunter', 'Detective eye', 'No mistakes', 'Reporter', 'Privacy shield', 'Verifier'],
       guest: 'Guest', loginCta: 'Log in', logoutCta: 'Log out',
+      replayIntro: 'Watch the intro again',
     },
     auth: {
       loginTitle: 'Log in', loginSub: 'Save your progress and enter leagues and tournaments.',
@@ -321,7 +324,8 @@ export const DICT = {
       rule: 'Rule learned', ruleTxt: 'What can’t be verified shouldn’t be forwarded either.',
       next: 'Back to missions',
     },
-    cm: { xp: 'CP', continueLabel: 'Continue', collect: 'Card unlocked', of: 'of' },
+    cm: { xp: 'CP', continueLabel: 'Continue', collect: 'Card unlocked', of: 'of', skipIntro: 'Skip intro' },
+
   },
 
   pt: {
@@ -400,6 +404,7 @@ export const DICT = {
       senior: 'Texto grande', contrast: 'Alto contraste', reminders: 'Lembretes diários',
       badgeNames: ['Primeira pista', 'Sequência de 7 dias', 'Caçador de phishing', 'Olho de detetive', 'Sem erros', 'Repórter', 'Escudo de privacidade', 'Verificador'],
       guest: 'Convidado', loginCta: 'Entrar', logoutCta: 'Sair',
+      replayIntro: 'Ver a introdução de novo',
     },
     auth: {
       loginTitle: 'Entrar', loginSub: 'Salve seu progresso e entre em ligas e torneios.',
@@ -476,7 +481,8 @@ export const DICT = {
       rule: 'Regra aprendida', ruleTxt: 'O que não se pode verificar também não se deve encaminhar.',
       next: 'Voltar às missões',
     },
-    cm: { xp: 'PP', continueLabel: 'Continuar', collect: 'Carta desbloqueada', of: 'de' },
+    cm: { xp: 'PP', continueLabel: 'Continuar', collect: 'Carta desbloqueada', of: 'de', skipIntro: 'Pular introdução' },
+
   },
 
   fr: {
@@ -555,6 +561,7 @@ export const DICT = {
       senior: 'Grand texte', contrast: 'Contraste élevé', reminders: 'Rappels quotidiens',
       badgeNames: ['Premier indice', 'Série de 7 jours', 'Chasseur de phishing', 'Œil de détective', 'Sans erreur', 'Reporter', 'Bouclier vie privée', 'Vérificateur'],
       guest: 'Invité', loginCta: 'Se connecter', logoutCta: 'Se déconnecter',
+      replayIntro: 'Revoir l’introduction',
     },
     auth: {
       loginTitle: 'Connexion', loginSub: 'Sauvegarde ta progression et accède aux ligues et tournois.',
@@ -631,7 +638,8 @@ export const DICT = {
       rule: 'Règle apprise', ruleTxt: 'Ce qu’on ne peut pas vérifier ne devrait pas être transféré.',
       next: 'Retour aux missions',
     },
-    cm: { xp: 'PI', continueLabel: 'Continuer', collect: 'Carte débloquée', of: 'sur' },
+    cm: { xp: 'PI', continueLabel: 'Continuer', collect: 'Carte débloquée', of: 'sur', skipIntro: 'Passer l’intro' },
+
   },
 };
 

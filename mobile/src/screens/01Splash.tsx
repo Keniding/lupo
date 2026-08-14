@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { View, Text, Animated, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/types';
 import { Screen } from '../components/Screen';
 import { Button } from '../components/Button';
 import { LangSwitcher } from '../components/Misc';
-import { Icon } from '../components/Icon';
+import { Mascot } from '../components/Mascot';
 import { colors, gradients } from '../theme/colors';
 import { fonts } from '../theme/typography';
 import { useT, useLang } from '../i18n';
@@ -15,18 +15,6 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Splash'>;
 export default function SplashScreen({ navigation }: Props) {
   const t = useT();
   const { lang, setLang } = useLang();
-  const float = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    const loop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(float, { toValue: -7, duration: 2500, useNativeDriver: true }),
-        Animated.timing(float, { toValue: 0, duration: 2500, useNativeDriver: true }),
-      ])
-    );
-    loop.start();
-    return () => loop.stop();
-  }, [float]);
 
   return (
     <Screen colors={gradients.splash} align="center" style={styles.container}>
@@ -37,10 +25,7 @@ export default function SplashScreen({ navigation }: Props) {
       <Text style={styles.tagline}>{t.tagline}</Text>
 
       <View style={styles.mascotWrap}>
-        <Animated.View style={[styles.mascot, { transform: [{ translateY: float }] }]}>
-          <Icon name="search" size={54} color={colors.gold} />
-          <Text style={styles.mascotCaption}>Mascota Lupo (arte pendiente)</Text>
-        </Animated.View>
+        <Mascot emotion="neutral" animation="float" size={270} />
       </View>
 
       <View style={styles.actions}>
@@ -79,18 +64,5 @@ const styles = StyleSheet.create({
     textShadowRadius: 0,
   },
   mascotWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%' },
-  mascot: {
-    width: 220,
-    height: 220,
-    borderRadius: 999,
-    backgroundColor: 'rgba(255,255,255,.12)',
-    borderWidth: 4,
-    borderColor: 'rgba(255,255,255,.35)',
-    borderStyle: 'dashed',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-  },
-  mascotCaption: { fontFamily: fonts.bodySemibold, fontSize: 12, color: 'rgba(255,255,255,.7)', textAlign: 'center', paddingHorizontal: 26 },
   actions: { width: '100%', gap: 14 },
 });

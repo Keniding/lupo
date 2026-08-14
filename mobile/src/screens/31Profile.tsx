@@ -127,10 +127,17 @@ export default function ProfileScreen({ navigation }: Props) {
               <Text style={styles.settingLabel}>{p.contrast}</Text>
               <Toggle on={highContrast} onPress={toggleHighContrast} />
             </View>
-            <View style={isAuthenticated ? styles.settingRow : [styles.settingRow, { borderBottomWidth: 0 }]}>
+            <View style={styles.settingRow}>
               <Text style={styles.settingLabel}>{p.reminders}</Text>
               <Toggle on={reminders} onPress={toggleReminders} />
             </View>
+            <Pressable
+              style={isAuthenticated ? styles.settingRow : [styles.settingRow, { borderBottomWidth: 0 }]}
+              onPress={() => navigation.navigate('Intro')}
+            >
+              <Text style={styles.settingLabel}>{p.replayIntro}</Text>
+              <Icon name="chevronRight" size={18} color="rgba(255,255,255,.5)" />
+            </Pressable>
             {isAuthenticated && (
               <Pressable style={[styles.settingRow, { borderBottomWidth: 0 }]} onPress={logout}>
                 <Text style={[styles.settingLabel, { color: colors.red }]}>{p.logoutCta}</Text>
