@@ -1,0 +1,33 @@
+name: PR checks (Android)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "mobile/**"
+
+jobs:
+  typecheck-and-doctor:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Expo doctor
+        run: npx expo-doctor
