@@ -30,7 +30,8 @@
       }
     },
     "plugins": [
-      "expo-video"
+      "expo-video",
+      "expo-splash-screen"
     ]
   }
 }
